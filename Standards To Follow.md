@@ -17,3 +17,7 @@
 - You must not commit directly to dev or master
 - You must create a feature branch (local only) for a task. If a task is divided in sub-tasks, then it is up to you to create multiple  branches from that feature b.
 
+#### A good read to learn Git Branching Model:
+http://nvie.com/posts/a-successful-git-branching-model/
+
+[](http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png)
