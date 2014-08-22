@@ -16,6 +16,12 @@
 - You must not commit an incomplete feature to dev and you must never commit an untested functionality to master
 - You must not commit directly to dev or master
 - You must create a feature branch (local only) for a task. If a task is divided in sub-tasks, then it is up to you to create multiple  branches from that feature b.
+- Never create a branch from dev. Always create a feature branch from master. If you have to work on a feature that hasn't been merged in master yet, then:
+-  Either create branch from that feature branch (or rebase your branch to that feature branch)
+-  Or create a branch from master and merge that branch into it
+
+- Sometimes there are a few changes that were only intended for dev server and should never be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
+- The dev branch is usually ahead of master, having commits that aren't tested / reviewed yet. So they must not be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
 
 #### A good read to learn Git Branching Model:
 http://nvie.com/posts/a-successful-git-branching-model/
