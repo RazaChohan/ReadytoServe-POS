@@ -20,4 +20,4 @@
 #### A good read to learn Git Branching Model:
 http://nvie.com/posts/a-successful-git-branching-model/
 
-[](http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png)
+![alt text](http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png "Logo Title Text 1")
