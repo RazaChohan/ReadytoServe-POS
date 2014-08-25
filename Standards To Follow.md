@@ -11,9 +11,19 @@
 
 ### Branching standards:
 - There must be two remote branches in project's repository: master and dev (or development)
-- Active development will only be done on dev. If more than one persons are working on a task simultaneously then they can push that  
-  branch on remote but it must be removed from remote as soon as it is merged in dev as well as master
-- You must not commit an incomplete feature to dev and you must never commit an untested functionality to master
-- You must not commit directly to dev or master
-- You must create a feature branch (local only) for a task. If a task is divided in sub-tasks, then it is up to you to create multiple  branches from that feature b.
+- Active development will only be done on feature (local) branch.
+ - If more than one persons are working on a task simultaneously then they can push that branch on remote but it must be removed from remote as soon as it is merged in dev as well as master.
+ - If a task is divided in sub-tasks, then it is up to you to create multiple branches from that feature branch.
+- You must not commit directly to dev or master.
+- You must not merge an incomplete feature to dev and you must never merge an untested functionality to master.
+- Never create a branch from dev. Always create a feature branch from master. If you have to work on a feature that hasn't been merged in master yet, then:
+ - Either create branch from that feature branch (or rebase your branch to that feature branch)
+ - Or create a branch from master and merge that feature branch into it
+###Why shouldn't you create a feature branch from dev?
+- Sometimes there are a few changes that were only intended for dev server and should never be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
+- The dev branch is usually ahead of master, having commits that aren't tested / reviewed yet. So they must not be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
 
+#### A good read to learn Git Branching Model:
+http://nvie.com/posts/a-successful-git-branching-model/
+
+![alt text](http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png "Logo Title Text 1")
