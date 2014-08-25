@@ -19,7 +19,8 @@
 - Never create a branch from dev. Always create a feature branch from master. If you have to work on a feature that hasn't been merged in master yet, then:
  - Either create branch from that feature branch (or rebase your branch to that feature branch)
  - Or create a branch from master and merge that feature branch into it
-###Why shouldn't you create a feature branch from dev?
+
+###Why you shouldn't create a feature branch from dev:
 - Sometimes there are a few changes that were only intended for dev server and should never be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
 - The dev branch is usually ahead of master, having commits that aren't tested / reviewed yet. So they must not be merged to master. Creating a feature branch from dev will merge those changes to master once you merge your feature branch to master.
 
