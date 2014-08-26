@@ -8,6 +8,7 @@
 - Iterative development SDLC will be followed with extreme programming (XP).
 - Commit messages must be proper (Reference: http://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
 - Daily commit is mandatory.
+- Test Driven Development will be followed.
 
 ### Branching standards:
 - There must be two remote branches in project's repository: master and dev (or development)
