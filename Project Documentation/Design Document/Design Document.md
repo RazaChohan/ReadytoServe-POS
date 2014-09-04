@@ -11,46 +11,46 @@ Ready2Serve POS
       * [Database Schema](#database-schema)
       * [Use Case Diagram](#use-case-diagram)
       * [High Level Use Cases](#high-level-use-cases)
-      * [Use Case 1 (Authenticate User)](#use-case-1-authenticate-user)
-      * [Use Case 2 (Place Order)](#use-case-2-place-order)
-      * [Use Case 3 (Confirm Order)](#use-case-3-confirm-order)
-      * [Use Case 4 (Cancel Order)](#use-case-4-cancel-order)
-      * [Use Case 5 (Add order line Item)](#use-case-5-add-order-line-item)
-      * [Use Case 6 (Edit order line Item)](#use-case-6-edit-order-line-item)
-      * [Use Case 7 (Delete order line Item)](#use-case-7-delete-order-line-item)
-      * [Use Case 8 (Manage Products)](#use-case-8-manage-products)
-      * [Use Case 9 (Add Product)](#use-case-9-add-product)
-      * [Use Case  10 (Update Product)](#use-case--10-update-product)
-      * [Use Case 11 (Delete Product)](#use-case-11-delete-product)
-      * [Use Case 12 (Edit Account Info)](#use-case-12-edit-account-info)
-      * [Use Case 13 (View Orders)](#use-case-13-view-orders)
+       * [Use Case 1 (Authenticate User)](#use-case-1-authenticate-user)
+       * [Use Case 2 (Place Order)](#use-case-2-place-order)
+       * [Use Case 3 (Confirm Order)](#use-case-3-confirm-order)
+       * [Use Case 4 (Cancel Order)](#use-case-4-cancel-order)
+       * [Use Case 5 (Add order line Item)](#use-case-5-add-order-line-item)
+       * [Use Case 6 (Edit order line Item)](#use-case-6-edit-order-line-item)
+       * [Use Case 7 (Delete order line Item)](#use-case-7-delete-order-line-item)
+       * [Use Case 8 (Manage Products)](#use-case-8-manage-products)
+       * [Use Case 9 (Add Product)](#use-case-9-add-product)
+       * [Use Case  10 (Update Product)](#use-case--10-update-product)
+       * [Use Case 11 (Delete Product)](#use-case-11-delete-product)
+       * [Use Case 12 (Edit Account Info)](#use-case-12-edit-account-info)
+       * [Use Case 13 (View Orders)](#use-case-13-view-orders)
       * [Expanded Use Cases](#expanded-use-cases)
-      * [Use Case 1 (Authenticate User)](#use-case-1-authenticate-user)
-      * [Authenticate user Activity Diagram](#authenticate-user-activity-diagram)
-      * [Use Case 2 (Place order)](#use-case-2-place-order)
-      * [Place Order Activity Diagram](#place-order-activity-diagram)
-      * [Use Case 3 (Confirm Order)](#use-case-3-confirm-order)
-      * [Confirm Order Activity Diagram](#confirm-order-activity-diagram)
-      * [Use Case 4 (Cancel Order)](#use-case-4-cancel-order)
-      * [Cancel Order Activity Diagram](#cancel-order-activity-diagram)
-      * [Use Case 5 (Add Order Line Item )](#use-case-5-add-order-line-item-)
-      * [Add Order Line Item Activity Diagram](#add-order-line-item-activity-diagram)
-      * [Use Case 6 (Edit Order Line Item )](#use-case-6-edit-order-line-item-)
-      * [Edit Order Line Item Activity Diagram](#edit-order-line-item-activity-diagram)
-      * [Use Case 7 (Delete Order Line Item )](#use-case-7-delete-order-line-item-)
-      * [Delete Order Line Item Activity Diagram](#delete-order-line-item-activity-diagram)
-      * [Use Case 8 (Manage Products)](#use-case-8-manage-products)
-      * [Manage Products Activity Diagram](#manage-products-activity-diagram)
-      * [Use Case 9 (Add Products)](#use-case-9-add-products)
-      * [Add Products Activity Diagram](#add-products-activity-diagram)
-      * [Use Case 10 (Update/Edit Products)](#use-case-10-update/edit-products)
-      * [Update/Edit Product Activity Diagram](#update/edit-product-activity-diagram)
-      * [Use Case 11 (Delete Products)](#use-case-11-delete-products)
-      * [Delete Products Activity Diagram](#delete-products-activity-diagram)
-      * [Use Case 12 (Edit Account Info)](#use-case-12-edit-account-info)
-      * [Edit Account Info Activity Diagram](#edit-account-info-activity-diagram)
-      * [Use Case 13 (View Orders)](#use-case-13-view-orders)
-      * [View Orders Activity Diagram](#view-orders-activity-diagram)
+       * [Use Case 1 (Authenticate User)](#use-case-1-authenticate-user)
+       * [Authenticate user Activity Diagram](#authenticate-user-activity-diagram)
+       * [Use Case 2 (Place order)](#use-case-2-place-order)
+       * [Place Order Activity Diagram](#place-order-activity-diagram)
+       * [Use Case 3 (Confirm Order)](#use-case-3-confirm-order)
+       * [Confirm Order Activity Diagram](#confirm-order-activity-diagram)
+       * [Use Case 4 (Cancel Order)](#use-case-4-cancel-order)
+       * [Cancel Order Activity Diagram](#cancel-order-activity-diagram)
+       * [Use Case 5 (Add Order Line Item )](#use-case-5-add-order-line-item-)
+       * [Add Order Line Item Activity Diagram](#add-order-line-item-activity-diagram)
+       * [Use Case 6 (Edit Order Line Item )](#use-case-6-edit-order-line-item-)
+       * [Edit Order Line Item Activity Diagram](#edit-order-line-item-activity-diagram)
+       * [Use Case 7 (Delete Order Line Item )](#use-case-7-delete-order-line-item-)
+       * [Delete Order Line Item Activity Diagram](#delete-order-line-item-activity-diagram)
+       * [Use Case 8 (Manage Products)](#use-case-8-manage-products)
+       * [Manage Products Activity Diagram](#manage-products-activity-diagram)
+       * [Use Case 9 (Add Products)](#use-case-9-add-products)
+       * [Add Products Activity Diagram](#add-products-activity-diagram)
+       * [Use Case 10 (Update/Edit Products)](#use-case-10-update/edit-products)
+       * [Update/Edit Product Activity Diagram](#update/edit-product-activity-diagram)
+       * [Use Case 11 (Delete Products)](#use-case-11-delete-products)
+       * [Delete Products Activity Diagram](#delete-products-activity-diagram)
+       * [Use Case 12 (Edit Account Info)](#use-case-12-edit-account-info)
+       * [Edit Account Info Activity Diagram](#edit-account-info-activity-diagram)
+       * [Use Case 13 (View Orders)](#use-case-13-view-orders)
+       * [View Orders Activity Diagram](#view-orders-activity-diagram)
 
 
 
@@ -238,12 +238,12 @@ Ready2Serve POS
  -------------- | ---------------------------------- |
 | **Scope** | `Ready2Serve POS (System under development)`          |
 | **Level** |`System Goal`|
-| **Primary Actor**| `ï	User (Salesperson)` |
-| **Stakeholders-and their Interests** | `ï	Salesperson`|
+| **Primary Actor**| `‚Ä¢	User (Salesperson)` |
+| **Stakeholders-and their Interests** | `‚Ä¢	Salesperson`|
  ||`User: User wants to cancel the order that he/she is placing.`|
 | **Pre-Condition** |`User must be logged in as Salesperson`|
 ||`User must have opted/selected for Place order.`|
-| **Success Guarantee**| ` ï	Order is cancelled that was bering placed by the user. `|
+| **Success Guarantee**| ` ‚Ä¢	Order is cancelled that was bering placed by the user. `|
 | **Main-Success Scenario** | `1.	User selects to cancels the order.`|
 ||`2.	Order is cancelled.`|
 ||`3.	Main menu is displayed.`|
@@ -262,9 +262,9 @@ Ready2Serve POS
 | **Primary Actor**| `System` |
 | **Stakeholders-and their Interests** | `Salesperson`|
  ||`User: User wants to add order line item in order.`|
-| **Pre-Condition** |`ï	User must be logged in as Salesperson.`|
-||`ï	User must have selected/opted Place Order.` |
-| **Success Guarantee**| `ï	Order line item is added in the Order that is being placed by the Salesperson.`
+| **Pre-Condition** |`‚Ä¢	User must be logged in as Salesperson.`|
+||`‚Ä¢	User must have selected/opted Place Order.` |
+| **Success Guarantee**| `‚Ä¢	Order line item is added in the Order that is being placed by the Salesperson.`
 |
 | **Main-Success Scenario** | `1.	User chooses a specific item/deal to add in order`|
 ||`2.	System adds the selected order line item in the order that is being placed.`|
@@ -285,7 +285,7 @@ Ready2Serve POS
 | **Pre-Condition** |`1) Salesperson must be logged in.`|
 ||`2) Salesperson must have selected/opted Place Order.`|
 ||`3) Salesperson must have added at least a single order line item in order before editing one.`|
-| **Success Guarantee**| `ï	The desired order line items are updated as per data entered by the salesperson.`|
+| **Success Guarantee**| `‚Ä¢	The desired order line items are updated as per data entered by the salesperson.`|
 | **Main-Success Scenario** | `1.	User chooses an item from order line item of order.`|
 ||`2.	System prompts the user to edit quantity of the order line item`|
 ||`3.	User enters new quantity`|
@@ -308,7 +308,7 @@ Ready2Serve POS
 | **Pre-Condition** |`1) Salesperson must be logged in.`|
 ||2) `Salesperson must have selected/opted Place Order.`|
 ||3) `Salesperson must have added at least a single order line item in order before deleting one.`|
-| **Success Guarantee**| `ï	The desired order line items are delete from the order.`|
+| **Success Guarantee**| `‚Ä¢	The desired order line items are delete from the order.`|
 | **Main-Success Scenario** | `1.	User chooses an item from order line item of order.`|
 ||`2.	System prompts the user conform the deletion of the order line item`|
 ||`3.	User confirms the deletion of order line item.`|
@@ -331,8 +331,8 @@ Ready2Serve POS
 | **Stakeholders-and their Interests** | `Administrator `|
  ||`User: User wants to manage any product (item/offer) from system`|
 | **Pre-Condition** |`User must be login to the system as Admin.`
-||`User must have opted/selected ìmanage productsî options.`|
-| **Success Guarantee**| `ïUser managed desired products (items/offers) successfully.`|
+||`User must have opted/selected ‚Äúmanage products‚Äù options.`|
+| **Success Guarantee**| `‚Ä¢User managed desired products (items/offers) successfully.`|
 | **Main-Success Scenario** | `1.User selects to manage products.`|
 ||`2.User gets a list of products available in system.`|
 ||`3.User adds a product in system.`||
@@ -356,8 +356,8 @@ Ready2Serve POS
 | **Pre-Condition** |`1) User must be login to the system as Admin.`|
 ||`2) User must have selected/opted for Manage products`|
 | **Success Guarantee**| `1. User added desired products (items/offers) successfully.`|
-| **Main-Success Scenario** | `1. User selects the option ìadd productsî.`|
-||`2.	User selects one option from ìadd itemî or ìadd offerî`|
+| **Main-Success Scenario** | `1. User selects the option ‚Äúadd products‚Äù.`|
+||`2.	User selects one option from ‚Äúadd item‚Äù or ‚Äúadd offer‚Äù`|
 ||`3.	User selected add item.`|
 ||`4.	User adds price and the description of item to add item.`||
 ||`5.System prompts user to add any other item/deal.`|
@@ -381,10 +381,10 @@ Ready2Serve POS
  ||`User: User wants to edit any product (item/offer) from system`|
 | **Pre-Condition** |`User must be login to the system as Admin`|
 ||`User must have selected/opted for Manage products.`|
-| **Success Guarantee**| `ïUser edited desired products (items/offers) successfully.`
+| **Success Guarantee**| `‚Ä¢User edited desired products (items/offers) successfully.`
 ||	`2) User granted access according to the type of user.` |
-| **Main-Success Scenario** | `1.User selects the option ìedit productsî.`|
-||`2.User selects the option ìedit itemî or ìedit offerî`|
+| **Main-Success Scenario** | `1.User selects the option ‚Äúedit products‚Äù.`|
+||`2.User selects the option ‚Äúedit item‚Äù or ‚Äúedit offer‚Äù`|
 ||`3.User has selected edit item`|
 ||`4.User edit the price and description of item to edit item`||
 |||
@@ -407,8 +407,8 @@ Ready2Serve POS
  ||`User: User wants to delete any product (item/offer) from system`|
 | **Pre-Condition** |`User must be login to the system as Admin.`|
 ||`User must have selected/opted for Manage products.`|
-| **Success Guarantee**| `ï User deleted desired products (items/offers) successfully.`|
-| **Main-Success Scenario** | `1.User selects the options ìdelete productsî.`|
+| **Success Guarantee**| `‚Ä¢ User deleted desired products (items/offers) successfully.`|
+| **Main-Success Scenario** | `1.User selects the options ‚Äúdelete products‚Äù.`|
 ||`2.User selects the desired products from system provided list.`|
 ||`3.User confirms to delete`|
 ||`4.User deleted desired products (items/offers) successfully.`||
@@ -428,7 +428,7 @@ Ready2Serve POS
 | **Stakeholders-and their Interests** | `Administrator , Salesperson`|
  ||`User wants to change his/her password`|
 | **Pre-Condition** |`User must be login to the system.`|
-| **Success Guarantee**| `ïUser has changed his/her password successfully.`|
+| **Success Guarantee**| `‚Ä¢User has changed his/her password successfully.`|
 | **Main-Success Scenario** | `1) User chooses change password option.`|
 ||`2) System asks for current password.`|
 ||`3) User enters current password.`|
@@ -457,7 +457,7 @@ Ready2Serve POS
 | **Pre-Condition** |`User must be login to the system as Admin.`|
 | **Success Guarantee**| `1)User views all the orders successfully.`
 ||	`2)User granted access according to the type of user.` |
-| **Main-Success Scenario** | `1.	User selects the options ìview ordersî.`|
+| **Main-Success Scenario** | `1.	User selects the options ‚Äúview orders‚Äù.`|
 ||`2.	User selects to view all orders `|
 |||
 | **Extensions (Alternative Flows)** |**`2a. User can view order between specific dates , user enter starting date`**
