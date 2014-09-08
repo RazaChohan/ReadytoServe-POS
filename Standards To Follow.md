@@ -9,6 +9,8 @@
 - Commit messages must be proper (Reference: http://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
 - Daily commit is mandatory.
 - Test Driven Development will be followed.
+- One must do code coverage analysis for his/her code before pushing it on github.
+ https://phpunit.de/manual/4.1/en/code-coverage-analysis.html
 
 ### Branching standards:
 - There must be two remote branches in project's repository: master and dev (or development)
