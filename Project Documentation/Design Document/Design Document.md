@@ -51,6 +51,7 @@ Ready2Serve POS
        * [Edit Account Info Activity Diagram](#edit-account-info-activity-diagram)
        * [Use Case 13 (View Orders)](#use-case-13-view-orders)
        * [View Orders Activity Diagram](#view-orders-activity-diagram)
+      * [Class Diagram](#class-diagram)
 
 
 
@@ -467,3 +468,8 @@ Ready2Serve POS
 
 ####View Orders Activity Diagram
 ![enter image description here](https://raw.github.com/RazaChohan/ReadytoServe-POS/development/Project%20Documentation/Design%20Document/Diagrams/Activity/View%20Orders.png)
+
+
+## Class Diagram ##
+
+![enter image description here](https://raw.github.com/RazaChohan/ReadytoServe-POS/development/Project%20Documentation/Design%20Document/Diagrams/Class%20Diagram.png)
