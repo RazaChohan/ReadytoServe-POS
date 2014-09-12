@@ -369,7 +369,7 @@ Ready2Serve POS
 | **Frequency of Use**| `This use case has high frequency of occurrence.` |
 
 ####Add Products Activity Diagram
-![enter image description here](https://raw.github.com/RazaChohan/ReadytoServe-POS/development/Project%20Documentation/Design%20Document/Diagrams/Activity/Add%20Products.png)
+![enter image description here](https://raw.github.com/RazaChohan/ReadytoServe-POS/development/Project%20Documentation/Design%20Document/Diagrams/Activity/Add%20Product.png)
 
 ###Use Case #10 (Update/Edit Products)
 
