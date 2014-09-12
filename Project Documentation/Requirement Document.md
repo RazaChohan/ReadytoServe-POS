@@ -102,14 +102,14 @@ so that **I can generate an order for the customer and system would save this re
 
 |**S.No.**| **Pre-requisite**                     | **Acceptance criteria**             |**Status**|
 |---------|:------------------------------------- |:------------------------------------|:--------:|
-|         |The list of items and deals is available on the screen | **When** the user requests to add order line item||
+|         |The list of items and deals is displayed on the screen | **When** the user requests to add order line item||
 |         |**AND**                                |**Then**                             | |
 |||||
-|1.       |salesman enters the                    |	ensure that CMD clear all its contents | |
+|1.       |salesman enters the                    |	ensure that Console clear all its contents | |
 |         | valid index no. of the item/deal      |AND again shows the list of items and deals||
 |         | valid Quantity          |AND shows the current added order line item and prompts to add more  | |
 |||||
-|2.       |salesman enters the                    |ensure the rejection message is displayedm | |
+|2.       |salesman enters the                    |ensure the rejection message is displayed | |
 |         | valid index no. of the item/deal      |And prompt to reEnter the values.	         | |
 |         | Invalid Quantity 	                    |                                           | |
 |||||
