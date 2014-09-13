@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2014 at 06:37 PM
+-- Generation Time: Sep 13, 2014 at 03:18 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.3.10-1ubuntu3.14
 
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
-  `salesman_id` int(11) NOT NULL,
+  `order_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `salesman_id` int(11) unsigned NOT NULL,
   `order_datetime` datetime NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `salesman_id` (`salesman_id`)
@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS `order` (
 --
 
 CREATE TABLE IF NOT EXISTS `order_line_item` (
-  `order_line_item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `unit_price` double NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `discount` double NOT NULL,
+  `order_line_item_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) unsigned NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `unit_price` float NOT NULL,
+  `quantity` int(11) unsigned NOT NULL,
+  `discount` float NOT NULL,
   PRIMARY KEY (`order_line_item_id`),
   UNIQUE KEY `order_id_product_id_unique` (`order_id`,`product_id`),
   KEY `order_id` (`order_id`),
@@ -60,11 +60,11 @@ CREATE TABLE IF NOT EXISTS `order_line_item` (
 --
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `person_id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `address` text,
   `phone_number` varchar(20) DEFAULT NULL,
   `person_type` enum('Admin','Salesperson') NOT NULL,
   PRIMARY KEY (`person_id`)
@@ -85,65 +85,27 @@ INSERT INTO `person` (`person_id`, `username`, `password`, `name`, `address`, `p
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_type` enum('item','deal') NOT NULL,
-  `is_product_available` enum('TRUE','FALSE') NOT NULL,
-  `is_product_oderable` enum('TRUE','FALSE') NOT NULL,
-  `product_description` varchar(255) NOT NULL,
-  `product_price` double NOT NULL,
+  `is_product_available` enum('yes','no') NOT NULL,
+  `is_product_oderable` enum('yes','no') NOT NULL,
+  `product_description` text NOT NULL,
+  `product_price` float NOT NULL,
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
-
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`product_id`, `product_type`, `is_product_available`, `is_product_oderable`, `product_description`, `product_price`) VALUES
-(1, 'item', 'TRUE', 'TRUE', 'Regular drink ', 30),
-(2, 'item', 'TRUE', 'TRUE', 'Large   drink', 50),
-(3, 'item', 'TRUE', 'TRUE', '1.5 L   drink', 90),
-(4, 'item', 'TRUE', 'TRUE', 'Jumbo   drink ', 120),
-(5, 'item', 'TRUE', 'TRUE', '(Chicken Piece)/Nuggets', 25),
-(6, 'item', 'TRUE', 'TRUE', 'Regular/shami Burger', 70),
-(7, 'item', 'TRUE', 'TRUE', 'Cheese Burger', 90),
-(8, 'item', 'TRUE', 'TRUE', 'Zinger Burger', 100),
-(9, 'item', 'TRUE', 'TRUE', 'Fries small', 50),
-(10, 'item', 'TRUE', 'TRUE', 'Fries medium', 70),
-(11, 'item', 'TRUE', 'TRUE', 'Fries Large', 100),
-(12, 'item', 'TRUE', 'TRUE', 'Pizza Small', 80),
-(13, 'item', 'TRUE', 'TRUE', 'Pizza Medium ', 80),
-(14, 'item', 'TRUE', 'TRUE', 'Pizza Large ', 180),
-(15, 'item', 'TRUE', 'FALSE', 'Toy', 0),
-(16, 'item', 'TRUE', 'FALSE', 'Ketchup Bottle', 0),
-(17, 'deal', 'TRUE', 'TRUE', 'Happy Meal Small', 150),
-(18, 'deal', 'TRUE', 'TRUE', 'Happy Meal Large', 250);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `product_contains_products`
 --
 
 CREATE TABLE IF NOT EXISTS `product_contains_products` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
-  `contained_product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `contained_product_id` int(11) unsigned NOT NULL,
+  `quantity` int(11) unsigned NOT NULL,
   PRIMARY KEY (`product_id`,`contained_product_id`),
   KEY `contained_product_id` (`contained_product_id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
-
---
--- Dumping data for table `product_contains_products`
---
-
-INSERT INTO `product_contains_products` (`product_id`, `contained_product_id`, `quantity`) VALUES
-(17, 1, 1),
-(17, 6, 1),
-(17, 9, 1),
-(18, 2, 1),
-(18, 7, 1),
-(18, 9, 1);
 
 --
 -- Constraints for dumped tables
@@ -153,7 +115,7 @@ INSERT INTO `product_contains_products` (`product_id`, `contained_product_id`, `
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`salesman_id`) REFERENCES `person` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`salesman_id`) REFERENCES `person` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_line_item`
