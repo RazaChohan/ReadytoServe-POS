@@ -40,9 +40,15 @@ class PersonController
      *
      * Constructor of class
      */
+    /**
+     * @var object 'Object of person Model Class'
+     */
+    private $productModel;
+    
     public function _construct()
     {
         $this->view=new View();
+        $this->productModel=new productModel();
     }
     /**
      *
