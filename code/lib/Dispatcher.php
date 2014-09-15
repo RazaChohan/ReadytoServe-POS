@@ -23,7 +23,7 @@ class Dispatcher {
    *
    * @param  string $request array of strings containg controller path
    *
-   * @access public
+   * @access private
    *
    * @return Controller an instance of controller
    */
