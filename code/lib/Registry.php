@@ -30,7 +30,7 @@ class Registry
     /*
      * @var array associative array to store key value paris
      */
-    private static $data=array();
+    private $data=array();
     /*
      * instantiates the Registry class
      * 
@@ -52,7 +52,7 @@ class Registry
      */
     public function __set($key, $value)
     {
-        self::$data[$key] = $value;
+        $this->$data[$key] = $value;
     }
     /*
      * gets value of a variable
@@ -65,7 +65,7 @@ class Registry
      */
     public function __get($key)
     {
-        self::$data[$key];
+        $this->$data[$key];
     }
     /*
      * returns the object of Registry class
