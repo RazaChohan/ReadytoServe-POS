@@ -17,26 +17,19 @@ namespace ready2Serve\Dispatcher;
  * @version 1.0
  */
 class Dispatcher {
-   /**
-   * @var ProductController instance of ProductController
-   */
-   private $productController = null;
    
    /**
-   * @var OrderController instance of OrderController
+   * Returns the instance of specified controller
+   *
+   * @param  string $request array of strings containg controller path
+   *
+   * @access public
    */
-   private $orderController = null;
-   
-   /**
-   * @var PersonController instance of PersonController
-   */
-   private $personController = null;
-   
-   /**
-   * @var OuthController instance of OuthController
-   */
-   private $outhController = null;
-   
+   public function getController($request)
+   {
+       
+   }
+
    /**
    * Dispatches the request to its relative controller
    *
