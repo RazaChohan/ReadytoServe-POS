@@ -44,10 +44,10 @@ class Registry
     /*
      * sets value to a variable
      * 
-     * this magic setter recieves two parameters and creates a new property of
-     * Registry class and assigns it to corresponding value
+     * this magic setter recieves two parameters and store in data
+     * associative array by value against a key
      * 
-     * @param Object $key      new property of Registry class
+     * @param Object $key      associative key of $value
      * @param Object $value    value to be saved against $key
      */
     public function __set($key, $value)
@@ -58,6 +58,7 @@ class Registry
      * gets value of a variable
      * 
      * this magic getter retrieves the value against property against $key
+     * from associative array $data
      * 
      * @param  Object $key    property name from which which we want to retrieve
      *                        value
