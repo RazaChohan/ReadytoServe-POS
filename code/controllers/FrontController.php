@@ -1,33 +1,32 @@
 <?php
 
+namespace ready2Serve\Controller\FrontController;
+
 /*
- * This file contains FrontController class
+ * This file contains implementation of FrontController class
  * 
- * @package Ready2Serve
+ * @package ready2Serve
  * @version 1.0
  */
-
-namespace ready2Serve\Controller\FrontController;
 
 /**
  * A centralized access point for request handling.
  *
- * @package Ready2Serve
+ * @package ready2Serve
  * @author  Jamshad Ahmad <jamshad.ahmad@coeus-solutions.de>
  * @version 1.0
  */
 class FrontController 
 {
-   /**
-   * @var dispatcher
-   */
+  /**
+  * @var dispatcher object of dispatcher class 
+  */
   protected $dispatcher = null;
   
   /**
-   * @var frontControllerInstance
+   * @var frontControllerInstance an instance of FrontController Class
    */
   private static $frontControllerInstance = null;
-  
   
   /**
   * contructs an instance of front controller
@@ -42,7 +41,7 @@ class FrontController
   /**
   * returns an instance of FrontController
   *
-  * @return FrontController singelton instance of FrontController
+  * @return FrontController singleton instance of FrontController
   *
   * @access public
   * @static
@@ -57,7 +56,7 @@ class FrontController
   }
   
   /**
-  * returns an instance of FrontController
+  * checks whether user is authenticated or not
   *
   * @return Boolean whether ture or false, depends on authentication
   *
@@ -82,17 +81,17 @@ class FrontController
   /**
   * Dispatches request to its relative controller
   *
-  * @param $request array of strings containing complete path
+  * @param request array of strings containing complete path
   *
   * @access public
   */
-  public function direct()
+  public function direct($request)
   {
       
   }
   
   /**
-  * Verfies request path and derects it.
+  * Verfies request path and directs it.
   *
   * @param request array of strings containing complete path
   *
@@ -102,5 +101,4 @@ class FrontController
   {
       
   }
-  
 }
