@@ -24,9 +24,13 @@ class DB_Adapter
 {
     
     /*
+     * @var DBConnection of DB_Adapter class
+     */
+    private $connection;
+    /*
      * @var instance of DB_Adapter class
      */
-    private $dbAdapter;
+    private static $instance;
     /*
      * instantiate the DB_Adapter class
      * 
@@ -47,11 +51,10 @@ class DB_Adapter
      */
     public static function getInstance()
     {
-        if ($this->dbAdapter== NULL) {
-            $this->dbAdapter=new DB_Adapter();
-            return $this->dbAdapter;
+        if (self::$instance== NULL) {
+            self::$instance=new DB_Adapter();
         }
-        return $this->dbAdapter;
+        return self::$instance;
     }
     /*
      * fetches all the records from database
@@ -67,4 +70,21 @@ class DB_Adapter
     {
         
     }
+    /*
+     * creates connection with database
+     * 
+     * this function created connection with database and return the connectoin
+     * object.
+     * 
+     * @return DBConnection  connection to database
+     */
+    public function getConnection()
+    {
+        if($this->connection==NULL){
+       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket)
+            return $this->connection;
+        }
+        return $this->connection;
+    }
+    
 }
