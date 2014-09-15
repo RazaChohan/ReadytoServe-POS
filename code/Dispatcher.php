@@ -1,14 +1,16 @@
 <?php
+
+namespace ready2Serve\Dispatcher;
+
 /*
  * This file contains implementation of Dispatcher
  * 
  * @package Ready2Serve
  * @version 1.0
  */
-namespace ready2Serve\Dispatcher;
 
 /**
- * Defines what url pattern gets mapped into what controller funciton.
+ * Defines what path gets mapped into what controller function.
  *
  * @package Ready2Serve
  * @author  Jamshad Ahmad <jamshad.ahmad@coeus-solutions.de>
@@ -36,19 +38,9 @@ class Dispatcher {
    private $outhController = null;
    
    /**
-   * constructs an object of Dispatcher
-   *
-   * @access public
-   */
-   public function __construct()
-   {
-      
-   }
-   
-   /**
    * Dispatches the request to its relative controller
    *
-   * @param string $request array of strings containg controller path
+   * @param  string $request array of strings containg controller path
    *
    * @access public
    */
