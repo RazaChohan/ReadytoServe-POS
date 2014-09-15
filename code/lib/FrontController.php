@@ -81,7 +81,7 @@ class FrontController
   *
   * @param string $request array of strings containing complete path
   *
-  * @access public
+  * @access private
   */
   private function dispatchRequest($request)
   {

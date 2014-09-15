@@ -24,8 +24,10 @@ class Dispatcher {
    * @param  string $request array of strings containg controller path
    *
    * @access public
+   *
+   * @return Controller an instance of controller
    */
-   public function getController($request)
+   private function getController($request)
    {
        
    }
