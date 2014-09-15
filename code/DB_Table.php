@@ -11,7 +11,7 @@ namespace Ready2Serve;
  */
 
 /*
- * deals with database
+ * provides general properties and behaviors
  * 
  * DB_Table is an abstract class which will be extended by other model classes.
  * DB_Table class contains some general properties and behaviors that will be 
