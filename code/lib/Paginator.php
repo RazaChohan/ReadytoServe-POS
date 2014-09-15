@@ -28,7 +28,7 @@ class Paginator
     /**
      * @var integer 'Number of records to display on one page'
      */
-    private $limit;
+    private $itemCountPerPage;
     /**
      *
      * Gets the value of limit and data to divide the output and print it 
@@ -40,8 +40,55 @@ class Paginator
      *        integer $limit 'number of records to display on one page'
      *         
      */
-    public function pagination($limit,$data)
+    public function pagination($itemCountPerPage,$data)
     {
         
     }
+     /**
+     *
+     * sets the query 
+     * on screen.
+     * 
+     * @access public
+     * 
+     *         
+     */
+    private function setQuery()
+    {
+        
+    }
+     /**
+     *
+     * 
+     * @access public
+     * 
+     *         
+     */
+    private function setpageNumber()
+    {
+        
+    }
+     /**
+     *
+     * 
+     * @access public
+     * 
+     *         
+     */
+    private function setItemsPerPage()
+    {
+        
+    }
+     /**
+     *
+     * 
+     * @access public
+     * 
+     *         
+     */
+    private function getItems()
+    {
+        
+    }
+    
 }
