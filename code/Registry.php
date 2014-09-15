@@ -22,12 +22,17 @@ namespace Ready2Serve;
  */
 class Registry
 {
+    
     /*
-     * @var instance of Registry class
+     * @var Registry single instance of Registry class
      */
-    private $instance;
+    private static $instance;
     /*
-     * instantiate the Registry class
+     * @var array associative array to store key value paris
+     */
+    private static $data=array();
+    /*
+     * instantiates the Registry class
      * 
      * the constructor of Registry class is private because Registry is
      * singleton class and not to be instanstiate from any other class
@@ -47,7 +52,7 @@ class Registry
      */
     public function __set($key, $value)
     {
-        $this->$key = $value;
+        self::$data[$key] = $value;
     }
     /*
      * gets value of a variable
@@ -60,7 +65,7 @@ class Registry
      */
     public function __get($key)
     {
-        return $this->$value;
+        self::$data[$key];
     }
     /*
      * returns the object of Registry class
@@ -72,10 +77,10 @@ class Registry
      */
     public static function getInstance()
     {
-        if ($this->instance == NULL) {
-            $this->instance=new Registry();
-            return $this->instance;
+        if (self::$instance == NULL) {
+            self::$instance=new Registry();
+            return self::$instance;
         }
-        return $this->instance;
+        return self::$instance;
     }
 }
