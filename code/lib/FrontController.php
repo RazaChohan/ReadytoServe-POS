@@ -1,6 +1,6 @@
 <?php
 
-namespace ready2Serve\Controller\FrontController;
+namespace ready2Serve\lib\FrontController;
 
 /*
  * This file contains implementation of FrontController class
