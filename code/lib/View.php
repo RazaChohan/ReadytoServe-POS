@@ -60,6 +60,6 @@ class View {
   */
   public function __get($key)
   {
-      self::$data[$key];
+      return self::$data[$key];
   }
 }
