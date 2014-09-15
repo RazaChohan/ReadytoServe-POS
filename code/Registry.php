@@ -1,5 +1,5 @@
 <?php
-
+namespace Ready2Serve;
 /*
  * This file contains Registry class
  * 
@@ -23,7 +23,7 @@
 class Registry
 {
     /*
-     * @var instace of Registry class
+     * @var instance of Registry class
      */
     private $instance;
     /*
@@ -73,7 +73,8 @@ class Registry
     public static function getInstance()
     {
         if ($this->instance == NULL) {
-            return new Registry();
+            $this->instance=new Registry();
+            return $this->instance;
         }
         return $this->instance;
     }
