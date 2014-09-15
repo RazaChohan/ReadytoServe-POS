@@ -81,8 +81,7 @@ class DB_Adapter
     public function getConnection()
     {
         if($this->connection==NULL){
-       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket)
-            return $this->connection;
+       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket);
         }
         return $this->connection;
     }
