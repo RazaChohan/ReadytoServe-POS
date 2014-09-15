@@ -8,7 +8,7 @@ namespace Ready2toServe\Controller\ProductController;
  * named ProductController class.
  *
  * @category Training/Learning PHP
- * @package ready2Serve
+ * @package Ready2Serve
  * @version v 1.0
  */
 /**
@@ -17,7 +17,7 @@ namespace Ready2toServe\Controller\ProductController;
  * This Class gets a specific request from the Dispatcher class
  * and performs functions according to the request.
  * 
- * @package ready2Serve
+ * @package Ready2Serve
  * @author Muhammad Raza <muhammad.raza@coeus-solutions.de>
  * @category Training/Learning PHP
  * @version v 1.0
