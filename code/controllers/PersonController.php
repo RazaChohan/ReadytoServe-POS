@@ -35,20 +35,22 @@ class PersonController
     /**
      * @var view 'View class object'
      */
+    
     public $view; 
+    /**
+     * @var object 'Object of person Model Class'
+     */
+    private $personModel;
     /**
      *
      * Constructor of class
      */
-    /**
-     * @var object 'Object of person Model Class'
-     */
-    private $productModel;
+    
     
     public function _construct()
     {
         $this->view=new View();
-        $this->productModel=new productModel();
+        $this->personModel=new personModel();
     }
     /**
      *
