@@ -1,7 +1,4 @@
 <?php
-
-namespace ready2Serve\lib\View;
-
 /*
  * This file contains implementation of View
  * 

@@ -46,7 +46,7 @@ class Paginator
     }
      /**
      *
-     * sets the query 
+     * sets the query depending on the offset and number of records
      * on screen.
      * 
      * @access public

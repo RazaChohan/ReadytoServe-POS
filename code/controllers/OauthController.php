@@ -1,6 +1,5 @@
 <?php
 
-namespace ready2toServe\Controller\OauthController;
 /**
  * Contains definition of Oauth Controller class namely OauthController
  * 
@@ -11,6 +10,7 @@ namespace ready2toServe\Controller\OauthController;
  * @package Ready2Serve
  * @version v 1.0
  */
+
 /**
  * Contains Oauth Controller class
  *

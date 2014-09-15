@@ -1,5 +1,4 @@
 <?php
-namespace Ready2Serve;
 /*
  * This file contains Registry class
  * 

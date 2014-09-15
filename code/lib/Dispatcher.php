@@ -1,7 +1,5 @@
 <?php
 
-namespace ready2Serve\lib\Dispatcher;
-
 /*
  * This file contains implementation of Dispatcher
  * 

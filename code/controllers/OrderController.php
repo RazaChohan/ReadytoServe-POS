@@ -1,6 +1,5 @@
 <?php
 
-namespace ready2toServe\Controller\OrderController;
 /**
  * Contains definition of Order Controller class namely OrderController
  * 
