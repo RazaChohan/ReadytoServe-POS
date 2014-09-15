@@ -11,7 +11,7 @@ namespace Ready2Serve;
  */
 
 /*
- * provides general properties and behaviors
+ * deals with database
  * 
  * DB_Table is an abstract class which will be extended by other model classes.
  * DB_Table class contains some general properties and behaviors that will be 
@@ -23,15 +23,6 @@ namespace Ready2Serve;
  */
 abstract class DB_Table
 {
-    
-    /*
-     * @var DB_Adapter instance of DB_Adapter class
-     */
-    private $dbAdapter;
-    /*
-     * @var Paginator instance of Paginator class
-     */
-    private $paginator;
     
     /*
      * fetches all the records from database
@@ -48,15 +39,13 @@ abstract class DB_Table
         
     }
     /*
-     * creats an object of Paginator
+     * returns the object of DB_Adapter
      * 
-     * this function creates an object of Paginator and returns
+     * this function get the singleton instance of DB_Adapter and returns it
      * 
-     * @return Paginator  array containing the resultset
+     * @return DB_Adapter object of DB_Adapter class
      */
-    public function getPaginator()
-    {
-        return $this->paginator;
+    public function getAdapter(){
+        return DB_Adapter::getInstance();
     }
-    
 }
