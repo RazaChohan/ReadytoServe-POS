@@ -32,7 +32,6 @@ class OrderController
      * @var object 'Object of Order Model Class'
      */
     private $orderModel;
-
     /**
      *
      * Constructor of class
