@@ -36,6 +36,7 @@ class OauthController
      * @var Boolean 'Is user Authenticated'
      */
     private $IsAuthenicated;
+
     /**
      *
      * Constructor of class
@@ -69,6 +70,16 @@ class OauthController
     public function authenicateUserfromModel($username, $password)
     {
         
+    }
+    /**
+     * checks whether user is authenticated or not
+     *
+     * @return Boolean whether ture or false, depends on authentication
+     *
+     * @access public
+     */
+    public static function isAuthenticUser()
+    {
         
     }
 }
