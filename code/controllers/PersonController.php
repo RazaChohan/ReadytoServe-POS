@@ -40,7 +40,7 @@ class PersonController
     /**
      * @var object 'Object of person Model Class'
      */
-    private $productModel;
+    private $personModel;
     /**
      *
      * Constructor of class
