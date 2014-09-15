@@ -45,8 +45,6 @@ class PersonController
      *
      * Constructor of class
      */
-    
-    
     public function _construct()
     {
         $this->view=new View();
