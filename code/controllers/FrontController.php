@@ -70,7 +70,6 @@ class FrontController
   /**
   * tracks request path
   *
-  *
   * @access public
   */
   public function trackRequest()
@@ -81,7 +80,7 @@ class FrontController
   /**
   * Dispatches request to its relative controller
   *
-  * @param request array of strings containing complete path
+  * @param string $request array of strings containing complete path
   *
   * @access public
   */
@@ -93,7 +92,7 @@ class FrontController
   /**
   * Verfies request path and directs it.
   *
-  * @param request array of strings containing complete path
+  * @param string $request array of strings containing complete path
   *
   * @access public
   */
