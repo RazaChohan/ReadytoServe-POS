@@ -13,7 +13,7 @@
  * @author  Jamshad Ahmad <jamshad.ahmad@coeus-solutions.de>
  * @version 1.0
  */
-class FrontController 
+class FrontController
 {
   /**
   * @var Dispatcher object of dispatcher class 
@@ -60,7 +60,6 @@ class FrontController
         }
         return self::$instance;
   }
-  
   /**
   * Verfies request path and directs it
   *
@@ -70,7 +69,7 @@ class FrontController
   */
   public function direct($request)
   {
-      
+      $this->dispatchRequest($request);
   }
   
   /**
@@ -82,16 +81,19 @@ class FrontController
   */
   private function dispatchRequest($request)
   {
-      
+      $dispatcher=new Dispatcher();
+      $response=$dispatcher->dispatch($request);
+      $this->getResponse($response);
   }
   
   /**
   * Prints/dumps the response and clears it afterwards
   *
   * @access public
+  * 
   */
-  public function getResponse()
+  public function getResponse($response)
   {
-      
+      var_dump($response);
   }
 }

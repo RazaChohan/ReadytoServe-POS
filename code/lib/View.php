@@ -28,9 +28,25 @@ class View {
   *
   * @access public
   */
-  public function render()
+  public function setViewScriptPath($viewScript,$controller)
   {
-      
+       $path=realpath('views/'.$controller.'/'.$viewScript);
+       return $path;
+  }
+  /**
+  * Executes specifc view script
+  *
+  * Gets paramater from FC::getRequest() and executes specific View script
+  *
+  * @return string returns output of a script
+  *
+  * @access public
+  */
+  public function render($viewScript,$controller)
+  {
+       $completePath=$this->setViewScriptPath($viewScript,$controller);
+       $output = shell_exec("php $completePath");
+       return $output;
   }
 
   /*

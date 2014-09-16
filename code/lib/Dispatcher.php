@@ -5,7 +5,6 @@
  * @package Ready2Serve
  * @version 1.0
  */
-
 /**
  * Defines what path gets mapped into what controller function.
  *
@@ -13,31 +12,36 @@
  * @author  Jamshad Ahmad <jamshad.ahmad@coeus-solutions.de>
  * @version 1.0
  */
-class Dispatcher {
-   
-   /**
-   * Returns the instance of specified controller
-   *
-   * @param  string $request array of strings containg controller path
-   *
-   * @access private
-   *
-   * @return Controller an instance of controller
-   */
-   private function getController($request)
-   {
-       
-   }
-
-   /**
-   * Dispatches the request to its relative controller
-   *
-   * @param  string $request array of strings containg controller path
-   *
-   * @access public
-   */
-   public function dispatch($request)
-   {
-       
-   }
+class Dispatcher
+{   
+    /**
+     * Returns the instance of specified controller
+     *
+     * @param  string $request array of strings containg controller path
+     *
+     * @access private
+     *
+     * @return Controller an instance of controller
+     */
+    private function getController($request)
+    {
+         if ($request['controller'] === "OauthController") {
+            $controller=new OauthController();
+            return $controller;
+        }
+        
+    }
+    /**
+     * Dispatches the request to its relative controller
+     *
+     * @param  string $request array of strings containg controller path
+     *
+     * @access public
+     */
+    public function dispatch($request)
+    {
+       $controller=$this->getController($request);
+       $response=$controller->getRequest($request);
+       return $response;
+    }
 }

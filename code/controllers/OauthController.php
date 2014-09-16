@@ -24,10 +24,6 @@
 class OauthController
 {
     /**
-     * @var view 'View class object'
-     */
-    public $view;
-    /**
      * @var object 'Object of Order Model Class'
      */
     private $personModel;
@@ -42,7 +38,6 @@ class OauthController
      */
     public function _construct()
     {
-        $this->view = new View();
         $this->personModel = new personModel();
     }
     /**
@@ -81,4 +76,33 @@ class OauthController
     {
         
     }
+    /**
+     * Login user action function that will call the view object.
+     * 
+     * @access public
+     */
+    public function loginUser($request)
+    {
+        $viewObject=new View();
+        $request['View']="welcome.php";
+        $response=$viewObject->render($request['View'],$request['controller']);
+        return $response;
+    }
+    /**
+     * Login user action function that will call the view object.
+     * 
+     * @access public
+     */
+    public function getRequest($request)
+    {
+        $response=null;
+        if($request['action']==="loginUser")
+        {
+            $response=$this->loginUser($request);
+        }
+        return $response;
+    }
+    
+
+
 }
