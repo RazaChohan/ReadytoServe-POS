@@ -1,4 +1,5 @@
 <?php
+namespace Ready2Serve;
 /*
  * This file contains DB_Adapter class
  * 
@@ -80,9 +81,17 @@ class DB_Adapter
     public function getConnection()
     {
         if($this->connection==NULL){
-       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket);
+       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket)
+            return $this->connection;
         }
         return $this->connection;
     }
-    
+    /*
+     * closes the connection with database
+     * 
+     * this function closes the coonection with data base
+     */
+    public function closeConnection(){
+        $this->connection->close();
+    }
 }
