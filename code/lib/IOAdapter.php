@@ -48,6 +48,16 @@ class IOAdapter{
         }
         return self::$handler;
     }
+    /*
+     * shows output
+     * 
+     * this method accepts one paramater and displays
+     * 
+     * @param String $output output string to display
+     */
+    public function makeOutput($output){
+        echo $output;
+    }
     
 }
 
