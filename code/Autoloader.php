@@ -127,6 +127,8 @@ class Autoloader {
         spl_autoload_register('Autoloader::autoloaderModels');
         spl_autoload_register('Autoloader::autoloaderlib');
         spl_autoload_register('Autoloader::autoloaderViews');
+        spl_autoload_register('Autoloader::autoloaderDB');
+        
     }
      /**
      *

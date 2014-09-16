@@ -36,7 +36,7 @@ class ProductController
      * Constructor of class
      * @access public
      */
-    public function _construct()
+    public function __construct()
     {
         $this->view = new View();
         $this->productModel = new productModel();

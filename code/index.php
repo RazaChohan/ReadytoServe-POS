@@ -13,7 +13,7 @@ Autoloader::run();
    
 $frontControllerObject = FrontController::getInstance();
 $request=array();
-$request['controller']="OauthController";
+$request['controller']="Oauth";
 $request['action']="loginUser";
 $frontControllerObject->direct($request);
 

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file contains DB_Adapter class
  * 
@@ -21,7 +22,6 @@
  */
 class DB_Adapter
 {
-    
     /*
      * @var DBConnection of DB_Adapter class
      */
@@ -30,6 +30,7 @@ class DB_Adapter
      * @var instance of DB_Adapter class
      */
     private static $instance;
+
     /*
      * instantiate the DB_Adapter class
      * 
@@ -50,8 +51,8 @@ class DB_Adapter
      */
     public static function getInstance()
     {
-        if (self::$instance== NULL) {
-            self::$instance=new DB_Adapter();
+        if (self::$instance == NULL) {
+            self::$instance = new DB_Adapter();
         }
         return self::$instance;
     }
@@ -67,9 +68,9 @@ class DB_Adapter
      */
     public function fetchAll($query)
     {
-        $result=mysql_query($query,$this->connection);
-	// associative array contains all table data
-	return $result;
+        $result = mysqli_query($this->connection,$query);
+        // associative array contains all table data
+        return $result;
     }
     /*
      * creates connection with database
@@ -81,9 +82,12 @@ class DB_Adapter
      */
     public function getConnection()
     {
-        if($this->connection==NULL){
-       //     $this->connection=new mysqli($host, $user, $password, $database, $port, $socket)
-            return $this->connection;
+        if ($this->connection == NULL) {
+            $this->connection = new mysqli("localhost", "root", "coeus123", 
+                                           "Ready2Serve");
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            }
         }
         return $this->connection;
     }
@@ -92,7 +96,8 @@ class DB_Adapter
      * 
      * this function closes the coonection with data base
      */
-    public function closeConnection(){
+    public function closeConnection()
+    {
         $this->connection->close();
     }
 }

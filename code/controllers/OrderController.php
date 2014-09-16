@@ -9,6 +9,7 @@
  * @package Ready2Serve
  * @version v 1.0
  */
+
 /**
  * Contains Order Controller class
  *
@@ -34,7 +35,7 @@ class OrderController
      *
      * Constructor of class
      */
-    public function _construct()
+    public function __construct()
     {
         $this->view=new View();
         $this->orderModel=new orderModel();

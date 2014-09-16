@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains definition of Oauth Controller class namely OauthController
  * 
@@ -9,7 +10,6 @@
  * @package Ready2Serve
  * @version v 1.0
  */
-
 /**
  * Contains Oauth Controller class
  *
@@ -30,15 +30,21 @@ class OauthController
     /**
      * @var Boolean 'Is user Authenticated'
      */
-    private $IsAuthenicated;
+    private $IsAuthenticated;
+    /**
+     * @var object 'Object of Order Model Class'
+     */
+    private $numberOfWrongAttempts;
 
     /**
+      /**
      *
      * Constructor of class
      */
-    public function _construct()
+    public function __construct()
     {
-        $this->personModel = new personModel();
+        $this->personModel = new PersonModel();
+        $this->numberOfWrongAttempts = intval(0);
     }
     /**
      *
@@ -55,15 +61,18 @@ class OauthController
      *
      * authenticates the user using person Model Class
      * 
-     * @access public
+     * @access private
      * 
      * @param string $username 'Username of Person'
      * 
      *        string $password 'Password of Person'
      */
-    public function authenicateUserfromModel($username, $password)
+    private function authenicateUserfromModel($username, $password)
     {
+        $this->IsAuthenticated = $this->personModel->authenticateUser($username,
+                                                                      $password);
         
+        return $this->IsAuthenticated;
     }
     /**
      * checks whether user is authenticated or not
@@ -81,12 +90,40 @@ class OauthController
      * 
      * @access public
      */
-    public function loginUser($request)
+    public function loginUserAction($request)
     {
-        $viewObject=new View();
-        $request['View']="welcome.php";
-        $response=$viewObject->render($request['View'],$request['controller']);
-        return $response;
+        if ($this->numberOfWrongAttempts >= intval(3)) {
+            echo "Maximum Wrong Authentication Limited Reached!!!".PHP_EOL;
+            exit(1);
+        } else if ($this->numberOfWrongAttempts == intval(0)) {
+            $viewObject = new View();
+            $request['View'] = "welcome.php";
+            $response = $viewObject->render($request['View'], $request['controller']);
+            $this->showResponse($response);
+        }
+
+        $IOAdapterObject = IOAdapter::getInstance();
+        $username = $IOAdapterObject->getInput();
+        echo " >> Please Enter Your Enter Password:";
+        $password = $IOAdapterObject->getInput();
+       
+        $chk = $this->authenicateUserfromModel($username, $password);
+
+        if ($chk) {
+            echo 'You Are Loged In Successfully' . PHP_EOL;
+            $request['controller']="Person";
+            $request['action']="showMainMenu";
+            $frontControllerObject = FrontController::getInstance();
+            $frontControllerObject->direct($request);
+        } else {
+            echo 'Error: Wrong username or Password' . PHP_EOL;
+            $this->numberOfWrongAttempts = $this->numberOfWrongAttempts + intval(1);
+            if($this->numberOfWrongAttempts<3)
+            {
+            echo " >> Please Enter Your User Name : ";
+            }
+            $this->loginUserAction($request);
+        }
     }
     /**
      * Login user action function that will call the view object.
@@ -95,14 +132,17 @@ class OauthController
      */
     public function getRequest($request)
     {
-        $response=null;
-        if($request['action']==="loginUser")
-        {
-            $response=$this->loginUser($request);
+        if ($request['action'] === "loginUser") {
+            $this->loginUserAction($request);
         }
-        return $response;
     }
-    
-
-
+    /**
+     * Displays the response of the view Script
+     * 
+     * @access public
+     */
+    public function showResponse($response)
+    {
+        echo $response;
+    }
 }

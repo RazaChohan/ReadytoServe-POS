@@ -25,11 +25,14 @@ class Dispatcher
      */
     private function getController($request)
     {
-         if ($request['controller'] === "OauthController") {
+         if ($request['controller'] === "Oauth") {
             $controller=new OauthController();
-            return $controller;
         }
-        
+        if ($request['controller'] === "Person") {
+            $controller=new PersonController();
+            
+        }
+        return $controller;
     }
     /**
      * Dispatches the request to its relative controller
@@ -41,7 +44,7 @@ class Dispatcher
     public function dispatch($request)
     {
        $controller=$this->getController($request);
-       $response=$controller->getRequest($request);
-       return $response;
+       $controller->getRequest($request);
+       
     }
 }

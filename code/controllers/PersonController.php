@@ -9,7 +9,6 @@
  * @package Ready2Serve
  * @version v 1.0
  */
-
 /**
  * Contains Person Controller class
  *
@@ -21,7 +20,7 @@
  * @category Training/Learning PHP
  * @version v 1.0
  */
-class PersonController 
+class PersonController
 {
     /**
      * @var string 'userName of user trying to login'
@@ -30,24 +29,22 @@ class PersonController
     /**
      * @var string 'password of user trying to login'
      */
-    private $password; 
+    private $password;
     /**
      * @var view 'View class object'
      */
-    
-    public $view; 
-    /**
-     * @var object 'Object of person Model Class'
-     */
     private $personModel;
+
+    private $IOAdapterObject;
     /**
      *
      * Constructor of class
      */
-    public function _construct()
+    public function __construct()
     {
-        $this->view=new View();
-        $this->personModel=new personModel();
+        $this->view = new View();
+        $this->personModel = new personModel();
+        $this->IOAdapterObject = IOAdapter::getInstance();
     }
     /**
      *
@@ -86,4 +83,88 @@ class PersonController
     {
         
     }
+    /**
+     * gets the request from callee.
+     * 
+     * @access public
+     */
+    public function getRequest($request)
+    {
+        if ($request['action'] === "showMainMenu") {
+            $this->showMainMenuAction($request);
+        }
+    }
+    /**
+     * Displays Menu Depending Upon the Type of user.
+     * 
+     * @access private
+     */
+    private function showMainMenuAction($request)
+    {
+        $viewObject = new View();
+        $personType = PersonModel::getpersonType();
+        $response=null;
+        if ($personType === "Salesperson") {
+            $request['View'] = "salesPersonMainMenu.php";
+            $response = $viewObject->render($request['View'], 
+                                            $request['controller']);
+             $this->showResponse($response);
+            
+        }
+        else if ($personType === "Admin") {
+            $request['View'] = "adminMainMenu.php";
+            $response = $viewObject->render($request['View'], 
+                                            $request['controller']);
+             $this->showResponse($response);
+             $this->getAdminSelection();
+        }
+        
+    }
+    /**
+     * Displays the response of the view script.
+     * 
+     * @access public
+     */
+    public function showResponse($response)
+    {
+        echo $response;
+    }
+    /**
+     * gets Admin Selection from Menu and calls the respective controller
+     * 
+     * @access public
+     */
+    public function getAdminSelection()
+    {
+        echo " >> Please Enter Your Choice : ";
+        $choice=$this->IOAdapterObject->getInput();
+        if(intval($choice)==intval(1))
+        {
+            echo "1 selected";
+        }
+        else if(intval($choice)==intval(2))
+        {
+            echo "2 selected";
+        }
+        else if(intval($choice)==intval(3))
+        {
+            echo "3 selected";
+        }
+        else if(intval($choice)==intval(4))
+        {
+            echo "4 selected";
+        }
+    }
+    /**
+     * gets Salesman Selection from Menu and calls the respective controller
+     * 
+     * @access public
+     */
+    public function getSalesmanSelection()
+    {
+        echo " >> Please Enter Your Choice : ";
+        echo $response;
+    }
+
+    
 }
