@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file contains implementation of Dispatcher
  * 

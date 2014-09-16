@@ -1,5 +1,4 @@
 <?php
-namespace Ready2Serve\lib\DB;
 /*
  * This file contains DB_Adapter class
  * 

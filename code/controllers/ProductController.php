@@ -1,6 +1,4 @@
 <?php
-
-namespace Ready2toServe\Controller\ProductController;
 /**
  * Contains definition of Product Controller namely ProductController
  * 

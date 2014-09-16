@@ -1,6 +1,4 @@
 <?php
-
-namespace Ready2toServe;
 /**
  * Contains definition of Paginator class namely Paginator
  * 

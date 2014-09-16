@@ -1,5 +1,4 @@
 <?php
-namespace ready2Serve\lib;
 /*
  * This file contains implementation of Abstract Controller Class
  * 

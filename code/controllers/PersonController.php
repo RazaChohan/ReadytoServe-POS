@@ -1,5 +1,4 @@
 <?php
-namespace  ready2toServe\Controller\PersonController;
 /**
  * Contains definition of Person Controller class namely PersonController
  * 

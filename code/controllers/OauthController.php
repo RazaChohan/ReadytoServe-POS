@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains definition of Oauth Controller class namely OauthController
  * 
