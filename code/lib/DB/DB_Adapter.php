@@ -68,7 +68,9 @@ class DB_Adapter
      */
     public function fetchAll($query)
     {
-        
+        $result=mysql_query($query,$this->connection);
+	// associative array contains all table data
+	return $result;
     }
     /*
      * creates connection with database
