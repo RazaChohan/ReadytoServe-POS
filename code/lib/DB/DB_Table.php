@@ -1,4 +1,5 @@
 <?php
+namespace Ready2Serve;
 /*
  * This file contains DB_Table class
  * 
@@ -46,5 +47,31 @@ abstract class DB_Table
      */
     public function getAdapter(){
         return DB_Adapter::getInstance();
+    }
+    /*
+     * deletes row/s from database
+     * 
+     * this function accepts a sql query to delete records from database and
+     * returns the number of rows effected
+     * 
+     * @param String $deleteQuery sql qyery to delete records
+     * 
+     * @return integer number of rows deleted
+     */
+    public function delete($deleteQuery){
+        $rowsEffected;
+        return $rowsEffected;
+    }
+    /*
+     * insert row in a table
+     * 
+     * this function accepts an array of values and table name, array contains
+     * values to be added in columns in provided table
+     * 
+     * @param array $data        array contains values to be added in columns
+     * @param String $tableName  table name
+     */
+    public function insert($data, $tableName){
+        
     }
 }
