@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains definition of Oauth Controller class namely OauthController
  * 
@@ -50,23 +51,6 @@ class OauthController
         
     }
     /**
-     *
-     * authenticates the user using person Model Class
-     * 
-     * @access private
-     * 
-     * @param string $username 'Username of Person'
-     * 
-     *        string $password 'Password of Person'
-     */
-    private function authenicateUserfromModel($username, $password)
-    {
-        $personModel=new PersonModel();
-        $this->IsAuthenticated = $personModel->
-                authenticateUser($username,$password);
-        return $this->IsAuthenticated;
-    }
-    /**
      * checks whether user is authenticated or not
      *
      * @return Boolean whether ture or false, depends on authentication
@@ -84,46 +68,46 @@ class OauthController
      */
     public function loginUserAction($request)
     {
-        $io=  IOAdapter::getInstance();
-        if ($this->numberOfWrongAttempts >= intval(3)) {
-            $io->makeOutput("\033[01;31m  Maximum Wrong Authentication"
-                    . " Limited Reached!!! \033[0m".PHP_EOL);
-            exit(1);
-        } else if ($this->numberOfWrongAttempts == intval(0)) {
-            $viewObject = new View();
-            $request['View'] = "welcome.php";
-            $response = $viewObject->render($request['View'],
-                    $request['controller'],NULL);
-            $this->showResponse($response);
-        }
+        $io = IOAdapter::getInstance();
+        $personModel = new PersonModel();
 
-        $IOAdapterObject = IOAdapter::getInstance();
-        $username = $IOAdapterObject->getInput();
-        $io->makeOutput( "\033[01;37m >> Please Enter Your Password: "
-                         . "\033[0m");
-        $password = $IOAdapterObject->getInput();
-       
-        $chk = $this->authenicateUserfromModel($username, $password);
-
-        if ($chk) {
-            echo '' . PHP_EOL;
-            $request['controller']="Person";
-            $request['action']="showMainMenu";
-            $frontControllerObject = FrontController::getInstance();
-            $frontControllerObject->direct($request);
-        } else {
-            $io->makeOutput("\033[01;31m Error: Wrong username or "
-                             . "Password \033[0m" . PHP_EOL);
-            $this->numberOfWrongAttempts = $this->numberOfWrongAttempts
-                    + intval(1);
-            if($this->numberOfWrongAttempts<3)
-            {
-                
-            $io->makeOutput( "\033[01;37m >> Please Enter Your User Name : "
-                             . "\033[0m");
+        do {
+            $chk = false;
+            if ($this->numberOfWrongAttempts >= intval(3)) {
+                $io->makeOutput("\033[01;31m  Maximum Wrong Authentication"
+                        . " Limited Reached!!! \033[0m" . PHP_EOL);
+                exit(1);
+            } else if ($this->numberOfWrongAttempts == intval(0)) {
+                $viewObject = new View();
+                $viewObject->setScript("welcome.php");
+                $response = $viewObject->render($request['controller'], NULL);
+                $this->showResponse($response);
             }
-            $this->loginUserAction($request);
-        }
+
+            $IOAdapterObject = IOAdapter::getInstance();
+            $username = $IOAdapterObject->getInput();
+            $io->makeOutput("\033[01;37m >> Please Enter Your Password: "
+                    . "\033[0m");
+            $password = $IOAdapterObject->getInput();
+
+            $chk = $personModel->authenticateUser($username, $password);
+
+            if ($chk) {
+                echo '' . PHP_EOL;
+                $request['controller'] = "Person";
+                $request['action'] = "showMainMenu";
+                $frontControllerObject = FrontController::getInstance();
+                $frontControllerObject->direct($request);
+            } else {
+                $io->makeOutput("\033[01;31m Error: Wrong username or "
+                        . "Password \033[0m" . PHP_EOL);
+                $this->numberOfWrongAttempts = $this->numberOfWrongAttempts + intval(1);
+                if ($this->numberOfWrongAttempts < 3) {
+                    $io->makeOutput("\033[01;37m >> Please Enter Your User Name : "
+                            . "\033[0m");
+                }
+            }
+        } while (!$chk);
     }
     /**
      * Login user action function that will call the view object.
@@ -132,9 +116,8 @@ class OauthController
      */
     public function getRequest($request)
     {
-        $actionName=$request['action'].'Action';
+        $actionName = $request['action'] . 'Action';
         $this->$actionName($request);
-        
     }
     /**
      * Displays the response of the view Script

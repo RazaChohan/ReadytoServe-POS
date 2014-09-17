@@ -31,10 +31,6 @@ class PersonController
      * @var string 'password of user trying to login'
      */
     private $password;
-    /**
-     * @var view 'View class object'
-     */
-    private $personModel;
 
     /**
      *
@@ -43,7 +39,6 @@ class PersonController
     public function __construct()
     {
         $this->view = new View();
-        $this->personModel = new personModel();
     }
     /**
      *
@@ -105,18 +100,16 @@ class PersonController
         $personType = PersonModel::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();
         $IOAdapterObject->makeOutput("\033[01;32m You Are Loged In "
-                            . "Successfully \033[0m".PHP_EOL);
+                . "Successfully \033[0m" . PHP_EOL);
         $response = null;
         if ($personType === "Salesperson") {
-            $request['View'] = "salesPersonMainMenu.php";
-            $response = $viewObject->render($request['View'], 
-                    $request['controller'],NULL);
+            $viewObject->setScript("salesPersonMainMenu.php");
+            $response = $viewObject->render($request['controller'], NULL);
             $this->showResponse($response);
             $this->getSalesmanSelection();
         } else if ($personType === "Admin") {
-            $request['View'] = "adminMainMenu.php";
-            $response = $viewObject->render($request['View'], 
-                                            $request['controller'],NULL);
+            $viewObject->setScript("adminMainMenu.php");
+            $response = $viewObject->render($request['controller'], NULL);
             $this->showResponse($response);
             $this->getAdminSelection();
         }
@@ -139,31 +132,28 @@ class PersonController
     {
         $IOAdapterObject = IOAdapter::getInstance();
         $frontControllerObject = FrontController::getInstance();
-        $request=array();
-        
+        $request = array();
+
         do {
             $iteration = false;
             $IOAdapterObject->makeOutput("\033[01;37m >> Please Enter Your Choice"
                     . " :\033[0m");
             $choice = $IOAdapterObject->getInput();
-            
+
             if (intval($choice) == intval(1)) {
                 echo "Manage Products";
-                 $request['controller']="Product";
-                 $request['action']="manageProducts";
-                 $frontControllerObject->direct($request);
+                $request['controller'] = "Product";
+                $request['action'] = "manageProducts";
+                $frontControllerObject->direct($request);
             } else if (intval($choice) == intval(2)) {
                 echo "2 selected";
-                
             } else if (intval($choice) == intval(3)) {
-                   $request['controller']="Order";
-                   $request['action']="viewAllOrders";
-                   $frontControllerObject->direct($request);
-
+                $request['controller'] = "Order";
+                $request['action'] = "viewAllOrders";
+                $frontControllerObject->direct($request);
             } else if (similar_text($choice, 'x') == intval(1) ||
                     similar_text($choice, 'X') == intval(1)) {
                 echo "4 selected";
-                
             } else {
                 echo $choice;
                 echo similar_text($choice, 'x');

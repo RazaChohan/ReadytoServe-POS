@@ -6,7 +6,6 @@
  * @package Ready2Serve
  * @version 1.0
  */
-
 /**
  * prompts user to input
  * 
@@ -22,7 +21,6 @@ class IOAdapter
     /*
      * @var IOAdapter $handler the signle object of IOAdapter
      */
-
     private static $handler;
 
     /**
@@ -38,7 +36,6 @@ class IOAdapter
         $input = fgets(STDIN);
         return $input;
     }
-
     /**
      * returns the object of IOAdapter class
      * 
@@ -54,7 +51,6 @@ class IOAdapter
         }
         return self::$handler;
     }
-
     /**
      * shows output
      * 
@@ -66,12 +62,10 @@ class IOAdapter
     {
         echo $output;
     }
-
     /*
      * Checks for the Operating System and clears the screen
      * 
      */
-
     public static function clearScreen()
     {
         if (PHP_OS === 'Linux') {
@@ -80,7 +74,6 @@ class IOAdapter
             passthru('cls');
         }
     }
-
     /**
      * gets input from user
      * 
@@ -95,16 +88,20 @@ class IOAdapter
      */
     public function getSelection($msg, $array)
     {
-        $io = IOAdapter::getInstance();
-        while (true) {
-            $io->makeOutput($msg);
-            $input = $io->getInput();
-            $chk = array_key_exists($input, $array);
-            if ($chk) {
-                $value = $array[$input];
-                return $value;
+        do {
+            $isNotCorrectSelection=false;
+            $io = IOAdapter::getInstance();
+            while (true) {
+                $io->makeOutput($msg);
+                $input = $io->getInput();
+                $chk = array_key_exists($input, $array);
+                if ($chk) {
+                    $value = $array[$input];
+                    return $value;
+                } else {
+                    $isNotCorrectSelection=true;
+                }
             }
-        }
+        } while ($isNotCorrectSelection);
     }
-
 }

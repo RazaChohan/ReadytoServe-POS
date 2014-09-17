@@ -19,7 +19,10 @@ class View
      * @var array associative array to store key value pares
      */
     private static $data = array();
-
+    /*
+     * @var string string containing name of current script to render
+     */
+    private $currentScript = NULL;
     /**
      * Executes specifc view script
      *
@@ -43,9 +46,9 @@ class View
      *
      * @access public
      */
-    public function render($viewScript, $controller,$param)
+    public function render($controller,$param)
     {
-        $completePath = $this->setViewScriptPath($viewScript, $controller);
+        $completePath = $this->setViewScriptPath($this->currentScript, $controller);
         ob_start();
         include $completePath;
         $contents = ob_get_contents();
@@ -76,5 +79,16 @@ class View
     public function __get($key)
     {
         return self::$data[$key];
+    }
+    /*
+     * sets the name of view script that needs to be rendered
+     * 
+     * 
+     * 
+     * @param string $scriptName      view script name
+     */
+    public function setScript($scriptName)
+    {
+        $this->currentScript=$scriptName; 
     }
 }
