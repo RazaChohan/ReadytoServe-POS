@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains definition of Oauth Controller class namely OauthController
  * 
@@ -23,11 +22,6 @@
  */
 class OauthController
 {
-    
-    /**
-     * @var object 'Object of Order Model Class'
-     */
-    private $personModel;
     /**
      * @var Boolean 'Is user Authenticated'
      */
@@ -42,7 +36,6 @@ class OauthController
      */
     public function __construct()
     {
-        $this->personModel = new PersonModel();
         $this->numberOfWrongAttempts = intval(0);
     }
     /**
@@ -68,7 +61,8 @@ class OauthController
      */
     private function authenicateUserfromModel($username, $password)
     {
-        $this->IsAuthenticated = $this->personModel->
+        $personModel=new PersonModel();
+        $this->IsAuthenticated = $personModel->
                 authenticateUser($username,$password);
         return $this->IsAuthenticated;
     }
@@ -138,9 +132,9 @@ class OauthController
      */
     public function getRequest($request)
     {
-        if ($request['action'] === "loginUser") {
-            $this->loginUserAction($request);
-        }
+        $actionName=$request['action'].'Action';
+        $this->$actionName($request);
+        
     }
     /**
      * Displays the response of the view Script
