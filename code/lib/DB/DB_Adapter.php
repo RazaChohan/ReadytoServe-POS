@@ -84,7 +84,7 @@ class DB_Adapter
     {
         if ($this->connection == NULL) {
             $this->connection = new mysqli("localhost", "root", "coeus123", 
-                                           "Ready2Serve");
+                                           "Ready2ServeDB");
             if (mysqli_connect_errno()) {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
