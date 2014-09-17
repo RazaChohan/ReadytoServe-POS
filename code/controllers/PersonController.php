@@ -112,6 +112,7 @@ class PersonController
             $response = $viewObject->render($request['View'], 
                     $request['controller'],NULL);
             $this->showResponse($response);
+            $this->getSalesmanSelection();
         } else if ($personType === "Admin") {
             $request['View'] = "adminMainMenu.php";
             $response = $viewObject->render($request['View'], 
@@ -180,6 +181,5 @@ class PersonController
     public function getSalesmanSelection()
     {
         echo " >> Please Enter Your Choice : ";
-        echo $response;
     }
 }
