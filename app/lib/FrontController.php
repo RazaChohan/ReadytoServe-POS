@@ -1,11 +1,10 @@
 <?php
-/*
+/**
  * This file contains implementation of FrontController class
  * 
  * @package ready2Serve
  * @version 1.0
  */
-
 /**
  * A centralized access point for request handling.
  *
@@ -23,10 +22,6 @@ class FrontController
   * @var FrontController an instance of FrontController Class
   */
   private static $instance = null;
-  /**
-  * @var array a string array containing complete path of request 
-  */
-  private $request = null;
   /**
   * contructs an instance of front controller
   * 
@@ -63,7 +58,6 @@ class FrontController
   {
       $this->dispatchRequest($request);
   }
-  
   /**
   * Dispatches request to dispatcher
   *
