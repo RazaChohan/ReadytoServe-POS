@@ -23,6 +23,7 @@
  */
 class OauthController
 {
+    
     /**
      * @var object 'Object of Order Model Class'
      */
@@ -67,9 +68,8 @@ class OauthController
      */
     private function authenicateUserfromModel($username, $password)
     {
-        $this->IsAuthenticated = $this->personModel->authenticateUser($username,
-                                                                      $password);
-        
+        $this->IsAuthenticated = $this->personModel->
+                authenticateUser($username,$password);
         return $this->IsAuthenticated;
     }
     /**
@@ -90,19 +90,22 @@ class OauthController
      */
     public function loginUserAction($request)
     {
+        $io=  IOAdapter::getInstance();
         if ($this->numberOfWrongAttempts >= intval(3)) {
-            echo "Maximum Wrong Authentication Limited Reached!!!".PHP_EOL;
+            $io->makeOutput("\033[01;31m  Maximum Wrong Authentication"
+                    . " Limited Reached!!! \033[0m".PHP_EOL);
             exit(1);
         } else if ($this->numberOfWrongAttempts == intval(0)) {
             $viewObject = new View();
             $request['View'] = "welcome.php";
-            $response = $viewObject->render($request['View'], $request['controller']);
+            $response = $viewObject->render($request['View'],
+                    $request['controller']);
             $this->showResponse($response);
         }
 
         $IOAdapterObject = IOAdapter::getInstance();
         $username = $IOAdapterObject->getInput();
-        echo " >> Please Enter Your Enter Password:";
+        $io->makeOutput( ">> Please Enter Your Enter Password: ");
         $password = $IOAdapterObject->getInput();
        
         $chk = $this->authenicateUserfromModel($username, $password);
@@ -114,11 +117,12 @@ class OauthController
             $frontControllerObject = FrontController::getInstance();
             $frontControllerObject->direct($request);
         } else {
-            echo 'Error: Wrong username or Password' . PHP_EOL;
-            $this->numberOfWrongAttempts = $this->numberOfWrongAttempts + intval(1);
+            $io->makeOutput('Error: Wrong username or Password' . PHP_EOL);
+            $this->numberOfWrongAttempts = $this->numberOfWrongAttempts
+                    + intval(1);
             if($this->numberOfWrongAttempts<3)
             {
-            echo " >> Please Enter Your User Name : ";
+            $io->makeOutput( " >> Please Enter Your User Name : ");
             }
             $this->loginUserAction($request);
         }
