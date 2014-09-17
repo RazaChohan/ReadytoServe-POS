@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * This file contains implementation of Dispatcher
  * 
  * @package Ready2Serve
