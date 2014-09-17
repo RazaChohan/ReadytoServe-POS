@@ -37,8 +37,6 @@ class OauthController
     private $numberOfWrongAttempts;
 
     /**
-      /**
-     *
      * Constructor of class
      */
     public function __construct()
