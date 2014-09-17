@@ -20,11 +20,13 @@
  * @author Tayyab Hussain <tayyab.hussain@coeus-solutions.de>
  * @version 1.0
  */
+
 class DB_Adapter
 {
     /*
      * @var DBConnection of DB_Adapter class
      */
+
     private $connection;
     /*
      * @var instance of DB_Adapter class
@@ -37,10 +39,12 @@ class DB_Adapter
      * the constructor of DB_Adapter class is private because DB_Adapter is
      * singleton class and not to be instantiate from any other class
      */
+
     private function __construct()
     {
         
     }
+
     /*
      * returns the object of DB_Adapter class
      * 
@@ -49,6 +53,7 @@ class DB_Adapter
      *
      * @return DB_Adapter instance object of DB_Adapter class
      */
+
     public static function getInstance()
     {
         if (self::$instance == NULL) {
@@ -56,22 +61,24 @@ class DB_Adapter
         }
         return self::$instance;
     }
+
     /*
-     * fetches all the records from database
+     * executes a query
      * 
-     * this function fetches all the records from the database on the basis of 
-     * sql query
+     * this functiontakes a query, execute it and returns the result
      *
      * @param  String $query sql query 
      * 
-     * @return array  array containing the resultset
+     * @return array  $result containing the resultset
      */
-    public function fetchAll($query)
+
+    public function executeQuery($query)
     {
-        $result = mysqli_query($this->connection,$query);
+        $result = mysqli_query($this->connection, $query);
         // associative array contains all table data
         return $result;
     }
+
     /*
      * creates connection with database
      * 
@@ -80,18 +87,69 @@ class DB_Adapter
      * 
      * @return DBConnection  connection to database
      */
+
     public function getConnection()
     {
         if ($this->connection == NULL) {
-            $this->connection = new mysqli("localhost", "root", "coeus123", 
-                                           "Ready2ServeDB");
+            $this->connection = new mysqli("localhost", "root", "coeus123", "Ready2ServeDB");
             if (mysqli_connect_errno()) {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
         }
         return $this->connection;
     }
+
     /*
+     * fetches all the records from database
+     * 
+     * this function fetches all the records from the database on the basis of 
+     * sql query
+     *
+     * @param  String $query sql query 
+     * 
+     * @return array  $result containing the resultset
+     */
+
+    public function fetchAll($query)
+    {
+        $result = mysqli_query($this->connection, $query);
+        return $result;
+    }
+
+    /**
+     * returns an array
+     * 
+     * this function accepts a query and returns a single row as an array
+     * 
+     * @param String $query sql query
+     * 
+     * @return array $row single row as an array
+     */
+    public function fetchRow($query)
+    {
+        $result = mysqli_query($this->connection, $query);
+        $row = mysql_fetch_array($result);
+        return $row;
+    }
+    
+    /**
+     * fetchs single value
+     * 
+     * this function takes a sql query and colomn name as a key and returns a
+     * single value from table
+     * 
+     * @param String $query sql query
+     * @param String $key Colomn name
+     * 
+     * @return String single value to be returned
+     */
+    public function fetchOne($query,$key){
+        $result = mysqli_query($this->connection, $query);
+        $row = mysql_fetch_array($result);
+        return $row[$key];
+    }
+
+        /**
      * closes the connection with database
      * 
      * this function closes the coonection with data base
@@ -100,4 +158,5 @@ class DB_Adapter
     {
         $this->connection->close();
     }
+
 }
