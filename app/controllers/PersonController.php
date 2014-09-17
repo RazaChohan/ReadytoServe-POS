@@ -84,9 +84,8 @@ class PersonController
      */
     public function getRequest($request)
     {
-        if ($request['action'] === "showMainMenu") {
-            $this->showMainMenuAction($request);
-        }
+        $actionName = $request['action'] . 'Action';
+        $this->$actionName($request);
     }
     /**
      * Displays Menu Depending Upon the Type of user.
@@ -132,8 +131,8 @@ class PersonController
     {
         $IOAdapterObject = IOAdapter::getInstance();
         $frontControllerObject = FrontController::getInstance();
-        $request = array();
-
+//        $menu=array('1'=>"Manage Products",
+//                    '2'    )
         do {
             $iteration = false;
             $IOAdapterObject->makeOutput("\033[01;37m >> Please Enter Your Choice"
@@ -141,16 +140,15 @@ class PersonController
             $choice = $IOAdapterObject->getInput();
 
             if (intval($choice) == intval(1)) {
-                echo "Manage Products";
-                $request['controller'] = "Product";
-                $request['action'] = "manageProducts";
-                $frontControllerObject->direct($request);
+             $frontControllerObject->direct(array(
+                                'controller'=>"Product",
+                                'action'=>'manageProducts'));
             } else if (intval($choice) == intval(2)) {
                 echo "2 selected";
             } else if (intval($choice) == intval(3)) {
-                $request['controller'] = "Order";
-                $request['action'] = "viewAllOrders";
-                $frontControllerObject->direct($request);
+                  $frontControllerObject->direct(array(
+                                'controller'=>"Order",
+                                'action'=>'viewAllOrders'));
             } else if (similar_text($choice, 'x') == intval(1) ||
                     similar_text($choice, 'X') == intval(1)) {
                 echo "4 selected";

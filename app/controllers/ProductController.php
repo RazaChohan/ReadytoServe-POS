@@ -23,15 +23,6 @@
 class ProductController
 {
     /**
-     * @var object 'Object of product Model Class'
-     */
-    private $productModel;
-    /**
-     * @var view 'View class object'
-     */
-    private $view;
-
-    /**
      *
      * Constructor of class
      * @access public
@@ -39,7 +30,6 @@ class ProductController
     public function __construct()
     {
         $this->view = new View();
-        $this->productModel = new ProductModel();
     }
     /**
      *
@@ -165,9 +155,8 @@ class ProductController
      */
     public function getRequest($request)
     {
-        if ($request['action'] === "manageProducts") {
-            $this->manageProductsAction($request);
-        }
+        $actionName = $request['action'] . 'Action';
+        $this->$actionName($request);
     }
     /**
      * Manage Products Action
@@ -177,9 +166,9 @@ class ProductController
     private function manageProductsAction($request)
     {
         IOAdapter::clearScreen();
-        $request['View'] = "manageProduct.php";
-        $response = $this->view->render($request['View'],
-                                        $request['controller'],NULL);
+        $viewObject=new View();
+        $viewObject->setScript("manageProduct.php");
+        $response = $viewObject->render($request['controller'],NULL);
         $this->showResponse($response);
     }
       /**

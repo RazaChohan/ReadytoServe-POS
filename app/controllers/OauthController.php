@@ -94,10 +94,10 @@ class OauthController
 
             if ($chk) {
                 echo '' . PHP_EOL;
-                $request['controller'] = "Person";
-                $request['action'] = "showMainMenu";
                 $frontControllerObject = FrontController::getInstance();
-                $frontControllerObject->direct($request);
+                $frontControllerObject->direct(array(
+                                'controller'=>"Person",
+                                'action'=>'showMainMenu'));
             } else {
                 $io->makeOutput("\033[01;31m Error: Wrong username or "
                         . "Password \033[0m" . PHP_EOL);
