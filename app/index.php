@@ -11,10 +11,6 @@ include 'Autoloader.php';
  */
 Autoloader::run();
    
-$frontControllerObject = FrontController::getInstance();
-$request=array();
-$request['controller']="Oauth";
-$request['action']="loginUser";
-$frontControllerObject->direct($request);
-
-
+$frontControllerObject = FrontController::getInstance()->direct(array(
+                                'controller'=>"Oauth",
+                                'action'=>'loginUser'));
