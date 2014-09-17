@@ -1,5 +1,23 @@
 <?php
-
+/**
+* Contains implementation of PersonModel class.
+* 
+* This file contains the implementaion of PersonModel class
+* @category Training/Learning PHP
+* @package Ready2Serve
+* @version v 1.0
+*/
+/**
+ * Contains Oauth Controller class
+ *
+ * This Class gets a specific request from the Dispatcher class
+ * and performs functions according to the request.
+ * 
+ * @package Ready2Serve
+ * @author Muhammad Raza <muhammad.raza@coeus-solutions.de>
+ * @category Training/Learning PHP
+ * @version v 1.0
+ */
 class PersonModel
 {
     private static $personType=null;
