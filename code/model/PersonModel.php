@@ -1,5 +1,4 @@
-<?php
-    
+<?php   
 /*
  * Contains implementation of PersonModel class.
  * 
@@ -18,7 +17,6 @@
  * @category Training/Learning PHP
  * @version v 1.0
  */
-
 class PersonModel
 {
     

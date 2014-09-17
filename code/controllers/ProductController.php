@@ -39,7 +39,7 @@ class ProductController
     public function __construct()
     {
         $this->view = new View();
-        $this->productModel = new productModel();
+        $this->productModel = new ProductModel();
     }
     /**
      *
@@ -157,5 +157,38 @@ class ProductController
     public function setProductItems($productID)
     {
         
+    }
+    /**
+     * gets the request from callee.
+     * 
+     * @access public
+     */
+    public function getRequest($request)
+    {
+        if ($request['action'] === "manageProducts") {
+            $this->manageProductsAction($request);
+        }
+    }
+    /**
+     * Manage Products Action
+     * 
+     * @access private
+     */
+    private function manageProductsAction($request)
+    {
+        IOAdapter::clearScreen();
+        $request['View'] = "manageProduct.php";
+        $response = $this->view->render($request['View'],
+                                        $request['controller'],NULL);
+        $this->showResponse($response);
+    }
+      /**
+     * Displays the response of the view script.
+     * 
+     * @access public
+     */
+    public function showResponse($response)
+    {
+        echo $response;
     }
 }

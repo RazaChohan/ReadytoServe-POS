@@ -38,7 +38,7 @@ class OrderController
     public function __construct()
     {
         $this->view=new View();
-        $this->orderModel=new orderModel();
+        $this->orderModel=new OrderModel();
     }
     /**
      *
@@ -62,6 +62,41 @@ class OrderController
     public function getOrderLineItems($orderID)
     {
         
+    }
+    /**
+     * Displays all orders using view script
+     * 
+     * @access private
+     */
+    private function viewAllOrdersAction($request)
+    {
+        //IOAdapter::clearScreen();
+        echo "view all orders action".PHP_EOL;
+        $this->orderModel->getAllOrders();
+        $request['View'] = "viewAllOrders.php";
+        $response = $this->view->render($request['View'],
+                                        $request['controller'],NULL);
+        $this->showResponse($response);
+    }
+    /**
+     * Displays the response of the view script.
+     * 
+     * @access public
+     */
+    public function showResponse($response)
+    {
+        echo $response;
+    }
+    /**
+     * gets the request from callee.
+     * 
+     * @access public
+     */
+    public function getRequest($request)
+    {
+        if ($request['action'] === "viewAllOrders") {
+            $this->viewAllOrdersAction($request);
+        }
     }
     
 }

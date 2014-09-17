@@ -99,7 +99,7 @@ class OauthController
             $viewObject = new View();
             $request['View'] = "welcome.php";
             $response = $viewObject->render($request['View'],
-                    $request['controller']);
+                    $request['controller'],NULL);
             $this->showResponse($response);
         }
 
@@ -112,8 +112,6 @@ class OauthController
         $chk = $this->authenicateUserfromModel($username, $password);
 
         if ($chk) {
-            $io->makeOutput("\033[01;32m You Are Loged In "
-                            . "Successfully \033[0m".PHP_EOL);
             echo '' . PHP_EOL;
             $request['controller']="Person";
             $request['action']="showMainMenu";

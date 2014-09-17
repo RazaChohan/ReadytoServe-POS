@@ -58,6 +58,10 @@ class IOAdapter{
     public function makeOutput($output){
         echo $output;
     }
+     /*
+     * Checks for the Operating System and clears the screen
+     * 
+     */
     
     public static function clearScreen()
     {

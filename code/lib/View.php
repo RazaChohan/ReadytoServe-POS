@@ -43,7 +43,7 @@ class View
      *
      * @access public
      */
-    public function render($viewScript, $controller)
+    public function render($viewScript, $controller,$param)
     {
         $completePath = $this->setViewScriptPath($viewScript, $controller);
         ob_start();

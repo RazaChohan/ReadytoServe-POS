@@ -25,14 +25,21 @@ class Dispatcher
      */
     private function getController($request)
     {
-         if ($request['controller'] === "Oauth") {
+        if ($request['controller'] === "Oauth") {
             $controller=new OauthController();
         }
-        if ($request['controller'] === "Person") {
+        else if ($request['controller'] === "Person") {
             $controller=new PersonController();
+        }
+        else if ($request['controller'] === "Order") {
+            $controller=new OrderController();
+        }
+        else if ($request['controller'] === "Product") {
+            $controller=new ProductController();
             
         }
         return $controller;
+        
     }
     /**
      * Dispatches the request to its relative controller

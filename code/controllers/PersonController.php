@@ -109,11 +109,13 @@ class PersonController
         $response = null;
         if ($personType === "Salesperson") {
             $request['View'] = "salesPersonMainMenu.php";
-            $response = $viewObject->render($request['View'], $request['controller']);
+            $response = $viewObject->render($request['View'], 
+                    $request['controller'],NULL);
             $this->showResponse($response);
         } else if ($personType === "Admin") {
             $request['View'] = "adminMainMenu.php";
-            $response = $viewObject->render($request['View'], $request['controller']);
+            $response = $viewObject->render($request['View'], 
+                                            $request['controller'],NULL);
             $this->showResponse($response);
             $this->getAdminSelection();
         }
@@ -143,19 +145,24 @@ class PersonController
             $IOAdapterObject->makeOutput("\033[01;37m >> Please Enter Your Choice"
                     . " :\033[0m");
             $choice = $IOAdapterObject->getInput();
+            
             if (intval($choice) == intval(1)) {
-                echo "1 selected";
+                echo "Manage Products";
+                 $request['controller']="Product";
+                 $request['action']="manageProducts";
+                 $frontControllerObject->direct($request);
             } else if (intval($choice) == intval(2)) {
                 echo "2 selected";
+                
             } else if (intval($choice) == intval(3)) {
                    $request['controller']="Order";
                    $request['action']="viewAllOrders";
                    $frontControllerObject->direct($request);
-   
-           
+
             } else if (similar_text($choice, 'x') == intval(1) ||
                     similar_text($choice, 'X') == intval(1)) {
                 echo "4 selected";
+                
             } else {
                 echo $choice;
                 echo similar_text($choice, 'x');
