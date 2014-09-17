@@ -19,28 +19,11 @@
  */
 class PersonModel
 {
-    
-    /*
-     * @var string $personType to store type of person admin/salesman
-     */
-    private static $personType=null;
-    /*
+   /*
      * @var Boolean $isAuthenticated to keep the record about authentication
      */
     private $isAuthenticated;
-    /*
-     * returns the type of person
-     * 
-     * this is a static function which returns the type of person which can be
-     * either salesman or admin
-     * 
-     * @return string $personType type of person
-     */
-    public static function getPersonType()
-    {
-        return self::$personType;
-    }
-    /*
+   /*
      * authenticates the person
      * 
      * this function takes username and password and authenticate if username
@@ -63,7 +46,10 @@ class PersonModel
             $result = $dba->fetchAll($query);
             $row = mysqli_fetch_array($result);
             if (count($row)>0) {
-                self::$personType=$row['person_type'];
+                
+                Auth::setAuthDataMembers($row['username'],
+                                         $row['person_type'],
+                                         TRUE);
                 $this->isAuthenticated=true;
                 return true;
             }

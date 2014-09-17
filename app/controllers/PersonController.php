@@ -96,7 +96,7 @@ class PersonController
     {
         IOAdapter::clearScreen();
         $viewObject = new View();
-        $personType = PersonModel::getpersonType();
+        $personType = Auth::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();
         $IOAdapterObject->makeOutput("\033[01;32m You Are Loged In "
                 . "Successfully \033[0m" . PHP_EOL);
