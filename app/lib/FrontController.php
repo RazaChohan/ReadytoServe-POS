@@ -79,14 +79,4 @@ class FrontController
   {
       $this->dispatcher->dispatch($request);    
   } 
-  /**
-  * Prints/dumps the response and clears it afterwards
-  *
-  * @access public
-  * 
-  */
-  public function getResponse($response)
-  {
-      echo $response.PHP_EOL;
-  }
 }
