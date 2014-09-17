@@ -60,7 +60,8 @@ class PersonModel
             
             $query = "SELECT person_type, username, DES_DECRYPT(password)"
                     . "from person where username='" . $userName . "'"
-                    . "AND DES_DECRYPT(password)='" . $passWord . "'";            
+                    . "AND DES_DECRYPT(password)='" . $passWord . "'";  
+            
             $result = $dba->fetchAll($query);
             $row = mysqli_fetch_array($result);
             if (count($row)>0) {

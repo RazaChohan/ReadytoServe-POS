@@ -105,24 +105,30 @@ class OauthController
 
         $IOAdapterObject = IOAdapter::getInstance();
         $username = $IOAdapterObject->getInput();
-        $io->makeOutput( ">> Please Enter Your Enter Password: ");
+        $io->makeOutput( "\033[01;37m >> Please Enter Your Password: "
+                         . "\033[0m");
         $password = $IOAdapterObject->getInput();
        
         $chk = $this->authenicateUserfromModel($username, $password);
 
         if ($chk) {
-            echo 'You Are Loged In Successfully' . PHP_EOL;
+            $io->makeOutput("\033[01;32m You Are Loged In "
+                            . "Successfully \033[0m".PHP_EOL);
+            echo '' . PHP_EOL;
             $request['controller']="Person";
             $request['action']="showMainMenu";
             $frontControllerObject = FrontController::getInstance();
             $frontControllerObject->direct($request);
         } else {
-            $io->makeOutput('Error: Wrong username or Password' . PHP_EOL);
+            $io->makeOutput("\033[01;31m Error: Wrong username or "
+                             . "Password \033[0m" . PHP_EOL);
             $this->numberOfWrongAttempts = $this->numberOfWrongAttempts
                     + intval(1);
             if($this->numberOfWrongAttempts<3)
             {
-            $io->makeOutput( " >> Please Enter Your User Name : ");
+                
+            $io->makeOutput( "\033[01;37m >> Please Enter Your User Name : "
+                             . "\033[0m");
             }
             $this->loginUserAction($request);
         }

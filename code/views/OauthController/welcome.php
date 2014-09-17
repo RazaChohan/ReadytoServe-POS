@@ -6,4 +6,4 @@ echo "---------- Welcome to 'Ready To Server' ---------".PHP_EOL;
 echo "-------------------------------------------------".PHP_EOL;
 echo "".PHP_EOL;
 echo "---------- <<LOGIN>> ---------".PHP_EOL;
-echo " >> Please Enter Your User Name : ";
+echo "\033[01;37m >> Please Enter Your User Name : \033[0m";
