@@ -59,5 +59,17 @@ class IOAdapter{
         echo $output;
     }
     
+    public static function clearScreen()
+    {
+        if(PHP_OS==='Linux')
+        {
+            passthru('clear');
+        }
+        else if(PHP_OS==='Windows')
+        {
+            passthru('cls');
+        }
+    }
+    
 }
 
