@@ -160,6 +160,8 @@ class PersonController
     }
     /**
      * edits the password of user
+     * 
+     * @param string $request 'Requet to Action'
      */
     public function editAccountInfoAction($request)
     {
