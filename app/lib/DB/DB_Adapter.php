@@ -128,7 +128,7 @@ class DB_Adapter
     public function fetchRow($query)
     {
         $result = mysqli_query($this->connection, $query);
-        $row = mysql_fetch_array($result);
+        $row = mysqli_fetch_array($result);
         return $row;
     }
     
@@ -145,7 +145,7 @@ class DB_Adapter
      */
     public function fetchOne($query,$key){
         $result = mysqli_query($this->connection, $query);
-        $row = mysql_fetch_array($result);
+        $row = mysqli_fetch_array($result);
         return $row[$key];
     }
 
