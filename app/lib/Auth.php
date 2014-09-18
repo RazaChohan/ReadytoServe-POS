@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains definition of Auth Class
  * 
@@ -9,6 +10,7 @@
  * @package Ready2Serve
  * @version v 1.0
  */
+
 /**
  * Contains Auth class
  *
@@ -25,15 +27,17 @@ class Auth
     /*
      * @var string $userName 'userName of user loggedIn'
      */
-    private static $userName=null;
+
+    private static $userName = null;
     /*
      * @var string $personType 'Type of person logged in (Admin or Salesperson'
      */
-    private static $personType=null;
+    private static $personType = null;
     /*
      * @var Boolean $isAuthenticated 'whether user is authenticated or not'
      */
-    private static $isAuthenticated=false;
+    private static $isAuthenticated = false;
+
     /**
      * sets class Data members.
      * 
@@ -44,10 +48,11 @@ class Auth
      */
     public static function setAuthDataMembers($uName, $pType, $isAuth)
     {
-        self::$userName=$uName;
-        self::$personType=$pType;
-        self::$isAuthenticated=$isAuth;
+        self::$userName = $uName;
+        self::$personType = $pType;
+        self::$isAuthenticated = $isAuth;
     }
+
     /**
      * sets class Data members.
      * 
@@ -60,4 +65,10 @@ class Auth
     {
         return self::$personType;
     }
+
+    public static function getUserName()
+    {
+        return self::$userName;
+    }
+
 }
