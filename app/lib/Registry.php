@@ -51,7 +51,7 @@ class Registry
      */
     public function __set($key, $value)
     {
-        $this->$data[$key] = $value;
+        $this->data[$key] = $value;
     }
     /*
      * gets value of a variable
@@ -65,7 +65,7 @@ class Registry
      */
     public function __get($key)
     {
-        $this->$data[$key];
+        $this->data[$key];
     }
     /*
      * returns the object of Registry class
