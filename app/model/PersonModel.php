@@ -38,8 +38,7 @@ class PersonModel
 
     public function authenticateUser($userName, $passWord)
     {
-        $userName = trim($userName);
-        $passWord = trim($passWord);
+        
         $dba = DB_Adapter::getInstance();
         $con = $dba->getConnection();
         if ($con) {
@@ -62,11 +61,12 @@ class PersonModel
 
     public function updatePassword($newPassword)
     {
+        echo $newPassword.'NEW->>>>>>>>>>>>>>>>>>'.Auth::getUserName();
         $reg = Registry::getInstance();
-        //echo 'old '.$reg->logedInPassword.' new  '.$newPassword;
-        $query = "update person set password = DES_ENCRYPT('" . $newPassword . "') 
-		where password = DES_ENCRYPT('" . $reg->logedInPassword . "')";
-        //update person set password = DES_ENCRYPT('qwe') where password = DES_ENCRYPT('abc');	
+        //$query = "update person set password = DES_ENCRYPT('" . $newPassword . "') 
+	//	where username = '".Auth::getUserName()."';";
+        $query = "update person set password = DES_ENCRYPT('".$newPassword."')"
+                . " where username = '".AUTH::getUserName()."'";
         $dba = DB_Adapter::getInstance();
         $dba->executeQuery($query);
     }
