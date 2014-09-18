@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 INSERT INTO `order` (`order_id`, `salesman_id`, `order_datetime`) VALUES
 (5, 3, '2014-09-01 09:00:00'),
 (6, 3, '2014-09-01 12:00:00'),
-(7, 4, '2014-09-09 12:00:00'),
-(8, 4, '2014-09-09 14:00:00');
+(7, 3, '2014-09-09 12:00:00'),
+(8, 3, '2014-09-09 14:00:00');
 
 --
 -- Dumping data for table `order_line_item`

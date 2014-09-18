@@ -24,23 +24,6 @@
 class OrderController
 {
     /**
-     * @var view 'View class object'
-     */
-    public $view;
-    /**
-     * @var object 'Object of Order Model Class'
-     */
-    private $orderModel;
-    /**
-     *
-     * Constructor of class
-     */
-    public function __construct()
-    {
-        $this->view=new View();
-        $this->orderModel=new OrderModel();
-    }
-    /**
      *
      * Gets the values from respective model class and passes the view class by 
      * calling its specific function and passing data.
@@ -70,12 +53,12 @@ class OrderController
      */
     private function viewAllOrdersAction($request)
     {
-        //IOAdapter::clearScreen();
-        echo "view all orders action".PHP_EOL;
-        $this->orderModel->getAllOrders();
-        $request['View'] = "viewAllOrders.php";
-        $response = $this->view->render($request['View'],
-                                        $request['controller'],NULL);
+        $orderModelObject=new OrderModel();
+        $viewObject=new View();
+        IOAdapter::clearScreen();
+        $allOrders=$orderModelObject->getAllOrders();
+        $viewObject->setScript("viewAllOrders.php");
+        $response = $viewObject->render($request['controller'],$allOrders);
         $this->showResponse($response);
     }
     /**
