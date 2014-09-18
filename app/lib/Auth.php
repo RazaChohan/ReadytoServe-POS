@@ -71,4 +71,9 @@ class Auth
         return self::$userName;
     }
 
+    public static function isAuthentic()
+    {
+        return self::$isAuthenticated;
+    }
+
 }
