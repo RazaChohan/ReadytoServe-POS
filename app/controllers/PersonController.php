@@ -10,6 +10,7 @@
  * @package Ready2Serve
  * @version v 1.0
  */
+
 /**
  * Contains Person Controller class
  *
@@ -23,10 +24,12 @@
  */
 class PersonController
 {
+
     /**
      * @var string 'userName of user trying to login'
      */
     private $userName;
+
     /**
      * @var string 'password of user trying to login'
      */
@@ -40,6 +43,7 @@ class PersonController
     {
         $this->view = new View();
     }
+
     /**
      *
      * Gets the person type using Person Model Class
@@ -54,6 +58,7 @@ class PersonController
     {
         
     }
+
     /**
      *
      * sets the person Password using Product Model Class
@@ -66,6 +71,7 @@ class PersonController
     {
         
     }
+
     /**
      *
      * Gets the values from respective model class and passes the view class by 
@@ -77,6 +83,7 @@ class PersonController
     {
         
     }
+
     /**
      * gets the request from callee.
      * 
@@ -87,6 +94,7 @@ class PersonController
         $actionName = $request['action'] . 'Action';
         $this->$actionName($request);
     }
+
     /**
      * Displays Menu Depending Upon the Type of user.
      * 
@@ -105,7 +113,7 @@ class PersonController
             $viewObject->setScript("salesPersonMainMenu.php");
             $response = $viewObject->render($request['controller'], NULL);
             $this->showResponse($response);
-            $this->getSalesmanSelection();
+            $this->getSalesmanSelectionAction();
         } else if ($personType === "Admin") {
             $viewObject->setScript("adminMainMenu.php");
             $response = $viewObject->render($request['controller'], NULL);
@@ -113,6 +121,7 @@ class PersonController
             $this->getAdminSelection();
         }
     }
+
     /**
      * Displays the response of the view script.
      * 
@@ -122,6 +131,7 @@ class PersonController
     {
         echo $response;
     }
+
     /**
      * gets Admin Selection from Menu and calls the respective controller
      * 
@@ -140,15 +150,15 @@ class PersonController
             $choice = $IOAdapterObject->getInput();
 
             if (intval($choice) == intval(1)) {
-             $frontControllerObject->direct(array(
-                                'controller'=>"Product",
-                                'action'=>'manageProducts'));
+                $frontControllerObject->direct(array(
+                    'controller' => "Product",
+                    'action' => 'manageProducts'));
             } else if (intval($choice) == intval(2)) {
                 echo "2 selected";
             } else if (intval($choice) == intval(3)) {
-                  $frontControllerObject->direct(array(
-                                'controller'=>"Order",
-                                'action'=>'viewAllOrders'));
+                $frontControllerObject->direct(array(
+                    'controller' => "Order",
+                    'action' => 'viewAllOrders'));
             } else if (similar_text($choice, 'x') == intval(1) ||
                     similar_text($choice, 'X') == intval(1)) {
                 echo "4 selected";
@@ -161,13 +171,56 @@ class PersonController
             }
         } while ($iteration);
     }
+
     /**
      * gets Salesman Selection from Menu and calls the respective controller
      * 
      * @access public
      */
-    public function getSalesmanSelection()
+    public function getSalesmanSelectionAction()
     {
-        echo " >> Please Enter Your Choice : ";
+        $io = IOAdapter::getInstance();
+        $io->makeOutput('Enter your choice : ');
+        $choice = $io->getInput();
+        if (intval($choice) == intval(1)) {
+            echo "1 selected";
+        } else if (intval($choice) == intval(2)) {
+            echo "2 selected";
+            $fc = FrontController::getInstance();
+            $request['controller'] = 'Person';
+            $request['action'] = 'editAccountInfo';
+            $fc->direct($request);
+        } else if (intval($choice) == intval(3)) {
+            echo "3 selected";
+        }
     }
+    /**
+     * edits the password of user
+     */
+    public function editAccountInfoAction()
+    {
+        $dba = DB_Adapter::getInstance();
+        $rg = Registry::getInstance();
+        $io = IOAdapter::getInstance();
+        $v = new View();
+        $io->makeOutput($v->render("editAcountInfo.php", "Person"));
+        $io->makeOutput("\n >> Please Enter your new password : ");
+        $pass1 = $io->getInput();
+        $io->makeOutput("\n >> Please Re-enter your new password : ");
+        $pass2 = $io->getInput();
+        if ($pass1 === $pass2) {
+
+            $this->personModel->updatePassword($pass1);
+
+            $io->makeOutput("\n Password Updated");
+        } else {
+            $io->makeOutput("\n Password Doesn't match");
+        }
+        $request['controller'] = 'Person';
+        $request['action'] = 'showMainMenu';
+
+        $fc = FrontController::getInstance();
+        $fc->direct($request);
+    }
+
 }
