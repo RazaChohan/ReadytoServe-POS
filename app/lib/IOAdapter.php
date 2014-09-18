@@ -34,7 +34,7 @@ class IOAdapter
     public function getInput()
     {
         $input = fgets(STDIN);
-        return $input;
+        return trim($input);
     }
     /**
      * returns the object of IOAdapter class
