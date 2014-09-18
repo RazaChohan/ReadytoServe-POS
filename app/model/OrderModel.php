@@ -38,7 +38,7 @@ class OrderModel
             $query = "SELECT pr.name, od.order_id, od.order_datetime,
                       prd.product_description, odrline.unit_price,
                       odrline.quantity,odrline.discount, 
-                      (odrline.unit_price*odrline.quantity-odrline.discount) as Amount 
+                      (odrline.unit_price*odrline.quantity-(odrline.quantity*odrline.discount)) as Amount 
                       FROM `order` as od
                      JOIN  `person` as pr ON od.salesman_id=pr.person_id
                      JOIN order_line_item as odrline ON od.order_id=odrline.order_id
