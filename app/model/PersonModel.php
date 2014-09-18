@@ -24,9 +24,7 @@ class PersonModel
     /*
      * @var Boolean $isAuthenticated to keep the record about authentication
      */
-
     private $isAuthenticated;
-
     /*
      * authenticates the person
      * 
@@ -38,7 +36,6 @@ class PersonModel
 
     public function authenticateUser($userName, $passWord)
     {
-        
         $dba = DB_Adapter::getInstance();
         $con = $dba->getConnection();
         if ($con) {

@@ -113,7 +113,12 @@ class DB_Adapter
     public function fetchAll($query)
     {
         $result = mysqli_query($this->connection, $query);
-        return $result;
+        $result2=array();
+        // Fetch all
+        while($row = $result->fetch_assoc()){
+                array_push($result2,$row);
+        }
+        return $result2;
     }
 
     /**
