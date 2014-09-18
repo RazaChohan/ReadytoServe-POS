@@ -1,4 +1,5 @@
-<?php   
+<?php
+
 /*
  * Contains implementation of PersonModel class.
  * 
@@ -17,20 +18,24 @@
  * @category Training/Learning PHP
  * @version v 1.0
  */
+
 class PersonModel
 {
-   /*
+    /*
      * @var Boolean $isAuthenticated to keep the record about authentication
      */
+
     private $isAuthenticated;
-   /*
+
+    /*
      * authenticates the person
      * 
      * this function takes username and password and authenticate if username
      * and password is valid or not.
      * 
      * @return Boolen true if user valid otherwise false
-     */    
+     */
+
     public function authenticateUser($userName, $passWord)
     {
         $userName = trim($userName);
@@ -38,24 +43,32 @@ class PersonModel
         $dba = DB_Adapter::getInstance();
         $con = $dba->getConnection();
         if ($con) {
-            
+
             $query = "SELECT person_type, username, DES_DECRYPT(password)"
                     . "from person where username='" . $userName . "'"
-                    . "AND DES_DECRYPT(password)='" . $passWord . "'";  
-            
-            $result = $dba->fetchAll($query);
-            $row = mysqli_fetch_array($result);
-            if (count($row)>0) {
-                
-                Auth::setAuthDataMembers($row['username'],
-                                         $row['person_type'],
-                                         TRUE);
-                $this->isAuthenticated=true;
+                    . "AND DES_DECRYPT(password)='" . $passWord . "'";
+
+            $row = $dba->fetchRow($query);
+            if (count($row) > 0) {
+
+                Auth::setAuthDataMembers($row['username'], $row['person_type'], TRUE);
+                $this->isAuthenticated = true;
                 return true;
-            }
-            else {
+            } else {
                 return false;
-            }                
+            }
         }
-    }  
+    }
+
+    public function updatePassword($newPassword)
+    {
+        $reg = Registry::getInstance();
+        //echo 'old '.$reg->logedInPassword.' new  '.$newPassword;
+        $query = "update person set password = DES_ENCRYPT('" . $newPassword . "') 
+		where password = DES_ENCRYPT('" . $reg->logedInPassword . "')";
+        //update person set password = DES_ENCRYPT('qwe') where password = DES_ENCRYPT('abc');	
+        $dba = DB_Adapter::getInstance();
+        $dba->executeQuery($query);
+    }
+
 }
