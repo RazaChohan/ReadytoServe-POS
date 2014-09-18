@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Contains implementation of PersonModel class.
  * 
  * This file contains the implementaion of PersonModel class
@@ -8,7 +7,8 @@
  * @package Ready2Serve
  * @version v 1.0
  */
-/*
+
+/**
  * perfoms Person's actions and maps to the table in DB
  * 
  * This class performs action related to the Person model and maps the
@@ -33,25 +33,19 @@ class PersonModel
      * 
      * @return Boolen true if user valid otherwise false
      */
-
     public function authenticateUser($userName, $passWord)
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> 44884744050a0742dc7ecddd3a8a2b5133eb9684
         $dba = DB_Adapter::getInstance();
         $con = $dba->getConnection();
         if ($con) {
-
             $query = "SELECT person_type, username, DES_DECRYPT(password)"
                     . "from person where username='" . $userName . "'"
                     . "AND DES_DECRYPT(password)='" . $passWord . "'";
-
             $row = $dba->fetchRow($query);
             if (count($row) > 0) {
 
-                Auth::setAuthDataMembers($row['username'], $row['person_type'], TRUE);
+                Auth::setAuthDataMembers($row['username'], 
+                                         $row['person_type'], TRUE);
                 $this->isAuthenticated = true;
                 return true;
             } else {

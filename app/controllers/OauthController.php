@@ -24,10 +24,6 @@
 class OauthController
 {
     /**
-     * @var Boolean 'Is user Authenticated'
-     */
-    private $IsAuthenticated;
-    /**
      * @var object 'Object of Order Model Class'
      */
     private $numberOfWrongAttempts;
@@ -109,17 +105,7 @@ class OauthController
             }
         } while (!$chk);
     }
-    /**
-     * Login user action function that will call the view object.
-     * 
-     * @access public
-     */
-    public function getRequest($request)
-    {
-        $actionName = $request['action'] . 'Action';
-        $this->$actionName($request);
-    }
-    /**
+  /**
      * Displays the response of the view Script
      * 
      * @access public

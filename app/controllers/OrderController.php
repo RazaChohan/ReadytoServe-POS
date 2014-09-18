@@ -51,7 +51,7 @@ class OrderController
      * 
      * @access private
      */
-    private function viewAllOrdersAction($request)
+    public function viewAllOrdersAction($request)
     {
         $orderModelObject=new OrderModel();
         $viewObject=new View();

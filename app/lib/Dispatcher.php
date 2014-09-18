@@ -39,7 +39,8 @@ class Dispatcher
     public function dispatch($request)
     {
        $controller=$this->getController($request);
-       $controller->getRequest($request);
+       $actionName = $request['action'] . 'Action';
+       $controller->$actionName($request);
        
     }
 }

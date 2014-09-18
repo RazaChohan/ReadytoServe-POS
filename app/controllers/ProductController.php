@@ -163,7 +163,7 @@ class ProductController
      * 
      * @access private
      */
-    private function manageProductsAction($request)
+    public function manageProductsAction($request)
     {
         IOAdapter::clearScreen();
         $viewObject=new View();
