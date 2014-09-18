@@ -106,8 +106,10 @@ class PersonController
         $viewObject = new View();
         $personType = Auth::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();
+
         $IOAdapterObject->makeOutput("\033[01;32m You Are Loged In "
                 . "Successfully \033[0m" . PHP_EOL);
+
         $response = null;
         if ($personType === "Salesperson") {
             $viewObject->setScript("salesPersonMainMenu.php");
@@ -158,7 +160,8 @@ class PersonController
                 $fc = FrontController::getInstance();
                 $request['controller'] = 'Person';
                 $request['action'] = 'editAccountInfo';
-                $fc->direct($request);
+                $fc->direct(array('controller' => 'Person',
+                    'action' => 'editAccountInfo'));
             } else if (intval($choice) == intval(3)) {
                 $frontControllerObject->direct(array(
                     'controller' => "Order",
@@ -183,16 +186,17 @@ class PersonController
      */
     public function getSalesmanSelection()
     {
+        $fc = FrontController::getInstance();
         $io = IOAdapter::getInstance();
         $io->makeOutput('Enter your choice : ');
         $choice = $io->getInput();
         if (intval($choice) == intval(1)) {
+            
         } else if (intval($choice) == intval(2)) {
-            $fc = FrontController::getInstance();
-            $request['controller'] = 'Person';
-            $request['action'] = 'editAccountInfo';
-            $fc->direct($request);
+            $fc->direct(array('controller' => 'Person',
+                'action' => 'editAccountInfo'));
         } else if (intval($choice) == intval(3)) {
+            
         }
     }
 
@@ -201,27 +205,24 @@ class PersonController
      */
     public function editAccountInfoAction($request)
     {
-        $dba = DB_Adapter::getInstance();
-        $rg = Registry::getInstance();
+        //$dba = DB_Adapter::getInstance();
         $io = IOAdapter::getInstance();
         $v = new View();
         $v->setScript("editAccountInfo.php");
-        $io->makeOutput($v->render("Person",NULL));
+        $io->makeOutput($v->render("Person", NULL));
         $io->makeOutput("\n >> Please Enter your new password : ");
         $pass1 = $io->getInput();
         $io->makeOutput("\n >> Please Re-enter your new password : ");
         $pass2 = $io->getInput();
         if ($pass1 === $pass2) {
-            $personModel=new PersonModel();
+            $personModel = new PersonModel();
             $personModel->updatePassword($pass1);
-
             $io->makeOutput("\n Password Updated");
         } else {
             $io->makeOutput("\n Password Doesn't match");
         }
         $request['controller'] = 'Person';
         $request['action'] = 'showMainMenu';
-
         $fc = FrontController::getInstance();
         $fc->direct($request);
     }
