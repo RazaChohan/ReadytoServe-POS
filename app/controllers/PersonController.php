@@ -113,7 +113,7 @@ class PersonController
             $viewObject->setScript("salesPersonMainMenu.php");
             $response = $viewObject->render($request['controller'], NULL);
             $this->showResponse($response);
-            $this->getSalesmanSelectionAction();
+            $this->getSalesmanSelection();
         } else if ($personType === "Admin") {
             $viewObject->setScript("adminMainMenu.php");
             $response = $viewObject->render($request['controller'], NULL);
@@ -155,6 +155,10 @@ class PersonController
                     'action' => 'manageProducts'));
             } else if (intval($choice) == intval(2)) {
                 echo "2 selected";
+                $fc = FrontController::getInstance();
+                $request['controller'] = 'Person';
+                $request['action'] = 'editAccountInfo';
+                $fc->direct($request);
             } else if (intval($choice) == intval(3)) {
                 $frontControllerObject->direct(array(
                     'controller' => "Order",
@@ -177,40 +181,39 @@ class PersonController
      * 
      * @access public
      */
-    public function getSalesmanSelectionAction()
+    public function getSalesmanSelection()
     {
         $io = IOAdapter::getInstance();
         $io->makeOutput('Enter your choice : ');
         $choice = $io->getInput();
         if (intval($choice) == intval(1)) {
-            echo "1 selected";
         } else if (intval($choice) == intval(2)) {
-            echo "2 selected";
             $fc = FrontController::getInstance();
             $request['controller'] = 'Person';
             $request['action'] = 'editAccountInfo';
             $fc->direct($request);
         } else if (intval($choice) == intval(3)) {
-            echo "3 selected";
         }
     }
+
     /**
      * edits the password of user
      */
-    public function editAccountInfoAction()
+    public function editAccountInfoAction($request)
     {
         $dba = DB_Adapter::getInstance();
         $rg = Registry::getInstance();
         $io = IOAdapter::getInstance();
         $v = new View();
-        $io->makeOutput($v->render("editAcountInfo.php", "Person"));
+        $v->setScript("editAccountInfo.php");
+        $io->makeOutput($v->render("Person",NULL));
         $io->makeOutput("\n >> Please Enter your new password : ");
         $pass1 = $io->getInput();
         $io->makeOutput("\n >> Please Re-enter your new password : ");
         $pass2 = $io->getInput();
         if ($pass1 === $pass2) {
-
-            $this->personModel->updatePassword($pass1);
+            $personModel=new PersonModel();
+            $personModel->updatePassword($pass1);
 
             $io->makeOutput("\n Password Updated");
         } else {
