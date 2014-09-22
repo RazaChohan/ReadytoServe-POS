@@ -26,7 +26,7 @@ class PersonController
     /**
      * @var array of string 'Object of Order Model Class'
      */
-    private $request;
+    private $request=array();
     /**
      *
      * Gets the person type using Person Model Class
@@ -76,8 +76,6 @@ class PersonController
         $personType = Auth::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();
         $personModel = new PersonModel();
-        
-
         $response = null;
         if ($personType === "Salesperson") {
             $viewObject->setScript("salesPersonMainMenu.php");

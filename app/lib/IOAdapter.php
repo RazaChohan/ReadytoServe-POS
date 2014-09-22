@@ -88,20 +88,17 @@ class IOAdapter
      */
     public function getSelection($msg, $array)
     {
-        do {
-            $isNotCorrectSelection=false;
-            $io = IOAdapter::getInstance();
+           $io = IOAdapter::getInstance();
             while (true) {
                 $io->makeOutput($msg);
                 $input = $io->getInput();
                 $chk = array_key_exists($input, $array);
                 if ($chk) {
-                    $value = $array[$input];
-                    return $value;
+                    return $input;
                 } else {
-                    $isNotCorrectSelection=true;
+                    $io->makeOutput("\033[01;31m Wrong Input!!! \033[0m");
                 }
             }
-        } while ($isNotCorrectSelection);
+        
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains implementation of PersonModel class.
  * 
@@ -7,7 +8,6 @@
  * @package Ready2Serve
  * @version v 1.0
  */
-
 /**
  * perfoms Person's actions and maps to the table in DB
  * 
@@ -18,13 +18,13 @@
  * @category Training/Learning PHP
  * @version v 1.0
  */
-
 class PersonModel
 {
     /*
      * @var Boolean $isAuthenticated to keep the record about authentication
      */
     private $isAuthenticated;
+
     /*
      * authenticates the person
      * 
@@ -44,8 +44,7 @@ class PersonModel
             $row = $dba->fetchRow($query);
             if (count($row) > 0) {
 
-                Auth::setAuthDataMembers($row['username'], 
-                                         $row['person_type'], TRUE);
+                Auth::setAuthDataMembers($row['username'], $row['person_type'], TRUE);
                 $this->isAuthenticated = true;
                 return true;
             } else {
@@ -69,7 +68,7 @@ class PersonModel
         $dba = DB_Adapter::getInstance();
         $dba->executeQuery($query);
     }
-      /**
+    /**
      * gets Admin Selection from Menu and calls the respective controller
      * 
      * @access public
@@ -78,37 +77,36 @@ class PersonModel
     {
         $IOAdapterObject = IOAdapter::getInstance();
         $frontControllerObject = FrontController::getInstance();
-        do {
-            $iteration = false;
-            $IOAdapterObject->makeOutput("\033[01;37m >> Please Enter Your Choice"
-                    . " :\033[0m");
-            $choice = $IOAdapterObject->getInput();
-            if (intval($choice) == intval(1)) {
+        $adminMenuKeys = array(1, 2, 3, 'x');
+        $userSelection = $IOAdapterObject->getSelection("\033[01;37m >> "
+                                                        . "Please Enter Your"
+                                          . " Choice: \033[0m", $adminMenuKeys);
+
+        switch ($userSelection) {
+            case 1:
                 $frontControllerObject->direct(array(
                     'controller' => "Product",
                     'action' => 'manageProducts'));
-            } else if (intval($choice) == intval(2)) {
+                break;
+            case 2:
                 echo "2 selected";
-                $fc = FrontController::getInstance();
-                $fc->direct(array('controller' => 'Person',
+                break;
+            case 3:
+                $frontControllerObject->direct(array('controller' => 'Person',
                     'action' => 'editAccountInfo'));
-            } else if (intval($choice) == intval(3)) {
+                break;
+            case 4:
                 $frontControllerObject->direct(array(
                     'controller' => "Order",
                     'action' => 'viewAllOrders'));
-            } else if (similar_text($choice, 'x') == intval(1) ||
-                    similar_text($choice, 'X') == intval(1)) {
-                echo "4 selected";
-            } else {
-                echo $choice;
+                break;
+
+            case x:
                 echo similar_text($choice, 'x');
                 $IOAdapterObject->makeOutput("\033[01;31m Error: Wrong Choice!!!"
                         . " :\033[0m");
-                $iteration = true;
-            }
-        } while ($iteration);
+        }
     }
-    
     /**
      * gets Salesman Selection from Menu and calls the respective controller
      * 
@@ -129,5 +127,4 @@ class PersonModel
             
         }
     }
-
 }
