@@ -77,10 +77,11 @@ class PersonModel
     {
         $IOAdapterObject = IOAdapter::getInstance();
         $frontControllerObject = FrontController::getInstance();
-        $adminMenuKeys = array(1, 2, 3, 'x');
+        $adminMenuKeys = array(1, 2, 3, "x");
+        var_dump($adminMenuKeys);
         $userSelection = $IOAdapterObject->getSelection("\033[01;37m >> "
-                                                        . "Please Enter Your"
-                                          . " Choice: \033[0m", $adminMenuKeys);
+                . "Please Enter Your"
+                . " Choice: \033[0m", $adminMenuKeys);
 
         switch ($userSelection) {
             case 1:
@@ -89,22 +90,18 @@ class PersonModel
                     'action' => 'manageProducts'));
                 break;
             case 2:
-                echo "2 selected";
-                break;
-            case 3:
                 $frontControllerObject->direct(array('controller' => 'Person',
                     'action' => 'editAccountInfo'));
                 break;
-            case 4:
+            case 3:
                 $frontControllerObject->direct(array(
                     'controller' => "Order",
                     'action' => 'viewAllOrders'));
                 break;
-
-            case x:
-                echo similar_text($choice, 'x');
-                $IOAdapterObject->makeOutput("\033[01;31m Error: Wrong Choice!!!"
-                        . " :\033[0m");
+            case 'x':
+                echo 'X Values';
+                exit(1);
+                
         }
     }
     /**

@@ -24,6 +24,10 @@
 class OrderController
 {
     /**
+     * @var array of string 'Object of Order Model Class'
+     */
+    private $request=array();
+    /**
      *
      * Gets the values from respective model class and passes the view class by 
      * calling its specific function and passing data.
@@ -51,14 +55,15 @@ class OrderController
      * 
      * @access private
      */
-    public function viewAllOrdersAction($request)
+    public function viewAllOrdersAction()
     {
         $orderModelObject=new OrderModel();
         $viewObject=new View();
         IOAdapter::clearScreen();
         $allOrders=$orderModelObject->getAllOrders();
         $viewObject->setScript("viewAllOrders.php");
-        $response = $viewObject->render($request['controller'],$allOrders);
+        $response = $viewObject->render($this->request['controller'],
+                                        $allOrders);
         $this->showResponse($response);
     }
     /**
@@ -71,15 +76,14 @@ class OrderController
         echo $response;
     }
     /**
-     * gets the request from callee.
+     * sets the request data member of class.
      * 
      * @access public
+     * 
+     * @param array $requestParam 'Array of string containing request parameters'
      */
-    public function getRequest($request)
+    public function setRequest($requestParam)
     {
-        if ($request['action'] === "viewAllOrders") {
-            $this->viewAllOrdersAction($request);
-        }
+        $this->request = $requestParam;
     }
-    
 }

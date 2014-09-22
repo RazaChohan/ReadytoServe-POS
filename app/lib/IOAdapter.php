@@ -92,7 +92,8 @@ class IOAdapter
             while (true) {
                 $io->makeOutput($msg);
                 $input = $io->getInput();
-                $chk = array_key_exists($input, $array);
+                echo $input;
+                $chk = in_array($input, $array);
                 if ($chk) {
                     return $input;
                 } else {
