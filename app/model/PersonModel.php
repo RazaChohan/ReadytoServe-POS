@@ -78,7 +78,6 @@ class PersonModel
         $IOAdapterObject = IOAdapter::getInstance();
         $frontControllerObject = FrontController::getInstance();
         $adminMenuKeys = array(1, 2, 3, "x");
-        var_dump($adminMenuKeys);
         $userSelection = $IOAdapterObject->getSelection("\033[01;37m >> "
                 . "Please Enter Your"
                 . " Choice: \033[0m", $adminMenuKeys);
@@ -99,7 +98,6 @@ class PersonModel
                     'action' => 'viewAllOrders'));
                 break;
             case 'x':
-                echo 'X Values';
                 exit(1);
                 
         }
