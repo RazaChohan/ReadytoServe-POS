@@ -48,7 +48,8 @@ class View
      */
     public function render($controller,$param)
     {
-        $completePath = $this->setViewScriptPath($this->currentScript, $controller);
+        $completePath = $this->setViewScriptPath($this->currentScript, 
+                                                 $controller);
         ob_start();
         include $completePath;
         $contents = ob_get_contents();

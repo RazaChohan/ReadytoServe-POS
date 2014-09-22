@@ -40,7 +40,8 @@ class Dispatcher
     {
        $controller=$this->getController($request);
        $actionName = $request['action'] . 'Action';
-       $controller->$actionName($request);
+       $controller->setRequest($request);
+       $controller->$actionName();
        
     }
 }

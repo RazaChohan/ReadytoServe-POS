@@ -23,14 +23,9 @@
 class ProductController
 {
     /**
-     *
-     * Constructor of class
-     * @access public
+     * @var array of string 'Contains request'
      */
-    public function __construct()
-    {
-        $this->view = new View();
-    }
+    private $request;
     /**
      *
      * Gets the values from respective model class and passes the view class by 
@@ -180,4 +175,16 @@ class ProductController
     {
         echo $response;
     }
+    /**
+     * sets the request data member of class.
+     * 
+     * @access public
+     * 
+     * @param array $requestParam 'Array of string containing request parameters'
+     */
+    public function setRequest($requestParam)
+    {
+        $this->request=$requestParam;
+    }
+    
 }

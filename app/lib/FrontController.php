@@ -29,7 +29,6 @@ class FrontController
   */
   private function __construct()
   {
-    //Initialization of View and Dispatcher
       $this->dispatcher=new Dispatcher();
   }
   /**

@@ -24,12 +24,14 @@
  */
 class OauthController
 {
-
+    /**
+     * @var array of string 'Contains request'
+     */
+    private $request=array();
     /**
      * @var object 'Object of Order Model Class'
      */
     private $numberOfWrongAttempts;
-
     /**
      * Constructor of class
      */
@@ -67,7 +69,7 @@ class OauthController
      * 
      * @access public
      */
-    public function loginUserAction($request)
+    public function loginUserAction()
     {
         $io = IOAdapter::getInstance();
         $personModel = new PersonModel();
@@ -81,7 +83,8 @@ class OauthController
             } else if ($this->numberOfWrongAttempts == intval(0)) {
                 $viewObject = new View();
                 $viewObject->setScript("welcome.php");
-                $response = $viewObject->render($request['controller'], NULL);
+                $response = $viewObject->render($this->request['controller'], 
+                                                NULL);
                 $this->showResponse($response);
             }
 
@@ -123,6 +126,17 @@ class OauthController
     public function showResponse($response)
     {
         echo $response;
+    }
+    /**
+     * sets the request data member of class.
+     * 
+     * @access public
+     * 
+     * @param array $requestParam 'Array of string containing request parameters'
+     */
+    public function setRequest($requestParam)
+    {
+        $this->request=$requestParam;
     }
 
 }
