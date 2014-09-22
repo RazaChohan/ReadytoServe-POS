@@ -10,6 +10,7 @@
  * @package Ready2Serve
  * @version v 1.0
  */
+
 /**
  * Contains Oauth Controller class
  *
@@ -23,6 +24,7 @@
  */
 class OauthController
 {
+
     /**
      * @var object 'Object of Order Model Class'
      */
@@ -35,6 +37,7 @@ class OauthController
     {
         $this->numberOfWrongAttempts = intval(0);
     }
+
     /**
      *
      * Gets the values from respective model class and passes the view class by 
@@ -46,6 +49,7 @@ class OauthController
     {
         
     }
+
     /**
      * checks whether user is authenticated or not
      *
@@ -57,6 +61,7 @@ class OauthController
     {
         
     }
+
     /**
      * Login user action function that will call the view object.
      * 
@@ -90,10 +95,14 @@ class OauthController
 
             if ($chk) {
                 echo '' . PHP_EOL;
+
+                $IOAdapterObject->makeOutput("\033[01;32m You Are Loged In "
+                        . "Successfully \033[0m" . PHP_EOL);
+
                 $frontControllerObject = FrontController::getInstance();
                 $frontControllerObject->direct(array(
-                                'controller'=>"Person",
-                                'action'=>'showMainMenu'));
+                    'controller' => "Person",
+                    'action' => 'showMainMenu'));
             } else {
                 $io->makeOutput("\033[01;31m Error: Wrong username or "
                         . "Password \033[0m" . PHP_EOL);
@@ -105,7 +114,8 @@ class OauthController
             }
         } while (!$chk);
     }
-  /**
+
+    /**
      * Displays the response of the view Script
      * 
      * @access public
@@ -114,4 +124,5 @@ class OauthController
     {
         echo $response;
     }
+
 }

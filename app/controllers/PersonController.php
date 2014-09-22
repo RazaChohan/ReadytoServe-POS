@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains definition of Person Controller class namely PersonController
  * 
@@ -23,6 +24,7 @@
  */
 class PersonController
 {
+
     /**
      *
      * Gets the person type using Person Model Class
@@ -62,6 +64,7 @@ class PersonController
     {
         
     }
+
     /**
      * Displays Menu Depending Upon the Type of user.
      * 
@@ -73,9 +76,6 @@ class PersonController
         $viewObject = new View();
         $personType = Auth::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();
-
-        $IOAdapterObject->makeOutput("\033[01;32m You Are Loged In "
-                . "Successfully \033[0m" . PHP_EOL);
 
         $response = null;
         if ($personType === "Salesperson") {
@@ -90,6 +90,7 @@ class PersonController
             $this->getAdminSelection();
         }
     }
+
     /**
      * Displays the response of the view script.
      * 
@@ -99,6 +100,7 @@ class PersonController
     {
         echo $response;
     }
+
     /**
      * gets Admin Selection from Menu and calls the respective controller
      * 
@@ -138,6 +140,7 @@ class PersonController
             }
         } while ($iteration);
     }
+
     /**
      * gets Salesman Selection from Menu and calls the respective controller
      * 
@@ -158,6 +161,7 @@ class PersonController
             
         }
     }
+
     /**
      * edits the password of user
      * 
@@ -177,12 +181,12 @@ class PersonController
         $pass2 = $io->getInput();
         if ($pass1 === $pass2) {
             $personModel->updatePassword($pass1);
-            $io->makeOutput("\n Password Updated");
+            $io->makeOutput("\n \033[01;32m Password Updated \033[0m");
         } else {
-            $io->makeOutput("\n Password Doesn't match");
+            $io->makeOutput("\n \033[01;31m Password Doesn't match \033[0m");
         }
-        $fc->direct(array('controller'=>"Person",
-                          'action'=>"showMainMenu"));
+        $fc->direct(array('controller' => "Person",
+            'action' => "showMainMenu"));
     }
 
 }
