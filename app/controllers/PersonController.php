@@ -69,7 +69,7 @@ class PersonController
      */
     public function showMainMenuAction($request)
     {
-        IOAdapter::clearScreen();
+        //IOAdapter::clearScreen();
         $viewObject = new View();
         $personType = Auth::getpersonType();
         $IOAdapterObject = IOAdapter::getInstance();

@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * This file contains DB_Adapter class
  * 
  * This file contains the implementions of DB_Adapter class that we need to
@@ -10,7 +9,7 @@
  * @version 1.0
  */
 
-/*
+/**
  * deals with database
  * 
  * This is singleton class deal with database by creating a single connection
@@ -20,8 +19,7 @@
  * @author Tayyab Hussain <tayyab.hussain@coeus-solutions.de>
  * @version 1.0
  */
-
-class DB_Adapter
+class DB_Adapter extends mysqli
 {
     /*
      * @var DBConnection of DB_Adapter class
