@@ -1,5 +1,5 @@
 
-####Milestones for final Week 22 Sep to 26 Sep
+####Milestones for Week 22 Sep to 26 Sep
 
 * Web training --- Zend framework 1.9     <br/>
        Deadline 23 Sep 3:30 P.M
