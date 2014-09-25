@@ -22,10 +22,5 @@ $application = new Zend_Application(
 $application->bootstrap()
         ->run();
 
-$frontController = $this->getFrontController();
-
-$newRequest = new Zend_Controller_Request_Http();
-$newRequest->setActionName('login');
-$newRequest->setControllerName('AuthController');
 
 
