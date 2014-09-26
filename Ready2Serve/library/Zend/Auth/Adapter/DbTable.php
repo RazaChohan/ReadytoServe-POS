@@ -80,6 +80,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      */
     protected $_credentialColumn = null;
 
+    protected $_roleColumn = null;
     /**
      * $_identity - Identity value
      *
@@ -153,6 +154,9 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
         if (null !== $credentialTreatment) {
             $this->setCredentialTreatment($credentialTreatment);
         }
+        
+        
+        
     }
 
     /**

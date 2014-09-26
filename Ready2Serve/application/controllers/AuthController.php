@@ -10,6 +10,29 @@ class AuthController extends Zend_Controller_Action
     {
         
     }
+    public function loginAction()
+    {
+        // action body
+        $loginForm = new Application_Form_Login();
+//        $loginForm->setDecorators(array(
+//        'PrepareElements',
+//        array('ViewScript', array('viewScript' => 'loginDecorator.phtml')),
+//        ));
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($loginForm->isValid($request->getPost())) {
+                if ($this->_process($loginForm->getValues())) {
+                    $this->_redirect('Product/view-all-orders');
+                } else {
+                    $this->_redirect('Auth/login');
+                }
+            } else {
+                $this->_redirect('Auth/login');
+            }
+        }
+        $this->view->form = $loginForm;
+    }
     protected function _process($values)
     {
         $adapter = $this->_getAuthAdapter();
@@ -21,29 +44,13 @@ class AuthController extends Zend_Controller_Action
         if ($result->isValid()) {
             $user = $adapter->getResultRowObject();
             $auth->getStorage()->write($user);
+
+            $str = (array) $user;
+            Zend_Registry::set('personType', $str['person_type']);
+
             return true;
         }
         return false;
-    }
-    public function loginAction()
-    {
-        // action body
-        $loginForm = new Application_Form_Login();
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            if ($loginForm->isValid($request->getPost())) {
-                if ($this->_process($loginForm->getValues())) {
-                     $this->_redirect('Product/view-all-orders');
-                }
-                else
-                {
-                    $this->_redirect('Product/index');
-                }
-            } else {
-                $this->_redirect('Product/index');
-            }
-        }
-        $this->view->form = $loginForm;
     }
     protected function _getAuthAdapter()
     {

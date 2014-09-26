@@ -46,12 +46,11 @@
             </div>
         </div>
 
-    <?php echo $this->layout()->sidebar; ?>
+    <?php echo $this->layout()->content; ?>
         <?php
-      //  if(Zend_Auth::getInstance()->hasIdentity()){
-        
-        echo $this->layout()->content; 
-        //}
+        if(Zend_Auth::getInstance()->hasIdentity()){
+            echo $this->render('sidebar.phtml');
+        }
         ?>
        
         
