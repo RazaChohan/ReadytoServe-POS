@@ -16,6 +16,10 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
         </controllerFile>
+        <controllerFile controllerName="Product">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="viewAllOrders"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="LoginForm"/>
@@ -48,6 +52,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="viewAllOrders"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
