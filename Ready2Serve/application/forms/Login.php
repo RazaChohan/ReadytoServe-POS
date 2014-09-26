@@ -8,7 +8,7 @@ class Application_Form_Login extends Zend_Form
         $this->setMethod('post');
 
         $this->addElement('text', 'username', array(
-            'filters' => array('StringTrim', 'StringToLower'),
+            'filters' => array('StringTrim'),
             'validators' => array(
                 array('StringLength', false, array(1, 50)),
             ),
@@ -19,7 +19,7 @@ class Application_Form_Login extends Zend_Form
         $this->addElement('password', 'password', array(
             'filters' => array('StringTrim'),
             'validators' => array(
-                array('StringLength', false, array(1, 50)),
+                array('StringLength', false, array(8, 50)),
             ),
             'required' => true,
             'label' => 'Password:',

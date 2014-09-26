@@ -26,7 +26,8 @@
     <body>
         <div align="center">
             <h1>Welcome To Ready2Serve POS</h1>
-   
+         <?php echo $this->form->setAction($this->url()); ?>
+       
         </div>
         <div class="container">
  
@@ -38,7 +39,6 @@
                 <label class="checkbox">
                 </label>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>             
-             <?php echo $this->form->setAction($this->url()); ?>
             </form>
 
         </div> <!-- /container -->
