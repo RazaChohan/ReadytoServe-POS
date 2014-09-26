@@ -17,13 +17,23 @@
           <actionMethod actionName="login"/>
         </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="LoginForm"/>
+        <formFile formName="Login"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Person"/>
+        </dbTableDirectory>
+        <modelFile modelName="PersonMapper"/>
+        <modelFile modelName="Person"/>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
         <viewScriptsDirectory>
