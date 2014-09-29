@@ -26,7 +26,7 @@ class AuthController extends Zend_Controller_Action
                     $userType = Zend_Registry::get('personType');
                     if($userType==='Admin')
                     {
-                    $this->_redirect('Product/view-all-orders');
+                    $this->_redirect('Order/view-all-orders');
                     }
                     else if($userType==='Salesperson')
                     {

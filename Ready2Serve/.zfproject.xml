@@ -18,11 +18,11 @@
         </controllerFile>
         <controllerFile controllerName="Product">
           <actionMethod actionName="index"/>
-          <actionMethod actionName="viewAllOrders"/>
         </controllerFile>
         <controllerFile controllerName="Order">
           <actionMethod actionName="index"/>
           <actionMethod actionName="placeOrder"/>
+          <actionMethod actionName="viewAllOrders"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -36,11 +36,11 @@
       </layoutsDirectory>
       <modelsDirectory>
         <dbTableDirectory>
-          <dbTableFile dbTableName="User"/>
-          <dbTableFile dbTableName="Person"/>
+          <dbTableFile dbTableName="Order"/>
         </dbTableDirectory>
-        <modelFile modelName="PersonMapper"/>
-        <modelFile modelName="Person"/>
+        <modelFile modelName="Product"/>
+        <modelFile modelName="Order"/>
+        <modelFile modelName="OrderMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -60,14 +60,14 @@
           <viewControllerScriptsDirectory forControllerName="Product">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Product">
-            <viewScriptFile forActionName="viewAllOrders"/>
-          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Order">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Order">
             <viewScriptFile forActionName="placeOrder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Order">
+            <viewScriptFile forActionName="viewAllOrders"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
