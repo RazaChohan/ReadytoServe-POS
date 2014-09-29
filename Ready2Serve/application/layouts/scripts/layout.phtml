@@ -46,14 +46,17 @@
             </div>
         </div>
 
-    <?php echo $this->layout()->content; ?>
         <?php
-        if(Zend_Auth::getInstance()->hasIdentity()){
-            echo $this->render('sidebar.phtml');
+        if (Zend_Controller_Front::getInstance()->getRequest()
+                        ->getControllerName() != 'Auth') {
+            if (Zend_Auth::getInstance()->hasIdentity()) {
+                echo $this->render('sidebar.phtml');
+            }
         }
+        echo $this->layout()->content;
         ?>
-       
-        
+
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>

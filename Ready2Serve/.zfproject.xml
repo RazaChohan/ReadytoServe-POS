@@ -20,6 +20,10 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="viewAllOrders"/>
         </controllerFile>
+        <controllerFile controllerName="Order">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="placeOrder"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="LoginForm"/>
@@ -58,6 +62,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Product">
             <viewScriptFile forActionName="viewAllOrders"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Order">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Order">
+            <viewScriptFile forActionName="placeOrder"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

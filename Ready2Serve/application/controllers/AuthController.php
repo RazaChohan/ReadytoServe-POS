@@ -23,7 +23,15 @@ class AuthController extends Zend_Controller_Action
         if ($request->isPost()) {
             if ($loginForm->isValid($request->getPost())) {
                 if ($this->_process($loginForm->getValues())) {
+                    $userType = Zend_Registry::get('personType');
+                    if($userType==='Admin')
+                    {
                     $this->_redirect('Product/view-all-orders');
+                    }
+                    else if($userType==='Salesperson')
+                    {
+                       $this->_redirect('Order/place-order');  
+                    }
                 } else {
                     $this->_redirect('Auth/login');
                 }
