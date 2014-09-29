@@ -15,7 +15,6 @@ class ProductController extends Zend_Controller_Action
 
     public function viewAllOrdersAction()
     {
-        // action body
         
     }
 

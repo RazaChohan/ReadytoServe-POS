@@ -33,10 +33,13 @@ class AuthController extends Zend_Controller_Action
                        $this->_redirect('Order/place-order');  
                     }
                 } else {
-                    $this->_redirect('Auth/login');
+                    $loginForm->getElement('password')->addError('Incorrect'
+                            . ' Username and Password');
+                    $loginForm->markAsError();
+                    $this->view->form = $loginForm;
                 }
             } else {
-                $this->_redirect('Auth/login');
+                $this->view->form = $loginForm;
             }
         }
         $this->view->form = $loginForm;
