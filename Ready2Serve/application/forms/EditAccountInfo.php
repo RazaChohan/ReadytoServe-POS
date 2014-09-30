@@ -41,7 +41,7 @@ class Application_Form_EditAccountInfo extends Twitter_Form
     {
         parent::isValid($data);
         if($data['password']!=$data['confirmpassword']){
-            $this->getElement('password')->setErrors(array('password '
+            $this->getElement('password')->addErrors(array('password '
                 . ' not match'));
         }
     }
