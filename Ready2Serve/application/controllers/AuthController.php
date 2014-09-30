@@ -33,8 +33,8 @@ class AuthController extends Zend_Controller_Action
                        $this->_redirect('Order/place-order');  
                     }
                 } else {
-                    $loginForm->getElement('password')->addError('Incorrect'
-                            . ' Username and Password');
+                    $loginForm->getElement('password')->addError('Invalid'
+                            . ' Credentials');
                     $loginForm->markAsError();
                     $this->view->form = $loginForm;
                 }
@@ -44,6 +44,17 @@ class AuthController extends Zend_Controller_Action
         }
         $this->view->form = $loginForm;
     }
+    
+    public function logoutAction()
+    {
+        //Unset usertype from zend_registry <-- not handled
+        Zend_Auth::getInstance()->clearIdentity();
+        Zend_Session::destroy();
+
+        $this->_redirect('/auth/login');
+    }
+
+
     protected function _process($values)
     {
         $adapter = $this->_getAuthAdapter();
@@ -63,6 +74,7 @@ class AuthController extends Zend_Controller_Action
         }
         return false;
     }
+    
     protected function _getAuthAdapter()
     {
         $dbAdapter = Zend_Db_Table::getDefaultAdapter();
