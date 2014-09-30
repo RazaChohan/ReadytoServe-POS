@@ -24,10 +24,14 @@
           <actionMethod actionName="placeOrder"/>
           <actionMethod actionName="viewAllOrders"/>
         </controllerFile>
+        <controllerFile controllerName="Person">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="LoginForm"/>
         <formFile formName="Login"/>
+        <formFile formName="EditAccountInfo"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
