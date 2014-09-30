@@ -23,7 +23,6 @@ class Application_Form_EditAccountInfo extends Twitter_Form
         $this->addElement('password', 'confirmpassword', array(
             'filters' => array('StringTrim'),
             'placeholder' => 'Confirm Password',
-            'autofocus' => 'true',
             'validators' => array(
                 array('StringLength', false, array(8, 50)),
             ),
@@ -39,11 +38,13 @@ class Application_Form_EditAccountInfo extends Twitter_Form
     // overriding
     public function isValid($data)
     {
-        parent::isValid($data);
+        $validity=parent::isValid($data);
         if($data['password']!=$data['confirmpassword']){
-            $this->getElement('password')->addErrors(array('password '
+            $this->getElement('confirmpassword')->addErrors(array('passwords '
                 . ' not match'));
+            $validity=false;
         }
+        return $validity;
     }
 
 }

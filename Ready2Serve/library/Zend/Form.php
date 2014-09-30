@@ -2266,6 +2266,8 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      */
     public function isValid($data)
     {
+        //var_dump($data);
+       // die();
         if (!is_array($data)) {
             require_once 'Zend/Form/Exception.php';
             throw new Zend_Form_Exception(__METHOD__ . ' expects an array');

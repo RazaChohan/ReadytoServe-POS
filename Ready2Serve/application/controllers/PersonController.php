@@ -19,24 +19,28 @@ class PersonController extends Zend_Controller_Action
         $form = new Application_Form_EditAccountInfo();
         $this->view->form = $form;
         $request = $this->getRequest();
+
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $personModel = new Application_Model_Person();
-                if($personModel->editAccountInfo($form->getValues())){
-                    $userType=Zend_Registry::get('personType');
-                    if($userType=='Admin'){
+                if ($personModel->editAccountInfo($request->getPost())) {
+
+//                    $userType = Zend_Registry::get('personType');
+//
+//                    if ($userType == 'Admin') {
                         $this->_redirect('Order/view-all-orders');
-                    }
-                    else{
-                        $this->_redirect('Order/place-order'); 
-                    }
+//                    } else {
+//                        $this->_redirect('Order/place-order');
+//                    }
                 }
-                
+                else 
+                {
+                    $error="Unable to Update Password";
+                            
+                    var_dump($error);
+                }
             }
-        
         }
     }
 
 }
-
-
