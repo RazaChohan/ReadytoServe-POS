@@ -1,0 +1,266 @@
+* 5bc66e9 (HEAD, web) Add Role of Logged in User in Zend Registry Class 	modified:   application/controllers/AuthController.php 	modified:   application/layouts/scripts/layout.phtml 	new file:   application/views/scripts/loginDecorator.phtml 	modified:   library/Zend/Auth/Adapter/DbTable.php 	modified:   public/index.php
+* 7f3366b Add Zend Framework in Library Folder 	new file:   library/Zend/Acl.php 	new file:   library/Zend/Acl/Assert/Interface.php 	new file:   library/Zend/Acl/Exception.php 	new file:   library/Zend/Acl/Resource.php 	new file:   library/Zend/Acl/Resource/Interface.php 	new file:   library/Zend/Acl/Role.php 	new file:   library/Zend/Acl/Role/Interface.php 	new file:   library/Zend/Acl/Role/Registry.php 	new file:   library/Zend/Acl/Role/Registry/Exception.php 	new file:   library/Zend/Amf/Adobe/DbInspector.php 	new file:   library/Zend/Amf/Adobe/Introspector.php 	new file:   library/Zend/Amf/Auth/Abstract.php 	new file:   library/Zend/Amf/Constants.php
+* 6e3f972 Error Removed 	modified:   application/layouts/scripts/layout.phtml
+*   207f978 Merge branch 'web' of github.com:RazaChohan/ReadytoServe-POS into web
+|\  
+| * 5cc203e (origin/web) Sidebar added
+* | d70b093 Add Login Functionality 	modified:   .zfproject.xml    - New Form Added 	modified:   application/configs/application.ini    - Database settings Added 	modified:   application/controllers/AuthController.php    - Defined login Action 	new file:   application/forms/Login.php    - Added login Form 	modified:   application/layouts/scripts/layout.phtml 	modified:   application/views/scripts/auth/login.phtml    - Called login form
+|/  
+* 354c517 Display sidebar only for non login controllers 	modified:   application/Bootstrap.php    - Added initDoctype function 	modified:   application/configs/application.ini    - Added resource.View[] 	modified:   application/layouts/scripts/layout.phtml    - call for sidebar.html 	modified:   application/views/scripts/auth/login.phtml    - Added 'welcome to readytoserve pos heading' 	new file:   application/views/scripts/sidebar.phtml    - placed sidebar script in separate file 	modified:   public/index.php    - removed call to authcontroller
+* c09da1d Add Layout 	modified:   .zfproject.xml   - Layout Entry 	modified:   application/configs/application.ini   - Layout Entry 	new file:   application/layouts/scripts/layout.phtml   - Added layout script 	modified:   public/index.php   - calling Authcontroller from front controller instance
+* 60b8fee Add Auth Controller and its login action 	modified:   .zfproject.xml     - Added controller entry by zf command 	new file:   application/controllers/AuthController.php     - Added Authcontroller for authentication 	new file:   application/views/scripts/auth/index.phtml     - Added controller index view script 	new file:   application/views/scripts/auth/login.phtml     - Added controller login view script
+* 67da83c Add Initial Empty Project
+*   f7716a3 Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into web
+|\  
+| * fd88fb9 (origin/development, development) Update Milestone Breakup.md
+| * 21a8471 Delete Milestone Breakup.md~
+| * 974f6f4 Update Milestone Breakup.md
+* | f87aecd Refactor Error View Script
+|/  
+* 02894fa Refactor Milestone Breakup File Changes: -- Added Deadline -- Little Adjustments
+* 434cd70 File Rename 	renamed:    milestones 22-26 Sep 2014.md -> Milestone Breakup.md
+* ecd0302 Update milestones 22-26 Sep 2014.md
+* ad91a48 Update milestones 22-26 Sep 2014.md
+* 0228f18 milestones for this week 22/sep/2014
+* 6138819 Refactor Person Model 	modified:   model/PersonModel.php        Added GetSelection Method 	modified:   views/OauthController/welcome.php        Spelling Correction
+* 4a6ec94 Refactor GetSelection 	modified:   controllers/OrderController.php 	modified:   lib/IOAdapter.php 	modified:   model/PersonModel.php
+* 2ae3148 Add git Selection code 	modified:   controllers/PersonController.php 	modified:   lib/IOAdapter.php 	modified:   model/PersonModel.php
+* 8e09f33 Refactor Multiple Files 	modified:   .gitignore 	modified:   controllers/OauthController.php 	modified:   controllers/PersonController.php 	modified:   controllers/ProductController.php 	modified:   lib/Dispatcher.php 	modified:   lib/FrontController.php 	modified:   lib/View.php 	modified:   model/PersonModel.php 	modified:   model/ProductModel.php
+* 3e3ce8b Bug fix
+* d1818d3 Refactor Person Controller and DB Adapter 	modified:   controllers/PersonController.php 	modified:   lib/DB/DB_Adapter.php
+* 4e26b7a Add Param in DocBlock
+* 337ebb4 Refactor Multiple Files 	modified:   controllers/OauthController.php 	modified:   controllers/OrderController.php 	modified:   controllers/PersonController.php 	modified:   controllers/ProductController.php 	modified:   lib/Dispatcher.php 	modified:   model/PersonModel.php
+* 7771dd8 Order model + order script
+*   1ee87e4 update person model - add docblocks - remove extra lines
+|\  
+| * 4488474 updated Sample order data
+| * 63f9b0f Add View All Orders 	modified:   controllers/OrderController.php     - Refactor View Script call 	modified:   lib/DB/DB_Adapter.php     - Refactpr fetch All funciton 	modified:   model/OrderModel.php     - Add view all orders functionality 	modified:   model/PersonModel.php     - Refactor 	modified:   views/OrderController/viewAllOrders.php
+* | 529f9a7 update PersonModel - add docblock - remove extra lines
+|/  
+* 3d81b3b update Auth - add isAuthentic() method
+* b9ffb51 Update PersonController - use direct(arra()) instead of direct($request)
+* 33dcc9d update IOAdapter - return trim($input) from getInput()
+* f02ff28 Update Auth class - add getUserName() method
+* 1942e0c remove editAcountInfo (file with wrong name)
+* 93276f1 add editAccountInfo view Script
+* 479d2c5 update PersonController - use setScript method of View class
+* 3e23d44 Update PersonModel - update Query
+* a4090b1 Update Registry change - correct $ error
+* 5473379 Update PersonModel - add updatePassword
+* 2f825f6 Update PersonController changes: - add getSalesManSelectionAction() - add editAccountInfoAction
+* d358ec6 change in DB_Adapter * change in mysql_fetch_array into mysqli_fetch_array in followings - fetchRow() - fetchOne()
+* 859b962 remoive adminMainMenu .php (extra)
+* 0127769 Refactor Mutiple Files 	modified:   controllers/PersonController.php         - Call to Auth getPersonType Function 	new file:   lib/Auth.php         - created Auth Class 	modified:   model/PersonModel.php         - Removed GetpersonType
+* aa103e8 Refactor Controllers   modified:   controllers/OauthController.php        - Made getrequest to handle call action function dynamically  	modified:   controllers/PersonController.php       - Made getrequest to handle call action function dynamically  	modified:   controllers/ProductController.php       - Mage getrequest to handle call action function dynamically
+* a4ca117 Refactor Multiple Files Changes:  	modified:   controllers/OauthController.php           - Used setScript function of View Class 	modified:   controllers/PersonController.php           - Used setScript function of view class 	modified:   lib/IOAdapter.php           - Refactored getSelection Method 	modified:   lib/View.php           - Added setSCript Function
+* 0882fb5 Refactor OauthController
+*   8155291 Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into development
+|\  
+| * bdee7b7 Refactor Dispatcher
+| *   340042b Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into development
+| |\  
+| * | 957c1ca Refactor FrontController
+* | | 918219a Update DB_Adapter changes include: - add fetchAll() - add fetchOne() - add fetchRow() - rename fetchAll() to executeQuery()
+| |/  
+|/|   
+* |   5c7d58a Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into development
+|\ \  
+| |/  
+| * bc4dc0e Refactor index.php Changes: - Chained Function Call
+* | f6cf02a add getSelection
+|/  
+* de7f20b Add editAcountInfo view script also deletes adminMainMenu view script (extra)
+* c15b4b2 Refactor Dispatcher class Changes: - Made getcontroller function dynamic
+* 6dcccbe Remove response Data Member from FrontController
+* c8a196a Remove getResponse Function from FrontController
+* 4e1d2af Renamed code folder to app
+* 3e8dca8 Database Name Changed
+* 578b1f0 Refactor PersonController Class
+* ec47a7c Multiple Changes Changes:
+* 4b65aaa Add Orders and Order line items Sample database
+* 8b4871b Change PersonController and IOAdapter Changes: - Adjusted PersonController output - Added Clear Screen Method in IOAdapter
+* d07fe8e Output Adjustments
+* 2f33506 Update OauthController changes include: - standerd code (not more than 80 character per line) - use IOAdapter for the sake of output
+* bb5a14a Update PersonModel change includes: - refine blocks
+* 88c669c Update PersonModel change inlcudes: - refine docblocks
+* 5941e51 Update PersonModel change includes - add docblocks
+* 23db610 Update OauthContoller change includes - correct syntax error
+* 70a2e1e Update DB_Adapter change includes - correct DB name
+* 2b9c6c9 	modified:   Autoloader.php 	modified:   controllers/OauthController.php 	modified:   controllers/OrderController.php 	modified:   controllers/PersonController.php 	modified:   controllers/ProductController.php 	modified:   index.php 	modified:   lib/DB/DB_Adapter.php 	modified:   lib/DB/DB_Table.php 	modified:   lib/Dispatcher.php 	modified:   lib/FrontController.php 	modified:   lib/View.php 	modified:   model/PersonModel.php   new file:   views/PersonController/adminMainMenu .php 	new file:   views/PersonController/adminMainMenu.php 	new file:   views/PersonController/salesPersonMainMenu.php
+* 71ae836 Update DB_Adapter changes include: - Connection create with DB - implemented fetchAll()
+* e6a9c6c Update Person model change includes: - add authenticateUser()
+* 2ea0e5b Update DB_Adapter changes includes: - update fetchAll() method
+* a51eb22 Update IOAdapter changes include: - add makeOutput() method
+* 3d116ad IOAdapter add contains - getInput() to get input from user
+* f97fa57 Multiple Changes: 	created:    Autoloader.php     - Autoloader class containing all paths in hierarchy 	modified:   controllers/OauthController.php      - Added loginUser action function 	modified:   index.php      - Removed Autoloader class from index.php 	modified:   lib/Dispatcher.php      - Added login User functionality 	modified:   lib/FrontController.php      - Added request to OauthController for Login 	modified:   lib/View.php      - Added a request to welcome.php Script 	renamed:    views/getPassword.php -> views/OauthController/getPassword.php 	renamed:    views/welcome.php -> views/OauthController/welcome.php
+* c710e91 view script added
+* 0473ea0 Update DB_Table changes include: - add insert() - add delete()
+* 5c83e0f Update DB_Adapter.php changes include: - add closeConnection() // close connection with data base
+* 41bbc6c Refactor all classes Changes: Removed namespaces from all class files --Including:   1) Controllers   2) Model   3) View   4) Library classes   5) DB Classes (DBTable & DBAdapter)
+* 389f2ff Sync Names of files with class names
+* fef3825 Refactor index.php file Changes: Added Class Autoloader and put all functions in it Added Doc blocks in it.
+* 307d2b9 Add Autoloader and removed namepaces
+* 06ccf11 Refactor Paginator Class
+* 609833a updated View
+* 821c576 updated View.php majorly and minor in others
+* 8c21104 Update Registry class, docblocks and remove static from $data
+* 4d30158 Update Registry class
+* 9c975d5 Update namepsace
+* eb87814 Update namepsace
+*   2f890f1 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * 05ea09c Update Adapter
+* | b12d43c Refactor Oauth Controller Changes: Added isAuthenticUser function
+|/  
+* 8cedb48 Update DBTable changes include: - remove $paginator - remove getPaginator() - add getAdapter()
+* 28a2c75 updated docblock
+* 0f735d0 updates in FrontController and Dispatcher
+* c5b22b4 Update DataBase Adapter changes include: - make static the instance of Adapter class - add getConnection() method to connect with DB
+* 6c82483 Move view.php file from view to lib folder
+* d184a5b Add Code Prototype of Abstract Controller Class Contains: Functions for Abstract Controller Class Short Description, access level, return and parameter of functions Data Members of Controller and their description
+* c225fec modification in frontcontroller and dispatcher
+*   6e7fe63 Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into development
+|\  
+| * dd9dea7 Refactor Directory Structure
+* | c29c45c update Registry class inlcude changes - make static the instance of Registry class - add new private static $data=array() class variable
+|/  
+*   aae8691 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * fd097b6 Update DB_Table.php
+| * 330b1bf DB_Table prototype includes - fetchAll($query) - getPaginator() - docblocks
+| * 70fed46 implementaion of View
+* | c319154 Add Paginator Class Contains: Functions for Paginator Class Short Description, access level, return and parameter of functions Data Members of Class and their description
+|/  
+* 06274ac Add Code Prototype of Oauth Controller Class Contains: Functions for Oauth Controller Class Short Description, access level, return and parameter of functions Data Members of Controller and their description
+*   e16ce7b Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| *   5b0464a Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+| |\  
+| * | 555fcbf update in FrontController and Dispatcher
+* | | 980d88a Add Code Prototype of Order Controller Class Contains: Functions for Order Controller Class Short Description, access level, return and parameter of functions Data Members of Controller and their description
+| |/  
+|/|   
+* | cf081e5 Correct ProductModel to PersonModel
+* | bce6c00 Adjust Formatting
+|/  
+* c6c7708 Add Model Object
+*   782a86c Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * 9edbc3b implementation of Dispatcher
+* | 61e0796 Add Code Prototype of Person Controller Class Contains: Functions for Person Controller Class Short Description, access level, return and parameter of functions Data Members of Controller and their description
+|/  
+* 1e4af75 Update ProductController.php
+* 0f9b955 Add Code Prototype of Product Controller Class Contains: - Functions for Product Controller Class - Short Description, access level, return and parameter of functions - Data Members of Controller and their description
+* 8cd1ac0 Add prototype of DB_Adapter includes - docblocks - its Singelton class as decided
+* b80af9a update Front controller
+* bd74e72 front controller implementation + gitignore
+* 1813ab4 Update Registry class
+* 82f7c93 Add Prototype of Registry class includes - make Registry class Singelton - add page-level docblock - add class level dockblock - add docblock of metho
+* 5985eaa Add Controllers & Models classes
+*   65caf41 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| *   ae9307a Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+| |\  
+| * | 2fea292 Refactor Class Diagram Changes: - Changed PersonView, ProductView, OrderView to View
+* | | 04f9c61 Add Database Script for Populating Products in System
+| |/  
+|/|   
+* | 6aec08e Refactor Database Creation Script Changes: - Changed Varchar(255) to text - Changed True, False of ENUM attributes to yes, no
+* | a242d2a Directory Structure
+|/  
+* 0aaa17a Refactor Class Diagram Changes: Added a link from Oauth Controller to PersonModel
+* ea4bf5b Refactor Class Diagram: Changes: - Deleted OauthModel
+* 6113156 Refactor Class Diagram & Scehma Diagram Changes: - Delete Extra Class Diagram File - Changed  Database Schema - Changed Class Diagram - Deleted rough Class Diagram File Changes in schema: - Changed Varchar(255) to Text - Changed Enum Values from true, false to yes , no Changes in Class Diagram: - Added Paginator class - Added Register class
+*   f626f9a Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * 84062e0 Update Design Document.md
+| * fa7bec0 Delete Add Products.png
+| * edcab96 Update Requirement Document.md
+* | 64286dc Refactor Class Diagram
+|/  
+*   4f57b58 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * e52bccf update Edit Product Activity Diagram
+* | 905a546 Refactor Add Product Activity Diagram
+|/  
+* d34befa Refactor Class Diagram
+*   8d0c262 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\  
+| * ee3f2f6 Update Design Document.md
+| * 20a65b8 Add Class Diagram Design Patterns Used: - Front Controller Pattern - MVC Pattern - Singletion Pattern
+| * ec74596 Update Edit Product Activity Diagram
+| * a619483 Update Activity Diagrams: Changed Activity Diagrams: - Cancel Order removed 'Display Main Menu' - Edit Order line Item - Edit Account Info
+| * 9cc1998 Update Activity Diagrams changes include - Add products - Edit Product - Manage Products - View Orders
+| * de2b7f9 Little Updates
+| * 73d6f3b Update Database Relational Scehma Changes: - Datatype of is_product_available from boolean to enum - Datatype of is_product_orderable from boolean to enum
+| * 091f402 Add Database Script -Contains: Structure of tables Data records for person and products
+| * e3d6ed8 Update Edit Product Activity Diagrams changes include - remove internal loops - adjust flow - handel orderable or not orderable items
+| * 3c591b0 update
+| * ee7dee2 Remove extra check from Cancel Order Activity Diagram
+| * 1cbcd40 Refactor All Activity Diagrams
+| *   3331b11 Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+| |\  
+| | * 1528a17 A little expanded
+| * | 05f300d Refactor Avticity Diagrams
+* | | 95ce270 Requirement Document of Ready2Serve POS
+| |/  
+|/|   
+* | 2c38589 Rough draft class diagram for discussion
+* |   2a44442 Merge branch 'master' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\ \  
+| |/  
+|/|   
+| * c43fa7e (origin/master, origin/HEAD, master) Update Standards To Follow.md
+* | 4bbb1e9 Add Possible Values for Enum
+* | b74b7e0 Adjust Lines
+* | 922d5e4 Change Database Scehma Changes: - is_product_available datatype from enum to boolean
+* | 792dc04 Change Database Scehma Changes: - person_type from varchar to ENUM - product_type from varchar to ENUM
+* | 7984fb5 Change Database Schema Diagram Changes: - Changed datatypes in scehma according to mysql datatypes - Deleted unneccessary scehma files
+* | f32d34f old schema file updated from main directory
+* |   734298f Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\ \  
+| * | f8fe5f9 some fixes in schema
+* | | 6c5ebed Add Design Document Ready2Serve POS Includes: - Extended ERD - Database relational scehma - use case diagram - High Level use cases - Expanded use cases (Fully dressed format) - Activity diagrams of each use case
+* | | da2eff8 Design Document Includes: - Extended ERD Document - Database Relational scehma - Use case Diagram - High level use cases - Expanded Use cases (Fully dressed format) - Activity diagrams of each use case
+|/ /  
+* | 584ae6c Update Delete Product Activity Diagram
+* | d6ff5c3 Add Manage Products Activity Diagram Deleted Ready2Serve ERD from Activity Folder
+* | 153c077 Refactor activity Diagram Changed Diagram: - View Orders Activity Diagram - Delete Product Changes: Minor formatting
+* | 13758f5 Diagrams related to Design Document
+* |   1bdd624 Merge branch 'development' of github.com:RazaChohan/ReadytoServe-POS into development
+|\ \  
+| * | 7da6c1e Delete Ready2Serve Extended ERD 1.2.png
+| * | 99e9988 Delete ERD Version 1.0.png
+| * | 61767b7 Relational Schema
+| * | 3358dfe updated cardinality for "orderLineItem"
+* | | c150b4f Update Relational Schema Changes include: - Renamed Data types of attributes - Salesman id added as FK in Order Table - Removed item line number from order line item table - Removed amount from order line item table
+|/ /  
+* | e5fc260 Removed double lines except for the week entity
+* | 01a9fa2 Update Extended ERD
+* | 725411e Update Extended ERD
+* | d9e1031 Update Extended ERD
+* | 6ccc029 Extended ERD
+* |   43b5dea Merge branch 'master' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\ \  
+| |/  
+| * ad55150 Add a standard
+| * b25ec85 Updated Standards Readme File
+* | 8b1dca0 ERD Version 1.1 Solve Scenario having zero item & Offers
+* |   107eaf4 Merge branch 'master' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\ \  
+| |/  
+| * 5d65eca Updated Standards Readme File
+| * 23923c4 Update Standards To Follow.md
+| * 3b082c1 Update Standards To Follow.md
+| * a51e9c5 Update Standards To Follow.md
+* |   afb7b2f Merge branch 'development' of https://github.com/RazaChohan/ReadytoServe-POS into development
+|\ \  
+| * | 6ec9e29 ERD Version 1.0
+| * | 457a7cc description of the project "Ready2Serve POS"
+| |/  
+* | c72c7c8 ERD in UML Format
+|/  
+* 2abb23c Standards to follow in this project - Tools - Coding Standards etc
+* c0a9709 Rename README.md to PHP Coding Standards.md
+* 5c98435 Update README.md
+* b4e3bb9 Initial commit
