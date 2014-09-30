@@ -13,6 +13,15 @@ class PersonController extends Zend_Controller_Action
         // action body
     }
 
+    public function editAccountInfoAction()
+    {
+        // action body
+        $form=  new Application_Form_EditAccountInfo();
+        $this->view->form=$form;
+    }
+
 
 }
+
+
 

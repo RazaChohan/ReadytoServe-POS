@@ -26,6 +26,7 @@
         </controllerFile>
         <controllerFile controllerName="Person">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="editAccountInfo"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -72,6 +73,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Order">
             <viewScriptFile forActionName="viewAllOrders"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Person">
+            <viewScriptFile forActionName="editAccountInfo"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
