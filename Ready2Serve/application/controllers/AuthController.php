@@ -44,6 +44,17 @@ class AuthController extends Zend_Controller_Action
         }
         $this->view->form = $loginForm;
     }
+    
+    public function logoutAction()
+    {
+        //Unset usertype from zend_registry <-- not handled
+        Zend_Auth::getInstance()->clearIdentity();
+        Zend_Session::destroy();
+
+        $this->_redirect('/index/index');
+    }
+
+
     protected function _process($values)
     {
         $adapter = $this->_getAuthAdapter();

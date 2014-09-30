@@ -25,7 +25,10 @@ class PersonController extends Zend_Controller_Action
                 $personModel->editAccountInfo($form->getValues());
                 $this->view->values = $form->getValues();
             }
+        
         }
     }
 
 }
+
+

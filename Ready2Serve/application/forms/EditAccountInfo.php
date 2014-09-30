@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_EditAccountInfo extends Zend_Form
+class Application_Form_EditAccountInfo extends Twitter_Form
 {
 
     public function init()
