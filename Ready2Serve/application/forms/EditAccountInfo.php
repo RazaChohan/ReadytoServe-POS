@@ -36,6 +36,14 @@ class Application_Form_EditAccountInfo extends Zend_Form
             'label' => 'Save',
         ));
     }
-    
+    // overriding
+    public function isValid($data)
+    {
+        parent::isValid($data);
+        if($data['password']!=$data['confirmpassword']){
+            $this->getElement('password')->setErrors(array('password '
+                . ' not match'));
+        }
+    }
 
 }
