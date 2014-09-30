@@ -33,8 +33,8 @@ class AuthController extends Zend_Controller_Action
                        $this->_redirect('Order/place-order');  
                     }
                 } else {
-                    $loginForm->getElement('password')->addError('Incorrect'
-                            . ' Username and Password');
+                    $loginForm->getElement('password')->addError('Invalid'
+                            . ' Credentials');
                     $loginForm->markAsError();
                     $this->view->form = $loginForm;
                 }
