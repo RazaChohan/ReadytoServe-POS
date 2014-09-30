@@ -6,7 +6,7 @@ class Application_Form_Login extends Twitter_Form
     {
         $this->setName("login");
         $this->setMethod('post');
-
+      
 
         $this->addElement('text', 'username', array(
             'filters' => array('StringTrim'),
