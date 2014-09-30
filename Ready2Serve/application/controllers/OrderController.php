@@ -24,6 +24,7 @@ class OrderController extends Zend_Controller_Action
         $orderModel=new Application_Model_Order();
         $resultset=$orderModel->getAllOrders();
         $this->view->names = $resultset;
+        
     }
 
 
