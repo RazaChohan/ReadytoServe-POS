@@ -22,8 +22,16 @@ class PersonController extends Zend_Controller_Action
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $personModel = new Application_Model_Person();
-                $personModel->editAccountInfo($form->getValues());
-                $this->view->values = $form->getValues();
+                if($personModel->editAccountInfo($form->getValues())){
+                    $userType=Zend_Registry::get('personType');
+                    if($userType=='Admin'){
+                        $this->_redirect('Order/view-all-orders');
+                    }
+                    else{
+                        $this->_redirect('Order/place-order'); 
+                    }
+                }
+                
             }
         }
     }
