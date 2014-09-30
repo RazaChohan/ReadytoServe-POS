@@ -6,7 +6,7 @@ class Application_Form_Login extends Twitter_Form
     {
         $this->setName("login");
         $this->setMethod('post');
-      
+
 
         $this->addElement('text', 'username', array(
             'filters' => array('StringTrim'),
@@ -34,13 +34,11 @@ class Application_Form_Login extends Twitter_Form
             'ignore' => true,
             'label' => 'Login',
         ));
-//        $captcha = new Zend_Form_Element_Captcha('captcha');
-//        $captcha
-//                ->setCaptcha(new Captcha\Dumb())
-//                ->setLabel('Please verify you are human');
-//        
-//         $this->add($captcha);
+        $this->setDecorators(array(
+            'FormElements',
+            array('HtmlTag', array('tag' => 'dl', 'class' => 'zend_form')),
+            array('Description', array('placement' => 'prepend')),
+            'Form'
+        ));
     }
-    
-   
 }

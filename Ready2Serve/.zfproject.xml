@@ -15,6 +15,7 @@
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
+          <actionMethod actionName="logout"/>
         </controllerFile>
         <controllerFile controllerName="Product">
           <actionMethod actionName="index"/>
@@ -27,6 +28,7 @@
         <controllerFile controllerName="Person">
           <actionMethod actionName="index"/>
           <actionMethod actionName="editAccountInfo"/>
+          <actionMethod actionName="logout"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -77,6 +79,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Person">
             <viewScriptFile forActionName="editAccountInfo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Person">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="logout"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
