@@ -46,6 +46,7 @@
         <modelFile modelName="Product"/>
         <modelFile modelName="Order"/>
         <modelFile modelName="OrderMapper"/>
+        <modelFile modelName="Person"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
