@@ -26,7 +26,7 @@ class AuthController extends Zend_Controller_Action
                     $userType = Zend_Registry::get('personType');
                     if($userType==='Admin')
                     {
-                    $this->_redirect('Product/view-all-orders');
+                    $this->_redirect('Order/view-all-orders');
                     }
                     else if($userType==='Salesperson')
                     {
@@ -49,7 +49,7 @@ class AuthController extends Zend_Controller_Action
         $adapter = $this->_getAuthAdapter();
         $adapter->setIdentity($values['username']);
         $adapter->setCredential($values['password']);
-
+       
         $auth = Zend_Auth::getInstance();
         $result = $auth->authenticate($adapter);
         if ($result->isValid()) {

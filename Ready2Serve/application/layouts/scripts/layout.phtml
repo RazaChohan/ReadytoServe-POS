@@ -48,7 +48,9 @@
 
         <?php
         if (Zend_Controller_Front::getInstance()->getRequest()
-                        ->getControllerName() != 'Auth') {
+                        ->getControllerName() != 'Auth' &&
+                Zend_Controller_Front::getInstance()->getRequest()
+                        ->getControllerName() != 'auth') {
             if (Zend_Auth::getInstance()->hasIdentity()) {
                 echo $this->render('sidebar.phtml');
             }

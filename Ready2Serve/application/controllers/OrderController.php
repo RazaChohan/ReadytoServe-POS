@@ -18,8 +18,19 @@ class OrderController extends Zend_Controller_Action
         // action body
     }
 
+    public function viewAllOrdersAction()
+    {
+        // action body
+        $orderModel=new Application_Model_Order();
+        $resultset=$orderModel->getAllOrders();
+        $this->view->names = $resultset;
+        
+    }
+
 
 }
+
+
 
 
 
