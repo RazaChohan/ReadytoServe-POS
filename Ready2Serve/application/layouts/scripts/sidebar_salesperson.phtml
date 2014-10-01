@@ -1,11 +1,20 @@
 <div class="container-fluid">
-      <div class="row">
+    <div class="row">
         <div class="col-sm-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="/order/place-order">Place Order</a></li>
-            <li><a href="/person/edit-account-info">Edit Account Info</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
+            <ul class="nav nav-sidebar">
+                <li <?php
+                if (Zend_Controller_Front::getInstance()->getRequest()
+                                ->getActionName() == 'place-order') {
+                    echo "class='active'";
+                }
+                ?>><a href="/order/place-order">Place Order</a></li>
+                <li <?php
+                if (Zend_Controller_Front::getInstance()->getRequest()
+                                ->getActionName() == 'edit-account-info') {
+                    echo "class='active'";
+                }
+                ?>><a href="/person/edit-account-info">Edit Account Info</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
         </div>
-       
-      </div>
     </div>
+</div>
