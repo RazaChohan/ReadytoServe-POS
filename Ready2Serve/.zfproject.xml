@@ -35,6 +35,7 @@
         <formFile formName="LoginForm"/>
         <formFile formName="Login"/>
         <formFile formName="EditAccountInfo"/>
+        <formFile formName="ViewAllOrders"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
