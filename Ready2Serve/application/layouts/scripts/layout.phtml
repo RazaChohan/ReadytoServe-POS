@@ -46,17 +46,23 @@
             </div>
         </div>
 
-        <?php
-        if (Zend_Controller_Front::getInstance()->getRequest()
-                        ->getControllerName() != 'Auth' &&
-                Zend_Controller_Front::getInstance()->getRequest()
-                        ->getControllerName() != 'auth') {
-            if (Zend_Auth::getInstance()->hasIdentity()) {
-                echo $this->render('sidebar.phtml');
+        <div id="sidebar" class="col-md-2">
+            <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getControllerName() != 'Auth' &&
+                            Zend_Controller_Front::getInstance()->getRequest()
+                            ->getControllerName() != 'auth') {
+                if (Zend_Auth::getInstance()->hasIdentity()) {
+                    echo $this->render('sidebar.phtml');
+                }
             }
-        }
-        echo $this->layout()->content;
-        ?>
+            ?>
+        </div>
+        <div id="content" class="col-md-10">
+            <?php
+            echo $this->layout()->content;
+            ?>
+        </div>
 
 
 
