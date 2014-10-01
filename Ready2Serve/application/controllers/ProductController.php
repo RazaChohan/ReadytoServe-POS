@@ -13,9 +13,18 @@ class ProductController extends Zend_Controller_Action
         // action body
     }
 
+    public function showAllProductsAction()
+    {
+        // action body
+        $productModel= new Application_Model_Product();
+        $result = $productModel->getAllProducts();
+        $this->view->result=$result;
+    }
 
 
 }
+
+
 
 
 
