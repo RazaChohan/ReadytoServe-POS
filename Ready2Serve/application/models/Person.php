@@ -11,10 +11,6 @@ class Application_Model_Person
         $query="update person set password = '$this->_password' where "
                 . "username = '$this->_username'";
         
-//        "SELECT * FROM '$quiz_name'"
-//        $data = mysql_query($query);
-       
-        //update person set password ='12345678' where username = 'admin_man'
         $db=Zend_Db_Table::getDefaultAdapter();
         if($db){
             $db->query($query);
