@@ -46,15 +46,21 @@
             </div>
         </div>
 
-        <div id="sidebar" class="col-md-2">
+            <div id="sidebar" class="col-md-2">
             <?php
             if (Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'Auth' &&
                             Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'auth') {
-                if (Zend_Auth::getInstance()->hasIdentity()) {
-                    echo $this->render('sidebar.phtml');
-                }
+//                if (Zend_Auth::getInstance()->hasIdentity() &&
+//                    Zend_Registry::get('personType')==='Admin') {
+//                    echo $this->render('sidebar_admin.phtml');
+//                }
+//                elseif(Zend_Auth::getInstance()->hasIdentity())
+//                    //==='Salesperson'
+//                {
+                    echo $this->render('sidebar_salesperson.phtml');
+               // }
             }
             ?>
         </div>
