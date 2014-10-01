@@ -24,6 +24,7 @@ class AuthController extends Zend_Controller_Action
             if ($loginForm->isValid($request->getPost())) {
                 if ($this->_process($loginForm->getValues())) {
                     $userType = Zend_Registry::get('personType');
+                    
                     if($userType==='Admin')
                     {
                     $this->_redirect('Order/view-all-orders');

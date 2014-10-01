@@ -19,6 +19,7 @@
         </controllerFile>
         <controllerFile controllerName="Product">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="showAllProducts"/>
         </controllerFile>
         <controllerFile controllerName="Order">
           <actionMethod actionName="index"/>
@@ -86,6 +87,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="showAllProducts"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
