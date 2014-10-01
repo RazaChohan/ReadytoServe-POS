@@ -20,6 +20,7 @@
         <controllerFile controllerName="Product">
           <actionMethod actionName="index"/>
           <actionMethod actionName="showAllProducts"/>
+          <actionMethod actionName="deleteProducts"/>
         </controllerFile>
         <controllerFile controllerName="Order">
           <actionMethod actionName="index"/>
@@ -37,6 +38,7 @@
         <formFile formName="Login"/>
         <formFile formName="EditAccountInfo"/>
         <formFile formName="ViewAllOrders"/>
+        <formFile formName="DeleteProducts"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -90,6 +92,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Product">
             <viewScriptFile forActionName="showAllProducts"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="deleteProducts"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
