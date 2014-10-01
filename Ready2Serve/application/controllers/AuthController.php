@@ -18,30 +18,28 @@ class AuthController extends Zend_Controller_Action
 //        'PrepareElements',
 //        array('ViewScript', array('viewScript' => 'loginDecorator.phtml')),
 //        ));
-
+        
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($loginForm->isValid($request->getPost())) {
                 if ($this->_process($loginForm->getValues())) {
-                    $userType = Zend_Registry::get('personType');
-                    
-                    if($userType==='Admin')
+
+                    if(Zend_Auth::getInstance()->
+                            getIdentity()->person_type=='Admin')
                     {
                     $this->_redirect('Order/view-all-orders');
                     }
-                    else if($userType==='Salesperson')
+                    else if(Zend_Auth::getInstance()
+                            ->getIdentity()->person_type=='Salesperson')
                     {
                        $this->_redirect('Order/place-order');  
                     }
                 } else {
                     $loginForm->getElement('password')->addError('Invalid'
                             . ' Credentials');
-                    $loginForm->markAsError();
-                    $this->view->form = $loginForm;
+                    $loginForm->markAsError(); 
                 }
-            } else {
-                $this->view->form = $loginForm;
-            }
+            } 
         }
         $this->view->form = $loginForm;
     }
@@ -67,10 +65,6 @@ class AuthController extends Zend_Controller_Action
         if ($result->isValid()) {
             $user = $adapter->getResultRowObject();
             $auth->getStorage()->write($user);
-
-            $str = (array) $user;
-            Zend_Registry::set('personType', $str['person_type']);
-
             return true;
         }
         return false;

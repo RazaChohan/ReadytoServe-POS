@@ -52,18 +52,12 @@
                             ->getControllerName() != 'Auth' &&
                             Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'auth') {
-//                if (Zend_Auth::getInstance()->hasIdentity() &&
-//                    Zend_Registry::get('personType')==='Admin') {
-//                    echo $this->render('sidebar_admin.phtml');
-//                }
-//                elseif(Zend_Auth::getInstance()->hasIdentity())
-//                    //==='Salesperson'
-//                {
                 if(Zend_Auth::getInstance()->hasIdentity()){
                 if(Zend_Auth::getInstance()->getIdentity()->person_type=='Admin'){
                     echo $this->render('sidebar_admin.phtml');
                 }
-                else if(Zend_Auth::getInstance()->getIdentity()->person_type=='Salesperson'){
+                else if(Zend_Auth::getInstance()
+                        ->getIdentity()->person_type=='Salesperson'){
                     echo $this->render('sidebar_salesperson.phtml');
                 }
                 }
