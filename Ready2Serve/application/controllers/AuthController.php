@@ -14,11 +14,6 @@ class AuthController extends Zend_Controller_Action
     {
         // action body
         $loginForm = new Application_Form_Login();
-//        $loginForm->setDecorators(array(
-//        'PrepareElements',
-//        array('ViewScript', array('viewScript' => 'loginDecorator.phtml')),
-//        ));
-        
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($loginForm->isValid($request->getPost())) {

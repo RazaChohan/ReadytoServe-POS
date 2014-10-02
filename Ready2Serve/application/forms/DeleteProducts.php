@@ -2,21 +2,24 @@
 
 class Application_Form_DeleteProducts extends Twitter_Form
 {
-        protected $_allProducts = null;
-        
     public function init()
     {
-   
-    }
-    
-    /**
-     * Setter for allProducts Array
-     * @param <products> $products 
-     */
-    public function setAllProducts($products){
-        $this->_allProducts = $products;
-    }
+        $productModel = new Application_Model_Product();
+        $productsList = $productModel->getAllProducts();
+  
+        $this->setName('deleteProducts');
+        $this->setMethod('post');
 
-
+        foreach ($productsList as $key => $val) {
+            $element = new
+                    Zend_Form_Element_Checkbox($val['product_id']);
+            $this->addElement($element);
+        }
+        $this->addElement('submit', 'Confirm', array(
+            'required' => false,
+            'ignore' => true,
+            'label' => 'Confirm',
+        ));  
+    }
 }
 
