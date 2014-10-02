@@ -11,9 +11,11 @@ class Application_Form_DeleteProducts extends Twitter_Form
         $this->setMethod('post');
 
         foreach ($productsList as $key => $val) {
-            $element = new
-                    Zend_Form_Element_Checkbox($val['product_id']);
-            $this->addElement($element);
+            $this->addElement('checkbox', $val['product_id'],array(
+            'required' => false,
+            'ignore' => true,
+            'label' => '',
+        ));  
         }
         $this->addElement('submit', 'Confirm', array(
             'required' => false,
