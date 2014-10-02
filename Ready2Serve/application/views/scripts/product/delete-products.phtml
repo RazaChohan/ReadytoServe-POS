@@ -1,11 +1,10 @@
-<html>
+
 <br /><br />
-<title>Delete Products</title>
 <div id="view-content">
 <div  class="container" align="center">
     <form role="form" method="post">
-        <body>
-    <table class="table-condensed table table-striped" style="width:80%">
+        
+    <table class="table" id="t1" name="t1" style="width:80%">
         <thead>
                 <tr>
                    <th>Product ID</th>
@@ -34,8 +33,14 @@
     echo $this->form->getElement('Confirm');
     ?>
         
- </body>
+
  </form>
 </div>
 </div>
-</html>
+
+<script src="<?php echo $this->baseUrl('/bootstrap/js/colResizable-1.3.min.js'); ?>"></script>
+<script type="text/javascript">
+    
+    $("#t1").colResizable();
+    
+</script>

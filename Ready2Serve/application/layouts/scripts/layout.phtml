@@ -45,39 +45,38 @@
                 </div>
             </div>
         </div>
-            <!--class="col-md-2"-->
-            <div class="col-md-2" >
+        <!--class="col-md-2"-->
+        <div class="col-md-2" >
             <?php
             if (Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'Auth' &&
                             Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'auth') {
-                if(Zend_Auth::getInstance()->hasIdentity()){
-                if(Zend_Auth::getInstance()->getIdentity()
-                        ->person_type=='Admin'){
-                    echo $this->render('sidebar_admin.phtml');
-                }
-                else if(Zend_Auth::getInstance()
-                        ->getIdentity()->person_type=='Salesperson'){
-                    echo $this->render('sidebar_salesperson.phtml');
-                }
+                if (Zend_Auth::getInstance()->hasIdentity()) {
+                    if (Zend_Auth::getInstance()->getIdentity()
+                            ->person_type == 'Admin') {
+                        echo $this->render('sidebar_admin.phtml');
+                    } else if (Zend_Auth::getInstance()
+                                    ->getIdentity()->person_type == 'Salesperson') {
+                        echo $this->render('sidebar_salesperson.phtml');
+                    }
                 }
             }
             ?>
         </div>
-            <!--class="col-md-8"-->
+        
+        <script src="<?php echo $this->baseUrl('jquery.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/bootstrap/js/jquery.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/bootstrap/js/docs.min.js'); ?>"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="<?php echo $this->baseUrl('/bootstrap/js/ie10-viewport-bug-workaround.js'); ?>"></script>
+
         <div id="content" class="col-md-8" >
             <?php
             echo $this->layout()->content;
             ?>
         </div>
 
-
-
-        <script src="<?php echo $this->baseUrl('jquery.min.js'); ?>"></script>
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/bootstrap.min.js'); ?>"></script>
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/docs.min.js'); ?>"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/ie10-viewport-bug-workaround.js'); ?>"></script>
     </body>
 </html>
