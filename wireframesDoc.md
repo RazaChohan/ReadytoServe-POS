@@ -40,34 +40,34 @@
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/1.png)
 
 #### (II) Admin > Manage Products 
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/2.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/2.png)
 
 #### (III) Add Products
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/3.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/3.png)
 
 #### (IV) Add Products > Add Items in Deal
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/4.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/4.png)
 
 #### (V) Edit or Deactivate Product
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/5.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/5.png)
 
 #### (VI) Edit or Deactivate Product > Edit Item
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/6.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/6.png)
 
 #### (VII) Edit or Deactivate Product > Edit Deal
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/7.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/7.png)
 
 #### (VIII) Admin > Edit Account Info
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/8.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/8.png)
 
 #### (IX) View Orders
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/9.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/9.png)
 
 #### (X) Sales > Edit Account Info
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/10.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/10.png)
 
 #### (XI) Place Order
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/11.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/11.png)
 
 
 
