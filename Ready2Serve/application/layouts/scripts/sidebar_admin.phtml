@@ -1,44 +1,44 @@
-<div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2 sidebar">
-          <ul class="nav nav-sidebar">
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == 'view-all-orders') {
-                    echo "class='active'";
-                }
-                ?>><a href="/order/view-all-orders">View Orders</a></li>
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == 'edit-account-info') {
-                    echo "class='active'";
-                }
-                ?>><a href="/person/edit-account-info">Edit Account Info</a></li>
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == 'show-all-products') {
-                    echo "class='active'";
-                }
-                ?>><a href="/product/show-all-products">Show All Product</a></li>
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == '') {
-                    echo "class='active'";
-                }
-                ?>><a href="">Add Product</a></li>
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == '') {
-                    echo "class='active'";
-                }
-                ?>><a href="">Update/Edit Product</a></li>
-                <li <?php
-                if (Zend_Controller_Front::getInstance()->getRequest()
-                                ->getActionName() == '#') {
-                    echo "class='active'";
-                }
-                ?>><a href="/product/delete-products">Delete Product</a></li>
-                <li><a href="/auth/logout">Logout</a></li>
-            </ul>
-      </div>
+
+<div class="row">
+    <div class="col-sm-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == 'view-all-orders') {
+                echo "class='active'";
+            }
+            ?>><a href="/order/view-all-orders">View Orders</a></li>
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == 'edit-account-info') {
+                echo "class='active'";
+            }
+            ?>><a href="/person/edit-account-info">Edit Account Info</a></li>
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == 'show-all-products') {
+                echo "class='active'";
+            }
+            ?>><a href="/product/show-all-products">Show All Product</a></li>
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == '') {
+                echo "class='active'";
+            }
+            ?>><a href="">Add Product</a></li>
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == '') {
+                echo "class='active'";
+            }
+            ?>><a href="">Update/Edit Product</a></li>
+            <li <?php
+            if (Zend_Controller_Front::getInstance()->getRequest()
+                            ->getActionName() == '#') {
+                echo "class='active'";
+            }
+            ?>><a href="/product/delete-products">Delete Product</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
     </div>
+</div>
