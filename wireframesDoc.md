@@ -15,9 +15,9 @@
       * [**5.0	Edit or Deactivate Product**](#v-edit-or-deactivate-product)
       * [**6.0	Edit or Deactivate Product – Edit Item **](#vi-edit-or-deactivate-product–edit-item)
       * [**7.0 Edit or Deactivate Product – Edit Deal**](#vii-edit-or-deactivate-product–edit-deal)
-      * [**8.0 Admin > Edit Account Info**](#viii-admin->-edit-account-info)
+      * [**8.0 Admin Edit Account Info**](#viii-admin-edit-account-info)
       * [**9.0 View Orders**](#ix-view-orders)
-      * [**10.0 Sales > Edit Account Info**] (#x-sales–>-edit-account-info)
+      * [**10.0 Sales Edit Account Info**] (#x-sales-edit-account-info)
       * [**11.0 Place Order**] (#xi-place-order)
 
 
@@ -57,13 +57,13 @@
 #### (VII) Edit or Deactivate Product > Edit Deal
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/7.png)
 
-#### (VIII) Admin > Edit Account Info
+#### (VIII) Admin Edit Account Info
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/8.png)
 
 #### (IX) View Orders
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/9.png)
 
-#### (X) Sales > Edit Account Info
+#### (X) Sales Edit Account Info
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/10.png)
 
 #### (XI) Place Order
