@@ -1,0 +1,41 @@
+
+<html>
+    <div id="view-content">
+        <div  class="container" align="center">
+            <?php 
+            if ($this->form) {
+                ?>
+                <table class="table table-striped" cellpadding="8">
+                    <thead>
+                        <tr>
+                            <th>Check</th>
+                            <th>Product Description</th>
+                            <th>Product Price</th>
+                            <th>Product Quantity</th>
+                            <th>Product Discount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php for ($i=0;$i<count($this->form->checkBoxArray);$i++) { ?>
+                            <tr>
+<!--                                <td><?php //$this->render($this->form->checkBoxArray[$i]); ?></td>-->
+                                <td><?php echo $value->prodDArray[$i]; ?></td>
+                                <td><?php echo $value->prodQArray[$i]; ?></td>
+                                <td><?php echo $value->fieldQArray[$i]; ?></td>
+                                <td><?php echo $value->fieldDArray[$i]; ?></td>
+
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            <?php } else {
+                ?>
+                <p>There is no product to Display</p>
+                <?php
+            }
+            ?>
+
+        </div>
+    </div> <!-- outer div -->
+</html>
+
