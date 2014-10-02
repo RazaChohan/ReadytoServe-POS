@@ -12,7 +12,7 @@ class Application_Form_EditAccountInfo extends Twitter_Form
 
         $this->addElement('password', 'password', array(
             'filters' => array('StringTrim'),
-            'placeholder' => 'Password',
+            'placeholder' => 'New Password',
             'autofocus' => 'true',
             'validators' => array(
                 array('StringLength', false, array(8, 50)),
