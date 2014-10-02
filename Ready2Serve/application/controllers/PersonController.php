@@ -41,8 +41,7 @@ class PersonController extends Zend_Controller_Action
     public function placeOrderAction()
     {
         // action body
-        $form= new Application_Form_PlaceOrder();
-        $this->view->form=$form;
+       
     }
 
 }
