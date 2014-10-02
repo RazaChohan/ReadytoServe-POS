@@ -9,7 +9,7 @@
 ####Table of Contents
  * [Ready2Serve POS](#ready2serve-pos)
       * [**1.0	Log In**](#i-log-in)
-      * [**2.0	Admin > Manage Products **](#ii-Admin->-Manage-Products)
+      * [**2.0	Admin > Manage Products**](#ii-admin->-manage-products)
       * [**3.0 Add Products**](#iii- Add-Products)
       * [**4.0 Add Products  > Add Items in Deal**](#iv- Add-Products–>-Add-Items-in-Deal )
       * [**5.0	Edit or Deactivate Product **](#v- Edit-or-Deactivate-Product)
