@@ -80,6 +80,8 @@
                                     <td><?php echo $this->escape($val['discount']) ?></td>
                                     <td><?php echo $this->escape($val['Amount']) ?></td>
                                 </tr>
+                                
+                                <?php $orderTot = $orderTot+$this->escape($val['Amount']); ?>
                             <?php } ?>
 
                         </tbody>

@@ -1,13 +1,13 @@
 <?php
 
-class Application_Form_PlaceOrder extends Zend_Form
+class Application_Form_PlaceOrder extends Twitter_Form
 {
 
     public $checkBoxArray = array();
-    public $fieldQArray = array();
-    public $fieldDArray = array();
-    public $prodDArray = array();
-    public $prodPArray = array();
+    public $quantityArray = array();
+    public $discountArray = array();
+    public $productArray = array();
+    public $priceArray = array();
 
     public function init()
     {
@@ -19,11 +19,11 @@ class Application_Form_PlaceOrder extends Zend_Form
             $checkBox = $this->createElement('checkbox', $prod['product_id']);
             array_push($this->checkBoxArray, $checkBox);
             $fieldQ = $this->createElement('text', $prod['product_id'] . 'q');
-            array_push($this->fieldQArray, $fieldQ);
+            array_push($this->quantityArray, $fieldQ);
             $fieldD = $this->createElement('text', $prod['product_id'] . 'd');
-            array_push($this->fieldQArray, $fieldD);
-            array_push($this->prodDArray, $prod['product_description']);
-            array_push($this->prodPArray, $prod['product_price']);
+            array_push($this->discountArray, $fieldD);
+            array_push($this->productArray, $prod['product_description']);
+            array_push($this->priceArray, $prod['product_price']);
         }
     }
 
