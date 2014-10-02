@@ -9,9 +9,9 @@
 ####Table of Contents
  * [Ready2Serve POS](#ready2serve-pos)
       * [**1.0	Log In**](#i-log-in)
-      * [**2.0	Admin > Manage Products**](#ii-admin->-manage-products)
+      * [**2.0	Admin Manage Products**](#ii-admin-manage-products)
       * [**3.0 Add Products**](#iii-add-products)
-      * [**4.0 Add Products  > Add Items in Deal**](#iv-add-products–>-add-items-in-deal )
+      * [**4.0 Add Items in Deal**](#iv-add-items-in-deal )
       * [**5.0	Edit or Deactivate Product**](#v-edit-or-deactivate-product)
       * [**6.0	Edit or Deactivate Product – Edit Item **](#vi-edit-or-deactivate-product–edit-item)
       * [**7.0 Edit or Deactivate Product – Edit Deal**](#vii-edit-or-deactivate-product–edit-deal)
@@ -39,13 +39,13 @@
 #### (I) Log In
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/1.png)
 
-#### (II) Admin > Manage Products 
+#### (II) Admin Manage Products 
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/2.png)
 
 #### (III) Add Products
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/3.png)
 
-#### (IV) Add Products > Add Items in Deal
+#### (IV) Add Items in Deal
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/4.png)
 
 #### (V) Edit or Deactivate Product
