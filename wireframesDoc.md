@@ -13,7 +13,7 @@
       * [**3.0 Add Products**](#iii-add-products)
       * [**4.0 Add Items in Deal**](#iv-add-items-in-deal )
       * [**5.0	Edit or Deactivate Product**](#v-edit-or-deactivate-product)
-      * [**6.0	Edit Item **](#vi-edit-item)
+      * [**6.0	Edit Item**](#vi-edit-item)
       * [**7.0 Edit Deal**](#vii-edit-deal)
       * [**8.0 Admin Edit Account Info**](#viii-admin-edit-account-info)
       * [**9.0 View Orders**](#ix-view-orders)
@@ -41,10 +41,14 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (II) Admin Manage Products 
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/2.png)
 
+<br/>
+<br/>
 <br/>
 <br/>
 
@@ -53,10 +57,14 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (IV) Add Items in Deal
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/4.png)
 
+<br/>
+<br/>
 <br/>
 <br/>
 
@@ -65,10 +73,14 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (VI) Edit Item
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/6.png)
 
+<br/>
+<br/>
 <br/>
 <br/>
 
@@ -77,10 +89,14 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (VIII) Admin Edit Account Info
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/8.png)
 
+<br/>
+<br/>
 <br/>
 <br/>
 
@@ -89,16 +105,22 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (X) Sales Edit Account Info
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/10.png)
 
 <br/>
 <br/>
+<br/>
+<br/>
 
 #### (XI) Place Order
 ![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/11.png)
 
+<br/>
+<br/>
 <br/>
 <br/>
 
