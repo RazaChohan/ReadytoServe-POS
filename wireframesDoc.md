@@ -37,7 +37,7 @@
 
 
 #### (I) Log In
-![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/1.png)
+![enter image description here]( https://raw.github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/1.png)
 
 #### (II) Admin > Manage Products 
 ![enter image description here]( https://github.com/RazaChohan/ReadytoServe-POS/web/wireframesImages/2.png)
