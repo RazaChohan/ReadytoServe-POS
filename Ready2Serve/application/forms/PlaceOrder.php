@@ -18,9 +18,21 @@ class Application_Form_PlaceOrder extends Twitter_Form
         foreach ($products as $prod) {
             $checkBox = $this->createElement('checkbox', $prod['product_id']);
             array_push($this->checkBoxArray, $checkBox);
-            $fieldQ = $this->createElement('text', $prod['product_id'] . 'q');
+            $fieldQ = $this->createElement('text', $prod['product_id'] . 'q',array(
+                                            'placeholder'      => 'Quantity',
+                                            'required'   => true,
+                                            'filters'    => array('StringTrim'),
+                                            'validators' => array(
+                                            array('StringLength', false, array(2, 50))),
+                                            'attribs'    => array('disabled' => 'disabled')));
             array_push($this->quantityArray, $fieldQ);
-            $fieldD = $this->createElement('text', $prod['product_id'] . 'd');
+            $fieldD = $this->createElement('text', $prod['product_id'] . 'd',array(
+                                            'placeholder'      => 'Discount',
+                                            'required'   => true,
+                                            'filters'    => array('StringTrim'),
+                                            'validators' => array(
+                                            array('StringLength', false, array(2, 50))),
+                                            'attribs'    => array('disabled' => 'disabled')));
             array_push($this->discountArray, $fieldD);
             array_push($this->productArray, $prod['product_description']);
             array_push($this->priceArray, $prod['product_price']);
