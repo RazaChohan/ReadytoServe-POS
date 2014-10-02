@@ -27,6 +27,7 @@ class ProductController extends Zend_Controller_Action
 
         $request = $this->getRequest();
         if ($request->isPost()) {
+            //var_dump();
             $this->_redirect('auth/login');
         }
 //        $deleteProductsForm = new Zend_Form();
