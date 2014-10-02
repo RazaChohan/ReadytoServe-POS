@@ -22,10 +22,8 @@ class ProductController extends Zend_Controller_Action
         // action body
         $productModel = new Application_Model_Product();
         $productsList = $productModel->getAllProducts();
-        $elementsArray=array();
         $deleteProductsForm = new Zend_Form();
         $deleteProductsForm->setName('deleteProducts');
-        $var = intval(1);
         foreach ($productsList as $key => $val) {
             $var = $var + 1;
             $element = new 
