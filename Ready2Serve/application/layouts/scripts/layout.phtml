@@ -53,7 +53,8 @@
                             Zend_Controller_Front::getInstance()->getRequest()
                             ->getControllerName() != 'auth') {
                 if(Zend_Auth::getInstance()->hasIdentity()){
-                if(Zend_Auth::getInstance()->getIdentity()->person_type=='Admin'){
+                if(Zend_Auth::getInstance()->getIdentity()
+                        ->person_type=='Admin'){
                     echo $this->render('sidebar_admin.phtml');
                 }
                 else if(Zend_Auth::getInstance()
@@ -61,7 +62,6 @@
                     echo $this->render('sidebar_salesperson.phtml');
                 }
                 }
-               // }
             }
             ?>
         </div>

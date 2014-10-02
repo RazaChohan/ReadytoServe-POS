@@ -8,7 +8,6 @@ class Application_Form_ViewAllOrders extends Twitter_Form
         $this->setName("viewOrders");
         $this->setMethod('post');
 
-
         $this->addElement('Text', 'datepicker-8', array(
             'placeholder' => 'Begin Date',
             'autofocus' => 'true',
@@ -19,7 +18,6 @@ class Application_Form_ViewAllOrders extends Twitter_Form
             'placeholder' => 'End Date',
             'required' => true,
         ));
-
 
         $this->addElement('submit', 'Search', array(
             'required' => false,

@@ -24,31 +24,31 @@ class ProductController extends Zend_Controller_Action
 
         $productModel = new Application_Model_Product();
         $productsList = $productModel->getAllProducts();
-
+        
+        
         $request = $this->getRequest();
         if ($request->isPost()) {
-            //var_dump();
-            $this->_redirect('auth/login');
+            
+            $indexesArray=$this->getSpecifcValueIndexes($request->getPost(),1);
+            $productModel->changeAvailabilityStatus($indexesArray);
+            $this->_redirect('/product/delete-products');
         }
-//        $deleteProductsForm = new Zend_Form();
-//        $deleteProductsForm->setName('deleteProducts');
-//        $deleteProductsForm->setMethod('post');
-//        foreach ($productsList as $key => $val) {
-//            $element = new
-//                    Zend_Form_Element_Checkbox($val['product_id']);
-//            $deleteProductsForm->addElement($element);
-//        }
-//        // $element=new Zend_Form_Element_Button('Confirm');
-//        $deleteProductsForm->addElement('submit', 'Confirm', array(
-//            'required' => false,
-//            'ignore' => true,
-//            'label' => 'Confirm',
-//        ));
         $this->view->list = $productsList;
         $this->view->form = $deleteProductsForm;
     }
     private function createDeleteProductsForm()
     {
         
+    }
+    
+    private function getSpecifcValueIndexes($array,$val)
+    {
+        $indexesArray=array();
+            foreach ($array as $key => $value) {
+                if ($value == $val) {
+                    array_push($indexesArray, $key);
+                }
+            }
+            return $indexesArray;
     }
 }
