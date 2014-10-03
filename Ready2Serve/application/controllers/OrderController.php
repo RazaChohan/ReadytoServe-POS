@@ -18,7 +18,7 @@ class OrderController extends Zend_Controller_Action
         // action body
         $form= new Application_Form_PlaceOrder();
         $this->view->form=$form;
-    }
+       }
 
     public function viewAllOrdersAction()
     {
@@ -34,8 +34,8 @@ class OrderController extends Zend_Controller_Action
         $orderModel=new Application_Model_Order();
         $resultset=$orderModel->getAllOrders();
         $this->view->names = $resultset;
-        
     }
+   
 
 
 }

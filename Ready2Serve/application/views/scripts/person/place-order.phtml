@@ -1,9 +1,11 @@
-
 <html>
     <div id="view-content">
         <div  class="container" align="center">
+
             <?php 
             if ($this->form) {
+                $this->headScript()->appendFile('/pubic/assests/js/placeOrder.js');
+
                 ?>
                 <table class="table table-striped" cellpadding="8">
                     <thead>
@@ -37,5 +39,6 @@
 
         </div>
     </div> <!-- outer div -->
+   
 </html>
 

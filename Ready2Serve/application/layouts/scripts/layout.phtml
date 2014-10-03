@@ -9,15 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+
         <link rel="icon" href="../../favicon.ico">
 
+        <link href="<?php echo $this->baseUrl('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
-        <link href="<?php echo $this->baseUrl('/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
-
-        <link href="<?php echo $this->baseUrl('/bootstrap/css/dashboard.css'); ?>" rel="stylesheet">
+        <link href="<?php echo $this->baseUrl('/assets/css/dashboard.css'); ?>" rel="stylesheet">
 
 
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/ie-emulation-modes-warning.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/ie-emulation-modes-warning.js'); ?>"></script>
     </head>
 
     <body>
@@ -64,19 +64,19 @@
             }
             ?>
         </div>
-        
-        <script src="<?php echo $this->baseUrl('jquery.min.js'); ?>"></script>
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/jquery.js'); ?>"></script>
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/bootstrap.min.js'); ?>"></script>
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/docs.min.js'); ?>"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="<?php echo $this->baseUrl('/bootstrap/js/ie10-viewport-bug-workaround.js'); ?>"></script>
 
         <div id="content" class="col-md-8" >
             <?php
             echo $this->layout()->content;
             ?>
         </div>
-
+        <script src="<?php echo $this->baseUrl('/assets/js/jquery.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/docs.min.js'); ?>"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="<?php echo $this->baseUrl('/assets/js/ie10-viewport-bug-workaround.js'); ?>"></script>
+        <script src="<?php echo $this->baseUrl('/assets/js/placeOrder.js'); ?>"></script>
+<?php echo $this->headScript(); ?>
     </body>
+
 </html>
