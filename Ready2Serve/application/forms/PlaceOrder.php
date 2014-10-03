@@ -17,7 +17,9 @@ class Application_Form_PlaceOrder extends Twitter_Form
         $products = $pM->getAllProducts();
         foreach ($products as $prod) {
             $checkBox = $this->createElement('checkbox', $prod['product_id']);
-            array_push($this->checkBoxArray, $checkBox);
+            if($prod['is_product_available']=='yes'){
+                array_push($this->checkBoxArray, $checkBox);
+            }
             $fieldQ = $this->createElement('text', $prod['product_id'] . 'q',array(
                                             'placeholder'      => 'Quantity',
                                             'required'   => true,
