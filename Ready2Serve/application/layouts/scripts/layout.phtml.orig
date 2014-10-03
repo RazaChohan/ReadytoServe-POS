@@ -75,8 +75,13 @@
         <script src="<?php echo $this->baseUrl('/assets/js/docs.min.js'); ?>"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="<?php echo $this->baseUrl('/assets/js/ie10-viewport-bug-workaround.js'); ?>"></script>
-      
+<<<<<<< HEAD
+        <script src="<?php echo $this->baseUrl('/assets/js/placeOrder.js'); ?>"></script>
         <?php echo $this->headScript(); ?>
+=======
+      
+<?php echo $this->headScript(); ?>
+>>>>>>> 8a37eba921acf1ddb915ba144b9b4c9ce4b11c07
     </body>
 
 </html>

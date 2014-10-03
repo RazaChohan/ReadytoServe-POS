@@ -21,7 +21,7 @@ class Application_Form_DeleteProducts extends Twitter_Form
         $this->addElement('submit', 'Confirm', array(
             'required' => false,
             'ignore' => true,
-            'label' => 'Confirm', 
+            'label' => 'Confirm',
         ));
     }
 

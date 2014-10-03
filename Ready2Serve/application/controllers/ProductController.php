@@ -24,31 +24,78 @@ class ProductController extends Zend_Controller_Action
 
         $productModel = new Application_Model_Product();
         $productsList = $productModel->getAllProducts();
-        
-        
+
+
         $request = $this->getRequest();
         if ($request->isPost()) {
-            
-            $indexesArray=$this->getSpecifcValueIndexes($request->getPost(),1);
+
+            $indexesArray = $this->getSpecifcValueIndexes($request->getPost(), 1);
             $productModel->changeAvailabilityStatus($indexesArray);
             $this->_redirect('/product/delete-products');
         }
         $this->view->list = $productsList;
         $this->view->form = $deleteProductsForm;
     }
-    private function createDeleteProductsForm()
+    public function addProductAction()
     {
-        
-    }
-    
-    private function getSpecifcValueIndexes($array,$val)
-    {
-        $indexesArray=array();
-            foreach ($array as $key => $value) {
-                if ($value == $val) {
-                    array_push($indexesArray, $key);
+        // action body
+        $addProductForm = new Application_Form_AddProduct();
+        $request = $this->getRequest();
+        $productModel = new Application_Model_Product();
+
+        if ($request->isPost()) {
+            $postResult = $request->getPost();
+            if ($addProductForm->isValid($postResult)) {
+                $lastInsertID = $productModel->addProduct($postResult);
+                if ($postResult['productType'] == 'item') {
+                    $addProductForm->reset();
+                } else if ($postResult['productType'] == 'deal') {
+
+                    $this->_redirect("/Product/add-items-in-deal/"
+                            . "insertID/$lastInsertID");
                 }
             }
-            return $indexesArray;
+        }
+        $this->view->form = $addProductForm;
+    }
+    public function updateProductAction()
+    {
+        // action body
+    }
+    public function addItemsInDealAction()
+    {
+        // action body
+        $insertID = $this->_getParam('insertID');
+        $productModel = new Application_Model_Product();
+        $addItemInDealForm = new Application_Form_AddItemsInDeal();
+        $allItems = $productModel->getAllAvailableItems();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $result = $this->removeNullValues($request->getPost());
+            $productModel->addItemsInDeal($result, $insertID);
+        }
+        $this->view->form = $addItemInDealForm;
+        $this->view->list = $allItems;
+        
+    }
+    private function getSpecifcValueIndexes($array, $val)
+    {
+        $indexesArray = array();
+        foreach ($array as $key => $value) {
+            if ($value == $val) {
+                array_push($indexesArray, $key);
+            }
+        }
+        return $indexesArray;
+    }
+    private function removeNullValues($array)
+    {
+        foreach ($array as $key => $value) {
+            if ($value == '0') {
+                unset($array[$key]);
+                unset($array[$key . 'q']);
+            }
+        }
+        return $array;
     }
 }

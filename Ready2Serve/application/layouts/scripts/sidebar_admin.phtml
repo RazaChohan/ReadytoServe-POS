@@ -23,16 +23,16 @@
             ?>><a href="/product/show-all-products">Show All Product</a></li>
             <li <?php
             if (Zend_Controller_Front::getInstance()->getRequest()
-                            ->getActionName() == '') {
+                            ->getActionName() == 'add-product') {
                 echo "class='active'";
             }
-            ?>><a href="">Add Product</a></li>
+            ?>><a href="/product/add-product">Add Product</a></li>
             <li <?php
             if (Zend_Controller_Front::getInstance()->getRequest()
-                            ->getActionName() == '') {
+                            ->getActionName() == 'update-product') {
                 echo "class='active'";
             }
-            ?>><a href="">Update/Edit Product</a></li>
+            ?>><a href="/product/update-product">Update/Edit Product</a></li>
             <li <?php
             if (Zend_Controller_Front::getInstance()->getRequest()
                             ->getActionName() == '#') {
