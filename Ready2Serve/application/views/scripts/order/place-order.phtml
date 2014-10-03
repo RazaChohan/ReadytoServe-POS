@@ -4,11 +4,8 @@
         <div  class="container" align="center">
             
             <title>Place Order</title>
-            <?php 
-            
-$this->headScript()->appendFile($this->baseUrl('/assets/js/placeOrder.js'));
-//$this->headScript()->offsetSetFile(1, $this->baseUrl('/assets/js/placeOrder.js'));
-?>
+            <?php $this->headScript()->appendFile(
+                    $this->baseUrl('/assets/js/placeOrder.js'));?>
             <?php 
             if ($this->form) {
                 ?>

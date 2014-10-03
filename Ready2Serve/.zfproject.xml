@@ -24,6 +24,7 @@
           <actionMethod actionName="deleteProducts"/>
           <actionMethod actionName="addProduct"/>
           <actionMethod actionName="updateProduct"/>
+          <actionMethod actionName="addItemsInDeal"/>
         </controllerFile>
         <controllerFile controllerName="Order">
           <actionMethod actionName="index"/>
@@ -45,6 +46,7 @@
         <formFile formName="DeleteProducts"/>
         <formFile formName="PlaceOrder"/>
         <formFile formName="AddProduct"/>
+        <formFile formName="AddItemsInDeal"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -113,6 +115,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Product">
             <viewScriptFile forActionName="updateProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="addItemsInDeal"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

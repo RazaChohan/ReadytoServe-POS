@@ -24,6 +24,7 @@ class Application_Form_AddProduct extends Twitter_Form
                 'item' => 'Item',
                 'deal' => 'Deal',
             ),
+            'required'=> true
         ));
         
         $this->addElement('radio', 'productAvailability', array(
@@ -31,6 +32,7 @@ class Application_Form_AddProduct extends Twitter_Form
                 'yes' => 'Yes',
                 'no' => 'No',
             ),
+            'required'=> true
         ));
         
          $this->addElement('radio', 'productOrderability', array(
@@ -38,6 +40,7 @@ class Application_Form_AddProduct extends Twitter_Form
                 'yes' => 'Yes',
                 'no' => 'No',
             ),
+             'required'=> true
         ));
          
          $this->addElement('Text', 'productPrice', array(
