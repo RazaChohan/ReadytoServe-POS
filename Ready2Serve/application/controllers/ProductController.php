@@ -2,14 +2,17 @@
 
 class ProductController extends Zend_Controller_Action
 {
+
     public function init()
     {
         /* Initialize action controller here */
     }
+
     public function indexAction()
     {
         // action body
     }
+
     public function showAllProductsAction()
     {
         // action body
@@ -17,6 +20,7 @@ class ProductController extends Zend_Controller_Action
         $result = $productModel->getAllProducts();
         $this->view->result = $result;
     }
+
     public function deleteProductsAction()
     {
         // action body
@@ -36,12 +40,8 @@ class ProductController extends Zend_Controller_Action
         $this->view->list = $productsList;
         $this->view->form = $deleteProductsForm;
     }
-    private function createDeleteProductsForm()
-    {
-        
-    }
-    
-    private function getSpecifcValueIndexes($array,$val)
+
+    private function getSpecifcValueIndexes($array, $val)
     {
         $indexesArray=array();
             foreach ($array as $key => $value) {
@@ -51,4 +51,27 @@ class ProductController extends Zend_Controller_Action
             }
             return $indexesArray;
     }
+
+    public function addProductAction()
+    {
+        // action body
+        $form = new Application_Form_AddProduct();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            var_dump($request->getPost());
+            die();
+        }
+   
+        $this->view->form = $form;
+    }
+
+    public function updateProductAction()
+    {
+        // action body
+    }
+
+
 }
+
+
+

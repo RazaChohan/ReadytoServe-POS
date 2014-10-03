@@ -10,6 +10,7 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="updateProduct"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Auth">
@@ -21,6 +22,8 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="showAllProducts"/>
           <actionMethod actionName="deleteProducts"/>
+          <actionMethod actionName="addProduct"/>
+          <actionMethod actionName="updateProduct"/>
         </controllerFile>
         <controllerFile controllerName="Order">
           <actionMethod actionName="index"/>
@@ -41,6 +44,7 @@
         <formFile formName="ViewAllOrders"/>
         <formFile formName="DeleteProducts"/>
         <formFile formName="PlaceOrder"/>
+        <formFile formName="AddProduct"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -100,6 +104,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Person">
             <viewScriptFile forActionName="placeOrder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="addProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="updateProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Product">
+            <viewScriptFile forActionName="updateProduct"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

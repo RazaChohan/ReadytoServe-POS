@@ -1,0 +1,28 @@
+<br /><br />
+<title>Add Product</title>
+<div id="view-content" align="center">
+    <h2>Add Product</h2>
+     <table class="table table-striped" style="width:80%">
+                    <tbody>
+                            <tr>
+                                <td><b>Product Name</b></td>
+                                <td><?php echo $this->form->getElement('productName'); ?></td>
+                            </tr>
+                            <tr> 
+                                <td><b>Product Type</b></td>
+                                <td><?php echo $this->form->getElement('productType'); ?></td></tr>
+                            <tr> 
+                                <td><b>Is Product Available</b></td>
+                                <td><?php echo $this->form->getElement('productAvailability'); ?></td></tr>
+                            <tr> 
+                                <td><b>Is Product Orderable</b></td>
+                                <td><?php echo $this->form->getElement('productOrderability'); ?></td></tr>
+                            <tr> 
+                                <td><b>Product Price</b></td>
+                                <td><?php echo $this->form->getElement('productPrice'); ?></td></tr>
+                            <tr align="center"> 
+                                <td colspan="2"><?php echo $this->form->getElement('Save'); ?></td></tr>
+                    </tbody>
+                </table>
+<?php //echo $this->form;?>
+</div>
