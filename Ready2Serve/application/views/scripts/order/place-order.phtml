@@ -1,50 +1,63 @@
 
 <html>
-    <div id="view-content">
-        <div  class="container" align="center">
-            
-            <title>Place Order</title>
-            <?php 
-            
-$this->headScript()->appendFile($this->baseUrl('/assets/js/placeOrder.js'));
-//$this->headScript()->offsetSetFile(1, $this->baseUrl('/assets/js/placeOrder.js'));
-?>
-            <?php 
-            if ($this->form) {
-                ?>
-                <br/>
-                <table class="table table-striped" width=80%>
-                    <thead>
-                        <tr>
-                            <th>Check</th>
-                            <th>Product Description</th>
-                            <th>Product Price</th>
-                            <th>Product Quantity</th>
-                            <th>Product Discount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for ($i=0;$i<count($this->form->checkBoxArray);$i++) 
-                        { ?>
-                            <tr>
-                                <td><?php echo $this->form->checkBoxArray[$i]; ?></td>
-                                <td><?php echo $this->form->productArray[$i]; ?></td>
-                                <td><?php echo $this->form->priceArray[$i]; ?></td>
-                                <td><?php echo $this->form->quantityArray[$i]; ?></td>
-                                <td><?php echo $this->form->discountArray[$i]; ?></td>
+    <form method="post">
+        <div id="view-content">
+            <div  class="container" align="center">
 
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            <?php } else {
-                ?>
-                <p>There is no product to Display</p>
+                <title>Place Order</title>
                 <?php
-            }
-            ?>
+                $this->headScript()->appendFile($this->baseUrl('/assets/js/placeOrder.js'));
+//$this->headScript()->offsetSetFile(1, $this->baseUrl('/assets/js/placeOrder.js'));
+                ?>
+                <?php
+                if ($this->form) {
+                    ?>
+                    <br/>
+                    <table class="table table-striped" width=80%>
+                        <thead>
+                            <tr>
+                                <th>Check</th>
+                                <th>Product Description</th>
+                                <th>Product Price</th>
+                                <th>Product Quantity</th>
+                                <th>Product Discount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($this->list as $prod) {
+                                if ($prod['is_product_available'] == 'yes') {
+                                    ?>
+                                    <tr>
+                                        <td><?php
+                                            echo
+                                            $this->form->getElement($prod['product_id']);
+                                            ?></td>
+                                        <td><?php echo $prod['product_description']; ?></td>
+                                        <td><?php echo $prod['product_price']; ?></td>
+                                        <td><?php
+                                            echo $this->form->getElement($prod['product_id'] . 'q');
+                                            ?></td>
+                                        <td><?php
+                                            echo $this->form->getElement($prod['product_id'] . 'd');
+                                            ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <?php
+                    echo $this->form->getElement('confirm');
+                } else {
+                    ?>
+                    <p>There is no product to Display</p>
+                    <?php
+                }
+                ?>
 
-        </div>
-    </div> <!-- outer div -->
-    
+            </div>
+        </div> <!-- outer div -->
+    </form>
 </html>
