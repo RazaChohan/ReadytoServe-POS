@@ -1,12 +1,25 @@
 
 <html>
+<<<<<<< HEAD
     <form method="post">
         <div id="view-content">
             <div  class="container" align="center">
 
                 <title>Place Order</title>
+                <?php
+                $this->headScript()->appendFile($this->baseUrl('/assets/js/placeOrder.js'));
+//$this->headScript()->offsetSetFile(1, $this->baseUrl('/assets/js/placeOrder.js'));
+=======
+    <div id="view-content">
+        <div  class="container" align="center">
+            
+            <title>Place Order</title>
             <?php $this->headScript()->appendFile(
                     $this->baseUrl('/assets/js/placeOrder.js'));?>
+            <?php 
+            if ($this->form) {
+>>>>>>> 8a37eba921acf1ddb915ba144b9b4c9ce4b11c07
+                ?>
                 <?php
                 if ($this->form) {
                     ?>

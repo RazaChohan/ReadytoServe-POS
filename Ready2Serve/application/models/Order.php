@@ -2,6 +2,7 @@
 
 class Application_Model_Order
 {
+
     protected $_salesmanName;
     protected $_orderID;
     protected $_orderDateTime;
@@ -13,7 +14,7 @@ class Application_Model_Order
     public function getAllOrders()
     {
         $db = Zend_Db_Table::getDefaultAdapter();
-       
+
         if ($db) {
 
             $query = "SELECT pr.name, od.order_id, od.order_datetime,
@@ -31,6 +32,34 @@ class Application_Model_Order
             return $result;
         }
     }
-}
 
+    public function placeOrder($values,$products)
+    {
+        //order id, salesman id, date time
+
+        $salesManId = Zend_Auth::getInstance()->getIdentity();
+//                ->person_id;
+       $dateTime = date('Y-m-d H:i:s');
+//        $db = Zend_Db_Table::getDefaultAdapter();
         
+            
+
+            for($i=0;$i<count($values[0]);$i++){
+                $query = "insert to order values ('$salesManId','$dateTime')";
+                $db->query($query);
+                $need=array();
+                for($j=0;$j<3;$j++){
+                    array_push($need, $values[$j][$i]);
+                }
+                $p_id=$need[0];
+                $p_quntity=$need[1];
+                $p_discount=$need[2];
+                $p_price=$products['product_price'];
+                $query="inseret into order_line_item values ("
+                        . "'$p_id','$p_quntity','$p_discount')";
+            }
+            
+   	//order_id 	product_id 	unit_price 	quantity 	discount       
+    }
+
+}
