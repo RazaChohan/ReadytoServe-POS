@@ -64,11 +64,11 @@
                                         <td colspan="7"></td>
                                     </tr>
                                     <tr>  
-                                        <td colspan="7" align="center"><b><?php echo 'Order Number: ' . $currentOrderID ?></b></td>   
+                                        <td colspan="7"><b><?php 
+                                        echo 'Order Number: ' . $currentOrderID.', By  '.$this->escape($val['name']) ?></b></td>   
                                     </tr>
 
                                     <tr>
-                                        <th>Salesman Name</th>
                                         <th>Product Description</th>
                                         <th>Unit Price</th>
                                         <th>Quantity</th>
@@ -85,7 +85,6 @@
                             </thead>
                             <tbody>      
                                 <tr>
-                                    <td><?php echo $this->escape($val['name']) ?></td>
 
                                     <td><?php echo $this->escape($val['product_description']) ?></td>
                                     <td><?php echo $this->escape($val['unit_price']) ?></td>
