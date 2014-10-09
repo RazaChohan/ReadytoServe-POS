@@ -9,7 +9,7 @@
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <!-- Javascript -->
         <script>
-            $(function() {
+            $(function () {
                 $("#datepicker-8").datepicker({
                     prevText: "click for previous months",
                     nextText: "click for next months",
@@ -48,24 +48,23 @@
                                     if ($currentOrderID != 0) {
                                         ?>
                                         <tr class="blank_row">
-                                            <td colspan="7"><b><?php echo 'Order Total: ' . $orderTot ?></b></td>
+                                            <td colspan="7"><b><font size="3" COLOR="green">
+                                                    <?php echo 'Order Total: ' . $orderTot ?>
+                                                    </font></b></td>
+
                                         </tr>
-                                    <?php
+
+                                        <?php
                                     }
                                     $currentOrderID = $this->escape($val['order_id']);
 
                                     $orderTot = $this->escape($val['Amount']);
                                     ?>
 
-                                    <tr class="blank_row">
-                                        <td colspan="7"></td>
-                                    </tr>
-                                    <tr class="blank_row">
-                                        <td colspan="7"></td>
-                                    </tr>
                                     <tr>  
-                                        <td colspan="7"><b><?php 
-                                        echo 'Order Number: ' . $currentOrderID.', By  '.$this->escape($val['name']) ?></b></td>   
+                                        <td colspan="7"><font size="4" COLOR="blue"> <b><?php echo 'Order Number: ' . $currentOrderID . ', By  ' . $this->escape($val['name']) ?></b>
+                                            </font>
+                                        </td>   
                                     </tr>
 
                                     <tr>
@@ -76,11 +75,12 @@
                                         <th>Discount</th>
                                         <th>Amount</th>
                                     </tr>
-                                    <?php
-                                } else {
-                                    $orderTot = $orderTot + $this->escape($val['Amount']);
-                                }
-                                ?>
+
+            <?php
+        } else {
+            $orderTot = $orderTot + $this->escape($val['Amount']);
+        }
+        ?>
 
                             </thead>
                             <tbody>      
@@ -94,7 +94,8 @@
                                     <td><?php echo $this->escape($val['Amount']) ?></td>
                                 </tr>
 
-                                
+
+
     <?php } ?>
 
                         </tbody>
