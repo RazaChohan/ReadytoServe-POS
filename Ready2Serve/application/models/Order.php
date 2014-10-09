@@ -31,7 +31,7 @@ class Application_Model_Order
             return $result;
         }
     }
-    public function placeOrder($values, $products)
+    public function placeOrder($values)
     {
 //        var_dump($values[0]);
 //        die();

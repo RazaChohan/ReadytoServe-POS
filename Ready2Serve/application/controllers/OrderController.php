@@ -17,14 +17,15 @@ class OrderController extends Zend_Controller_Action
     {
         // action body
         $form = new Application_Form_PlaceOrder();
-        $pM = new Application_Model_Product();
-        $products = $pM->getAllProducts();
+        $productModel = new Application_Model_Product();
+        $products = $productModel->getAllProducts();
         $request = $this->getRequest();
-        $oM=new Application_Model_Order();
+        $orderModel=new Application_Model_Order();
         if ($request->isPost()) {
             $values = $this->createIndexedArray($request->getPost(), 
                     $form->checkBoxIDArray);
-            $oM->placeOrder($values,$products);
+            $orderModel->placeOrder($values);
+            
         }
         $this->view->form = $form;
         $this->view->list = $products;
