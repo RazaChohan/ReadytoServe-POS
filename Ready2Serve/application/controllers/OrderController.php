@@ -22,8 +22,9 @@ class OrderController extends Zend_Controller_Action
         $request = $this->getRequest();
         $oM=new Application_Model_Order();
         if ($request->isPost()) {
-            $values = $this->createIndexedArray($request->getPost(), $form->checkBoxIDArray);
-            $oM->placeOrder($values);
+            $values = $this->createIndexedArray($request->getPost(), 
+                    $form->checkBoxIDArray);
+            $oM->placeOrder($values,$products);
         }
         $this->view->form = $form;
         $this->view->list = $products;
