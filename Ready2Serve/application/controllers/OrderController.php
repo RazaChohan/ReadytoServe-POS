@@ -24,7 +24,7 @@ class OrderController extends Zend_Controller_Action
         if ($request->isPost()) {
             $values = $this->createIndexedArray($request->getPost(), 
                     $form->checkBoxIDArray);
-            $oM->placeOrder($values,$products);
+            $oM->placeOrder($values);
         }
         $this->view->form = $form;
         $this->view->list = $products;
