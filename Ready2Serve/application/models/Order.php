@@ -33,6 +33,8 @@ class Application_Model_Order
     }
     public function placeOrder($values, $products)
     {
+//        var_dump($values[0]);
+//        die();
         $salesManId = Zend_Auth::getInstance()->getIdentity()->person_id;
         $date = date('Y-m-d H:i:s');
         $db = Zend_Db_Table::getDefaultAdapter();
@@ -41,7 +43,7 @@ class Application_Model_Order
                 . "(`order_id` ,`salesman_id` ,`order_datetime`)"
                 . "VALUES (NULL ,  '$salesManId',  '$date');";
         $db->query($query);
-
+        $orderId = $db->lastInsertId();
         for ($i = 0; $i < count($values[0]); $i++) {
 
             $need = array();
@@ -49,11 +51,18 @@ class Application_Model_Order
                 array_push($need, $values[$j][$i]);
             }
             $p_id = $need[0];
-            $p_quntity = $need[1];
+            $p_qauntity = $need[1];
             $p_discount = $need[2];
-            $p_price = $products['product_price'];
-            $query = "inseret into order_line_item values ("
-                    . "'$p_id','$p_quntity','$p_discount')";
+        
+            $productPriceQuery="SELECT `product_price` FROM `product` "
+                    . "WHERE `product_id`='$p_id'";
+            $p_price = $db->fetchOne($productPriceQuery);
+            $query = "INSERT INTO `order_line_item` "
+                    . "(`order_line_item_id`, `order_id`, `product_id`,"
+                    . "`unit_price`, `quantity`, `discount`)"
+                    . "values(NULL, '$orderId','$p_id', '$p_price','$p_qauntity',"
+                    . "'$p_discount');";
+            $db->query($query);
         }
         //order_id 	product_id 	unit_price 	quantity 	discount       
     }
