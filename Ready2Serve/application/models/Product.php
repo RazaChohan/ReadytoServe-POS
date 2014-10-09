@@ -59,11 +59,12 @@ class Application_Model_Product
     public function addItemsInDeal($array, $productId)
     {
         $db = Zend_Db_Table::getDefaultAdapter();
+        $atemp=array();
         $count=0;
+               
         if ($db) {
             foreach ($array as $key => $value) {
-                
-                if ($count==0) {
+               if ($count==0 && $key!='Confirm') {
                     $temp = $key . 'q';
                     $query = "INSERT INTO product_contains_products (product_id "
                             . ",contained_product_id,quantity) "
